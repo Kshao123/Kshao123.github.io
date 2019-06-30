@@ -16,7 +16,8 @@ deploy:
 
   script:
     # 指定目录覆盖上传 (强制更新)
-      - lftp -c "set ftp:ssl-allow no; open -u $FTP_USERNAME,$FTP_PASSWORD $FTP_HOST -p $port;mirror -RLv ./public /gmlh97ux/wwwroot --ignore-time --transfer-all --parallel=50 --exclude-glob .git* --exclude .git/"
+      - ls -la
+    #   - lftp -c "set ftp:ssl-allow no; open -u $FTP_USERNAME,$FTP_PASSWORD $FTP_HOST -p $port;mirror -RLv ./public /gmlh97ux/wwwroot --ignore-time --transfer-all --parallel=50 --exclude-glob .git* --exclude .git/"
   tags:
     # runner 容器标签
     - docker
