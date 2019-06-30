@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      appId: '7661ZWVY54',
+      apiKey: '93b7f4c8012b31c3b4290bfbb1f19373',
+      indexName: 'blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="安装 Hexo全局安装1$ npm install hexo-cli -g #282a2e  创建项目12$ hexo init [folder]# folder  项目名称  启动预览1234567$ hexo server 预览# 如你是 webstrom 可在 package 内的 scripts 中添加&quot;start&quot;: &quot;hexo server&quot;# 方便以后启动预览  新建页面1$ hex">
+<meta name="keywords" content="blog">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用 Hexo + Next + Algolia 搜索 搭建博客">
+<meta property="og:url" content="http://yoursite.com/2019/07/01/blog/index.html">
+<meta property="og:site_name" content="kshao-blog">
+<meta property="og:description" content="安装 Hexo全局安装1$ npm install hexo-cli -g #282a2e  创建项目12$ hexo init [folder]# folder  项目名称  启动预览1234567$ hexo server 预览# 如你是 webstrom 可在 package 内的 scripts 中添加&quot;start&quot;: &quot;hexo server&quot;# 方便以后启动预览  新建页面1$ hex">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://theme-next.iissnan.com/uploads/algolia/algolia-step-4.png">
+<meta property="og:updated_time" content="2019-06-30T22:42:12.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用 Hexo + Next + Algolia 搜索 搭建博客">
+<meta name="twitter:description" content="安装 Hexo全局安装1$ npm install hexo-cli -g #282a2e  创建项目12$ hexo init [folder]# folder  项目名称  启动预览1234567$ hexo server 预览# 如你是 webstrom 可在 package 内的 scripts 中添加&quot;start&quot;: &quot;hexo server&quot;# 方便以后启动预览  新建页面1$ hex">
+<meta name="twitter:image" content="http://theme-next.iissnan.com/uploads/algolia/algolia-step-4.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="kshao-blog" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/07/01/blog/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>使用 Hexo + Next + Algolia 搜索 搭建博客 | kshao-blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">kshao-blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>文章</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="algolia-popup popup search-popup">
+  <div class="algolia-search">
+    <div class="algolia-search-input-icon">
+      <i class="fa fa-search"></i>
+    </div>
+    <div class="algolia-search-input" id="algolia-search-input"></div>
+  </div>
+
+  <div class="algolia-results">
+    <div id="algolia-stats"></div>
+    <div id="algolia-hits"></div>
+    <div id="algolia-pagination" class="algolia-pagination"></div>
+  </div>
+
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/01/blog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kshao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="kshao-blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">使用 Hexo + Next + Algolia 搜索 搭建博客
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-07-01 03:35:25 / Modified: 06:42:12" itemprop="dateCreated datePublished" datetime="2019-07-01T03:35:25+08:00">2019-07-01</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/其他教程/" itemprop="url" rel="index"><span itemprop="name">其他教程</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h2><h5 id="全局安装"><a href="#全局安装" class="headerlink" title="全局安装"></a>全局安装</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g #282a2e</span><br></pre></td></tr></table></figure>
+
+<h5 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init [folder]</span><br><span class="line"><span class="comment"># folder  项目名称</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="启动预览"><a href="#启动预览" class="headerlink" title="启动预览"></a>启动预览</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server 预览</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如你是 webstrom 可在 package 内的 scripts 中添加</span></span><br><span class="line"></span><br><span class="line"><span class="string">"start"</span>: <span class="string">"hexo server"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方便以后启动预览</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="新建页面"><a href="#新建页面" class="headerlink" title="新建页面"></a>新建页面</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装-Next-主题"><a href="#安装-Next-主题" class="headerlink" title="安装 Next 主题"></a>安装 Next 主题</h4><blockquote>
+<p>官网 <a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">http://theme-next.iissnan.com/</a></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 官网提供的是 旧版 链接，注意本文的发布日期再去官网对照</span></span><br><span class="line">$ cd hexo</span><br><span class="line">$ git clone https://github.com/theme-next/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+
+<h6 id="安装完成之后去站点配置文件，根目录-config-选用-Next"><a href="#安装完成之后去站点配置文件，根目录-config-选用-Next" class="headerlink" title="安装完成之后去站点配置文件，根目录/_config 选用 Next"></a>安装完成之后去站点配置文件，根目录/_config 选用 Next</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
+
+<h5 id="配置菜单的-分类、标签"><a href="#配置菜单的-分类、标签" class="headerlink" title="配置菜单的 分类、标签"></a>配置菜单的 分类、标签</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd your-hexo-site</span><br><span class="line">$ hexo new page tags</span><br></pre></td></tr></table></figure>
+
+<h6 id="修改菜单-Next-主题配置文件"><a href="#修改菜单-Next-主题配置文件" class="headerlink" title="修改菜单(Next 主题配置文件)"></a>修改菜单(Next 主题配置文件)</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: /</span><br><span class="line">  archives: /archives</span><br><span class="line">  tags: /tags</span><br></pre></td></tr></table></figure>
+
+<h6 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line"># 分类</span><br><span class="line">categories:</span><br><span class="line">  - 其他教程</span><br><span class="line"># 标签</span><br><span class="line">tags:</span><br><span class="line">  - blog</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#### 安装 Algolia 搜索</span><br><span class="line">###### 此操作流程只在 Next 主题下测试</span><br><span class="line">&lt;h1 align=&quot;center&quot;&gt;Algolia 搜索&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">NexT 内部提供 Algolia 的搜索功能，要使用此功能请确保所使用的 NexT 版本在 `v5.1.0` 之后。需要注意的是，仅仅将 `next/_config.yml` 中 `algolia_search` 的 `enable` 打开**并不能让你使用 Algolia 搜索**，你还需要**使用对应的 Hexo-Algolia 插件** 才能真正在博客页面中使用 Algolia 搜索。按照下面介绍的步骤操作即可完成 Algolia 搜索的安装。</span><br><span class="line"></span><br><span class="line">1. 前往 [Algolia 注册页面](https://www.algolia.com/)，注册一个新账户。 可以使用 GitHub 或者 Google 账户直接登录，注册后的 14 天内拥有所有功能（包括收费类别的）。之后若未续费会自动降级为免费账户，免费账户 总共有 10,000 条记录，每月有 100,000 的可以操作数。注册完成后，创建一个新的 Index，这个 Index 将在后面使用。</span><br><span class="line"></span><br><span class="line">    ![](http://theme-next.iissnan.com/uploads/algolia/algolia-step-2.png)</span><br><span class="line"></span><br><span class="line">1. Index 创建完成后，此时这个 Index 里未包含任何数据。接下来需要安装 [Hexo Algolia](https://github.com/oncletom/hexo-algolia) 扩展，这个扩展的功能是搜集站点的内容并通过 API 发送给 Algolia。前往站点根目录，执行命令安装：</span><br></pre></td></tr></table></figure>
+
+<pre><code>$ cd hexo
+$ npm install --save hexo-algolia
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. 在 `API Keys` 页面找到需要使用的一些配置的值，包括 `ApplicationID` 和 `Search-Only API Key`。注意，`Admin API Key` 需要保密保存，不要外泄。</span><br><span class="line"></span><br><span class="line">    ![](https://user-images.githubusercontent.com/8521181/35479066-64e35aec-0428-11e8-91f9-1ec3afa45c5c.png)</span><br><span class="line"></span><br><span class="line">1. 在 `API Keys` 页面，点击 `ALL API KEYS` 找到新建 INDEX 对应的 key，**编辑权限**，在弹出框中找到 ACL ，**勾选 Add records、 Delete records、List indices、Delete index 权限**，点击 `update` 更新。</span><br><span class="line"></span><br><span class="line">    ![](https://user-images.githubusercontent.com/8521181/35479064-611aa0b4-0428-11e8-85a1-cfb449b486ec.png)</span><br><span class="line">    ![](https://user-images.githubusercontent.com/8521181/35479084-d4f7ac02-0428-11e8-95a6-c4e3b1bef47b.png)</span><br><span class="line"></span><br><span class="line">1. 编辑 `站点配置文件`，新增以下配置，除了 `chunkSize` 字段，替换成在 Algolia 获取到的值：</span><br><span class="line"></span><br><span class="line">    ```yml</span><br><span class="line">    algolia:</span><br><span class="line">      applicationID: &apos;applicationID&apos;</span><br><span class="line">      apiKey: &apos;apiKey&apos;</span><br><span class="line">      indexName: &apos;indexName&apos;</span><br><span class="line">      chunkSize: 5000</span><br></pre></td></tr></table></figure></code></pre><ol>
+<li><p>当配置完成，在站点根目录下执行一下命令来更新上传 Index。请注意观察命令的输出。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ export HEXO_ALGOLIA_INDEXING_KEY=Search-Only API key # 使用 Git Bash</span><br><span class="line"># set HEXO_ALGOLIA_INDEXING_KEY=Search-Only API key # 使用 Windows CMD 命令行</span><br><span class="line">$ hexo clean</span><br><span class="line">$ hexo algolia</span><br></pre></td></tr></table></figure>
+
+<p> <img src="http://theme-next.iissnan.com/uploads/algolia/algolia-step-4.png" alt></p>
+</li>
+<li><p>切换到 NexT 目录，并安装 algolia-instant-search 到 <code>source/lib</code> 目录。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd themes/next</span><br><span class="line">$ git clone https://github.com/theme-next/theme-next-algolia-instant-search source/lib/algolia-instant-search</span><br></pre></td></tr></table></figure>
+
+<p> 如果你想直接使用 CDN 设置 Algolia Search，则需要在<code>主题配置文件</code>中添加 vendors 字段：</p>
+ <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">vendors:</span></span><br><span class="line">  <span class="string">...</span></span><br><span class="line">  <span class="comment"># Internal version: 1</span></span><br><span class="line">  <span class="comment"># https://www.algolia.com</span></span><br><span class="line"><span class="attr">  algolia_instant_js:</span> <span class="attr">https://cdn.jsdelivr.net/npm/instantsearch.js@2.4.1/dist/instantsearch.js</span></span><br><span class="line"><span class="attr">  algolia_instant_css:</span> <span class="attr">https://cdn.jsdelivr.net/npm/instantsearch.js@2.4.1/dist/instantsearch.min.css</span></span><br><span class="line">  <span class="string">...</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更改<code>主题配置文件</code>，找到 Algolia Search 配置部分，将 <code>enable</code> 改为 <code>true</code>。同时你需要<strong>关闭</strong>其他搜索插件，如 Local Search 等。你也可以根据需要调整 <code>labels</code> 中的文本：</p>
+ <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Algolia Search</span></span><br><span class="line"><span class="attr">algolia_search:</span></span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  hits:</span></span><br><span class="line"><span class="attr">    per_page:</span> <span class="number">10</span></span><br><span class="line"><span class="attr">  labels:</span></span><br><span class="line"><span class="attr">    input_placeholder:</span> <span class="string">Search</span> <span class="string">for</span> <span class="string">Posts</span></span><br><span class="line"><span class="attr">    hits_empty:</span> <span class="string">"We didn't find any results for the search: $&#123;query&#125;"</span></span><br><span class="line"><span class="attr">    hits_stats:</span> <span class="string">"$&#123;hits&#125; results found in $&#123;time&#125; ms"</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 align="center">已知的问题</h2>
+
+<ol>
+<li>考虑到 Algolia 免费账户的限制，目前 <a href="https://github.com/oncletom/hexo-algolia" target="_blank" rel="noopener">Hexo-Algolia</a> 插件最新版本去掉了正文索引功能。</li>
+<li><a href="https://github.com/LouisBarranqueiro/hexo-algoliasearch" target="_blank" rel="noopener">Hexo-Algoliasearch</a> 插件提供了正文索引功能，不过需要替换 NEXT 主题中的关键字。对于免费账户，<code>Record Too Big</code> 的问题同样存在。<ul>
+<li>替换 <code>source/js/algolia-search.js</code> 中所有的 <code>applicationID</code> 为 <code>appId</code></li>
+<li>替换 <code>layout/_partials/head/head.swig</code> 中所有的 <code>applicationID</code> 为 <code>appId</code></li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>此文档在 /themes/nest/docs/ALGOLIA-SEARCH</p>
+</blockquote>
+<h4 id="看完以上文档，默认你以安装完-Algolia，接下来使用-Hexo-Algoliasearch"><a href="#看完以上文档，默认你以安装完-Algolia，接下来使用-Hexo-Algoliasearch" class="headerlink" title="看完以上文档，默认你以安装完 Algolia，接下来使用 Hexo-Algoliasearch"></a>看完以上文档，默认你以安装完 Algolia，接下来使用 Hexo-Algoliasearch</h4><ul>
+<li>首先安装 <a href="https://github.com/LouisBarranqueiro/hexo-algoliasearch" target="_blank" rel="noopener">Hexo-Algoliasearch</a></li>
+</ul>
+<h5 id="在站点配置文件"><a href="#在站点配置文件" class="headerlink" title="在站点配置文件"></a>在站点配置文件</h5><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">algolia:</span></span><br><span class="line">  <span class="comment"># appid 为 applicationID 如未替换需替换</span></span><br><span class="line"><span class="attr">  appId:</span> <span class="string">"Z7A3XW4R2I"</span></span><br><span class="line">  <span class="comment"># search only key</span></span><br><span class="line"><span class="attr">  apiKey:</span> <span class="string">"12db1ad54372045549ef465881c17e743"</span></span><br><span class="line"><span class="attr">  adminApiKey:</span> <span class="string">"40321c7c207e7f73b63a19aa24c4761b"</span></span><br><span class="line"><span class="attr">  chunkSize:</span> <span class="number">5000</span></span><br><span class="line"><span class="attr">  indexName:</span> <span class="string">"my-hexo-blog"</span></span><br><span class="line"><span class="attr">  fields:</span></span><br><span class="line"><span class="attr">    - content:</span><span class="attr">strip:truncate,0,500</span></span><br><span class="line"><span class="attr">    - excerpt:</span><span class="string">strip</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">gallery</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">permalink</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">photos</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">slug</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">tags</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">title</span></span><br></pre></td></tr></table></figure>
+
+<p>配置完成后运行</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">clean</span></span><br><span class="line"><span class="string">$</span> <span class="string">hexo</span> <span class="string">algolia</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>配置好以上，Next的<code>algolia</code>搜索是没有内容搜索的，所以配置了上面的插件。<br>默认 <code>algolia</code> 搜索显示只有标题，关键词未高亮，所以开始了老本行工作。</p>
+<ol>
+<li>打开配置文件 <code>/themes/next/source/js</code> 替换以下内容</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">instantsearch.widgets.hits(&#123;</span><br><span class="line">      container  : <span class="string">'#algolia-hits'</span>,</span><br><span class="line">      hitsPerPage: algoliaSettings.hits.per_page || <span class="number">10</span>,</span><br><span class="line">      templates  : &#123;</span><br><span class="line">        item: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">          <span class="keyword">var</span> link = data.permalink ? data.permalink : CONFIG.root + data.path;</span><br><span class="line">          <span class="keyword">return</span> (</span><br><span class="line">            <span class="string">`</span></span><br><span class="line"><span class="string">              &lt;ul&gt;</span></span><br><span class="line"><span class="string">                &lt;li&gt;</span></span><br><span class="line"><span class="string">                  &lt;a href=<span class="subst">$&#123;link&#125;</span> class="algolia-hit-item-link"&gt;<span class="subst">$&#123;data._highlightResult.title.value&#125;</span>&lt;/a&gt;</span></span><br><span class="line"><span class="string">                  &lt;a href=<span class="subst">$&#123;link&#125;</span> class="algolia-hit-item-match"&gt;</span></span><br><span class="line"><span class="string">                    &lt;p&gt;<span class="subst">$&#123;data._highlightResult.contentStripTruncate.value&#125;</span>&lt;/p&gt;</span></span><br><span class="line"><span class="string">                  &lt;/a&gt;</span></span><br><span class="line"><span class="string">                &lt;/li&gt;</span></span><br><span class="line"><span class="string">              &lt;/ul&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">            `</span></span><br><span class="line">          );</span><br><span class="line">        &#125;,</span><br><span class="line">        empty: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">          <span class="keyword">return</span> (</span><br><span class="line">            <span class="string">'&lt;div id="algolia-hits-empty"&gt;'</span></span><br><span class="line">          + algoliaSettings.labels.hits_empty.replace(<span class="regexp">/\$\&#123;query&#125;/</span>, data.query)</span><br><span class="line">          + <span class="string">'&lt;/div&gt;'</span></span><br><span class="line">          );</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      cssClasses: &#123;</span><br><span class="line">        item: <span class="string">'algolia-hit-item'</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>修改 css <code>/themes/next/source/css/main.styl</code></li>
+</ol>
+<figure class="highlight styl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.algolia-hit-item-match</span><br><span class="line">  <span class="attribute">text-decoration</span> none</span><br><span class="line">  <span class="attribute">border</span> none</span><br><span class="line">  <span class="attribute">color</span> rgba(<span class="number">31</span>, <span class="number">31</span>, <span class="number">31</span>, <span class="number">0.37</span>)</span><br><span class="line">  &amp;:hover</span><br><span class="line">    <span class="attribute">color</span> rgba(<span class="number">34</span>, <span class="number">34</span>, <span class="number">34</span>, <span class="number">0.53</span>)</span><br><span class="line"></span><br><span class="line">  em</span><br><span class="line">    <span class="attribute">padding</span> <span class="number">3px</span></span><br><span class="line">    <span class="attribute">border-bottom</span>: <span class="number">1px</span> dashed <span class="number">#f00</span>;</span><br><span class="line">    <span class="attribute">font-weight</span>: bold;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#f00</span>;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/blog/" rel="tag"># blog</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/17/e5-9b-be-e7-89-87-e6-87-92-e5-8a-a0-e8-bd-bd-e7-9a-84-e4-b8-a4-e7-a7-8d-e6-96-b9-e6-b3-95-e8-8a-82-e6-b5-81-intersectionobserver/" rel="next" title="图片懒加载的两种方法-节流 IntersectionObserver">
+                <i class="fa fa-chevron-left"></i> 图片懒加载的两种方法-节流 IntersectionObserver
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">kshao</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/Kshao123" title="GitHub &rarr; https://github.com/Kshao123" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:14971857@qq.com" title="E-Mail &rarr; mailto:14971857@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-Hexo"><span class="nav-number">1.</span> <span class="nav-text">安装 Hexo</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#全局安装"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">全局安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建项目"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">创建项目</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#启动预览"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">启动预览</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#新建页面"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">新建页面</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装-Next-主题"><span class="nav-number">1.0.1.</span> <span class="nav-text">安装 Next 主题</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#安装完成之后去站点配置文件，根目录-config-选用-Next"><span class="nav-number">1.0.1.0.1.</span> <span class="nav-text">安装完成之后去站点配置文件，根目录/_config 选用 Next</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#配置菜单的-分类、标签"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">配置菜单的 分类、标签</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#修改菜单-Next-主题配置文件"><span class="nav-number">1.0.1.1.1.</span> <span class="nav-text">修改菜单(Next 主题配置文件)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#使用"><span class="nav-number">1.0.1.1.2.</span> <span class="nav-text">使用</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">已知的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#看完以上文档，默认你以安装完-Algolia，接下来使用-Hexo-Algoliasearch"><span class="nav-number">2.0.1.</span> <span class="nav-text">看完以上文档，默认你以安装完 Algolia，接下来使用 Hexo-Algoliasearch</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#在站点配置文件"><span class="nav-number">2.0.1.1.</span> <span class="nav-text">在站点配置文件</span></a></li></ol></li></ol></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kshao</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.2</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/algolia-search.js?v=7.1.2"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

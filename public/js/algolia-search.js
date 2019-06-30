@@ -24,6 +24,7 @@ $(document).ready(function() {
     }
   });
 
+
   // Registering Widgets
   [
     instantsearch.widgets.searchBox({
@@ -37,10 +38,19 @@ $(document).ready(function() {
       templates  : {
         item: function(data) {
           var link = data.permalink ? data.permalink : CONFIG.root + data.path;
+          link = link.replace(/http:\/\/yoursite\.com/, '');
           return (
-            '<a href="' + link + '" class="algolia-hit-item-link">'
-          + data._highlightResult.title.value
-          + '</a>'
+            `
+              <ul>
+                <li>
+                  <a href=${link} class="algolia-hit-item-link">${data._highlightResult.title.value}</a>
+                  <a href=${link} class="algolia-hit-item-match">
+                    <p>${data._highlightResult.contentStripTruncate.value}</p>
+                  </a>
+                </li>
+              </ul>
+
+            `
           );
         },
         empty: function(data) {
