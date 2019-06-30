@@ -22,6 +22,7 @@ deploy:
     - docker
 
   only:
+    # 123
     # 仅 master 分支
     - ls -la
     - master
