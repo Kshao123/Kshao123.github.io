@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>kshao-blog</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2019-06-29T08:59:42.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>kshao</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2019/06/29/hello-world/"/>
+    <id>http://yoursite.com/2019/06/29/hello-world/</id>
+    <published>2019-06-29T14:19:04.000Z</published>
+    <updated>2019-06-29T08:59:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>图片懒加载的两种方法-节流 IntersectionObserver</title>
+    <link href="http://yoursite.com/2019/03/17/e5-9b-be-e7-89-87-e6-87-92-e5-8a-a0-e8-bd-bd-e7-9a-84-e4-b8-a4-e7-a7-8d-e6-96-b9-e6-b3-95-e8-8a-82-e6-b5-81-intersectionobserver/"/>
+    <id>http://yoursite.com/2019/03/17/e5-9b-be-e7-89-87-e6-87-92-e5-8a-a0-e8-bd-bd-e7-9a-84-e4-b8-a4-e7-a7-8d-e6-96-b9-e6-b3-95-e8-8a-82-e6-b5-81-intersectionobserver/</id>
+    <published>2019-03-17T10:10:17.000Z</published>
+    <updated>2019-06-29T14:50:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>第一种：</strong></p><blockquote><p>以下代码皆在 React 中测试使用</p></blockquote><p>使用 <strong><em>window</em></strong> 上的 <strong><em>onscroll</em></strong> 事件，配合封装好的 throttle 节流函数实现图片的懒加载。</p><p>render 函数内：</p><pre><code>render() {    const data = [      {        url: &apos;https://dwz.cn/Jwg1UQEj&apos;,        text: &apos;图片1-1&apos;,      },      {        url: &apos;https://dwz.cn/w8t4A0WD&apos;,        text: &apos;图片1-2&apos;,      },      {        url: &apos;https://dwz.cn/l1nYpL4U&apos;,        text: &apos;图片1-3&apos;,      },      {        url: &apos;https://dwz.cn/2XrYhRBX&apos;,        text: &apos;图片1-4&apos;,      },      {        url: &apos;https://dwz.cn/00pSTOtm&apos;,        text: &apos;图片1-5&apos;,      },      {        url: &apos;https://dwz.cn/Hg1aIh3e&apos;,        text: &apos;图片1-6&apos;,      },    ];    return(      &lt;ul className={styles.list}&gt;        {Object.keys(data).length ? data.map(item =&gt; {          return (            &lt;li key={item.url} &gt;              &lt;h2&gt;{item.text}&lt;/h2&gt;              &lt;img className={styles.lazyImg} src=&apos;https://dwz.cn/qLQmSywT&apos; _src={item.url} alt={item.text}/&gt;            &lt;/li&gt;          )        }) : &apos;loading&apos;}      &lt;/ul&gt;    )  }</code></pre><p>componentDidmount 函数内</p><pre><code>// 获取所有的需要懒加载的图片元素const imgs = document.querySelectorAll(&apos;.&apos;+styles.lazyImg);// 首次执行 手动触发滚动事件this.lazyLoad(imgs);// 节流函数const lazyLoad = this.throttle(e =&gt; this.lazyLoad(imgs), 400, true);window.onscroll - lazyLoad</code></pre><p>lazyLoad 方法</p><pre><code>lazyLoad = (imgs) =&gt; {    imgs.forEach(item =&gt; {      console.log(&apos;lazyLoad&apos;);      const top = item.getBoundingClientRect().top;      if (top &lt; window.innerHeight &amp;&amp; item.src !== item.getAttribute(&apos;_src&apos;)) {        item.src = item.getAttribute(&apos;_src&apos;);      }    })  };</code></pre><p>// 节流函数的封装<br>throttle = (fn, wait, immediate) =&gt; {<br>  let timer = null;<br>  let callNow = immediate;<br>  return function() {<br>    const args = arguments,<br>          that = this;<br>    if (callNow) {<br>      fn.apply(that, args);<br>      callNow = false<br>  }<br>    if (!timer) {<br>      setTimeout(() =&gt; {<br>        fn.apply(that, args);<br>        timer = null;<br>      }, wait)<br>    }<br>  }<br>};</p><p><strong>第二种</strong></p><p>使用 IntersectionObserver 接口，具体使用方法请去 MDN 查看</p><pre><code>const io = new IntersectionObserver(callback); // 获取所有的需要懒加载的图片元素const imgs = document.querySelectorAll(&apos;.&apos;+styles.lazyImg);function callback(entries) {      entries.forEach((item) =&gt; {        if(item.isIntersecting){          item.target.src = item.target.getAttribute(&apos;_src&apos;);          io.unobserve(item.target)        }      })}imgs.forEach((item)=&gt;{   io.observe(item)})</code></pre><p>componentDidmount 函数内</p><blockquote><p>本文引荐 <a href="https://www.jianshu.com/p/84a86e41eb2b" target="_blank" rel="noopener">https://www.jianshu.com/p/84a86e41eb2b</a></p><p>IntersectionObserver 亦可以实现 导航栏吸顶效果</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;第一种：&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;以下代码皆在 React 中测试使用&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;使用 &lt;strong&gt;&lt;em&gt;window&lt;/em&gt;&lt;/strong&gt; 上的 &lt;strong&gt;&lt;em&gt;onsc
+      
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>算法面试题-查找指定的字符串</title>
+    <link href="http://yoursite.com/2019/03/09/e7-ae-97-e6-b3-95-e9-9d-a2-e8-af-95-e9-a2-98-e6-9f-a5-e6-89-be-e6-8c-87-e5-ae-9a-e7-9a-84-e5-ad-97-e7-ac-a6-e4-b8-b2/"/>
+    <id>http://yoursite.com/2019/03/09/e7-ae-97-e6-b3-95-e9-9d-a2-e8-af-95-e9-a2-98-e6-9f-a5-e6-89-be-e6-8c-87-e5-ae-9a-e7-9a-84-e5-ad-97-e7-ac-a6-e4-b8-b2/</id>
+    <published>2019-03-09T08:28:36.000Z</published>
+    <updated>2019-06-29T14:50:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>实现一个算法，寻找字符串中出现次数最少的、并且首次出现位置最前的字符如<br>“<em>cbaacfdeaebb</em>“，符合要求的是”f”，因为他只出现了一次（次数最少）。<br>并且比其他只出现一次的字符（如”d”）首次出现的位置最靠前。</p><pre><code>const findMinStr = (str) =&gt; {    const hash = {};    for (let i = 0; i &lt; str.length; i += 1) {      hash[str[i]] = hash[str[i]] || { index: i, count: 0 };      hash[str[i]].count += 1;    }    return Object.keys(hash).map(item =&gt; {      return Object.assign({ char: item }, hash[item]);    })      .sort((a, b) =&gt; a.count - b.count)      .filter((item, index, arr) =&gt; item.count === arr[0].count)      .sort((a, b) =&gt; a.index - b.index)[0].char};const str = &apos;cbaacfdeaebb&apos;;findMinStr (str)  // &apos;f&apos;</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;实现一个算法，寻找字符串中出现次数最少的、并且首次出现位置最前的字符如&lt;br&gt;“&lt;em&gt;cbaacfdeaebb&lt;/em&gt;“，符合要求的是”f”，因为他只出现了一次（次数最少）。&lt;br&gt;并且比其他只出现一次的字符（如”d”）首次出现的位置最靠前。&lt;/p&gt;
+&lt;pre&gt;&lt;cod
+      
+    
+    </summary>
+    
+      <category term="面试" scheme="http://yoursite.com/categories/%E9%9D%A2%E8%AF%95/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>在react中使用antd+less+css modules</title>
+    <link href="http://yoursite.com/2019/03/09/e5-9c-a8react-e4-b8-ad-e4-bd-bf-e7-94-a8antdlesscss-modules/"/>
+    <id>http://yoursite.com/2019/03/09/e5-9c-a8react-e4-b8-ad-e4-bd-bf-e7-94-a8antdlesscss-modules/</id>
+    <published>2019-03-09T05:56:20.000Z</published>
+    <updated>2019-06-29T14:50:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="配置less"><a href="#配置less" class="headerlink" title="配置less"></a>配置less</h4><p>首先安装less和less-loader</p><pre><code>cnpm i --save-dev less less-loader</code></pre><p>然后在webpack.config中配置</p><pre><code>{  test: /\.less$/,  use: [      require.resolve(&apos;style-loader&apos;),      {          loader: require.resolve(&apos;css-loader&apos;)      },      {          loader: require.resolve(&apos;less-loader&apos;), // compiles Less to CSS      },  ],},</code></pre><h4 id="开启css-modules功能"><a href="#开启css-modules功能" class="headerlink" title="开启css modules功能"></a>开启css modules功能</h4><p>但是如果我想开启css modules功能，使less和css可以模块化，就需要再配置，但是不能全局配置，这样的话会导致antd没有使用css modules模块的框架的样式无法作用。</p><h6 id="开启less的css-modules功能"><a href="#开启less的css-modules功能" class="headerlink" title="开启less的css modules功能"></a>开启less的css modules功能</h6><pre><code> 这里我开启自己编写的less文件的css modules功能 除了node_modules库中的less，//也就是可以过滤掉antd库中的样式{  test: /\.less$/,  exclude: [/node_modules/],  use: [      require.resolve(&apos;style-loader&apos;),      {          loader: require.resolve(&apos;css-loader&apos;),          options: {              modules: true,              localIdentName:&quot;[name]__[local]___[hash:base64:5]&quot;          },      },      {          loader: require.resolve(&apos;less-loader&apos;), // compiles Less to CSS      },  ],},</code></pre><h6 id="开启css的css-modules功能"><a href="#开启css的css-modules功能" class="headerlink" title="开启css的css modules功能"></a>开启css的css modules功能</h6><p>如果想开启css的css modules功能，就比较麻烦点，除了针对css开启css modules，还需要需要针对antd的css 单独写一条loader的规则,不开启 css modules。</p><pre><code> 这里设置css开启modules支持,node_modules和antd里面的css不开启{  test: /\.css$/,  exclude: /node_modules|antd\.css/,  use: [      require.resolve(&apos;style-loader&apos;),      {          loader: require.resolve(&apos;css-loader&apos;),          options: {              importLoaders: 1,              // 改动              modules: true,   // 新增对css modules的支持              localIndetName: &apos;[name]__[local]__[hash:base64:5]&apos;, //          },      },      {          loader: require.resolve(&apos;postcss-loader&apos;),          options: {              ident: &apos;postcss&apos;,              plugins: () =&gt; [                  require(&apos;postcss-flexbugs-fixes&apos;),                  autoprefixer({                      browsers: [                          &apos;&gt;1%&apos;,                          &apos;last 4 versions&apos;,                          &apos;Firefox ESR&apos;,                          &apos;not ie &lt; 9&apos;, // React doesn&apos;t support IE8 anyway                      ],                      flexbox: &apos;no-2009&apos;,                  }),              ],          },      },  ],}然后针对node_modules和antd里面的css写编译配置{  test: /\.css$/,  include: /node_modules|antd\.css/,  use: [      require.resolve(&apos;style-loader&apos;),      {          loader: require.resolve(&apos;css-loader&apos;),          options: {              importLoaders: 1,              // 改动              // modules: true,   // 新增对css modules的支持              // localIndetName: &apos;[name]__[local]__[hash:base64:5]&apos;, //          },      },      {          loader: require.resolve(&apos;postcss-loader&apos;),          options: {              ident: &apos;postcss&apos;,              plugins: () =&gt; [                  require(&apos;postcss-flexbugs-fixes&apos;),                  autoprefixer({                      browsers: [                          &apos;&gt;1%&apos;,                          &apos;last 4 versions&apos;,                          &apos;Firefox ESR&apos;,                          &apos;not ie &lt; 9&apos;, // React doesn&apos;t support IE8 anyway                      ],                      flexbox: &apos;no-2009&apos;,                  }),              ],          },      },  ],},</code></pre><blockquote><p>至此就配置好了开发环境下的所有代码<br>同样的代码需要在webpack.config.prod，生产环境的webpack里面再配置一次，打包后的文件各种CSS和less文件才会生效。</p></blockquote><p><a href="https://www.jianshu.com/p/51ff1c8be301" target="_blank" rel="noopener">转自 追风的云月</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;配置less&quot;&gt;&lt;a href=&quot;#配置less&quot; class=&quot;headerlink&quot; title=&quot;配置less&quot;&gt;&lt;/a&gt;配置less&lt;/h4&gt;&lt;p&gt;首先安装less和less-loader&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cnpm i --save-dev 
+      
+    
+    </summary>
+    
+      <category term="webpack" scheme="http://yoursite.com/categories/webpack/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>编译修饰符 Bable配置</title>
+    <link href="http://yoursite.com/2019/03/08/e7-bc-96-e8-af-91-e7-ae-ad-e5-a4-b4-e5-87-bd-e6-95-b0-bable-e9-85-8d-e7-bd-ae/"/>
+    <id>http://yoursite.com/2019/03/08/e7-bc-96-e8-af-91-e7-ae-ad-e5-a4-b4-e5-87-bd-e6-95-b0-bable-e9-85-8d-e7-bd-ae/</id>
+    <published>2019-03-08T15:32:00.000Z</published>
+    <updated>2019-06-29T14:50:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>xiu npm install –save-dev babel-plugin-transform-decorators-legacy</p><pre><code>在根目录.babelrc文件里&quot;plugins&quot;: [&quot;transform-decorators-legacy&quot;]如果没有babel.lrc文件请搜索对应框架的文件配置</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;xiu npm install –save-dev babel-plugin-transform-decorators-legacy&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;在根目录.babelrc文件里
+&amp;quot;plugins&amp;quot;: [&amp;quot;transform-d
+      
+    
+    </summary>
+    
+      <category term="webpack" scheme="http://yoursite.com/categories/webpack/"/>
+    
+    
+      <category term="babel" scheme="http://yoursite.com/tags/babel/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>阿里云 144 元 一年30Mb香港服务器 3.4~3.15</title>
+    <link href="http://yoursite.com/2019/03/08/e9-98-bf-e9-87-8c-e4-ba-91-144-e5-85-83-e4-b8-80-e5-b9-b430mb-e9-a6-99-e6-b8-af-e6-9c-8d-e5-8a-a1-e5-99-a8-3-43-15/"/>
+    <id>http://yoursite.com/2019/03/08/e9-98-bf-e9-87-8c-e4-ba-91-144-e5-85-83-e4-b8-80-e5-b9-b430mb-e9-a6-99-e6-b8-af-e6-9c-8d-e5-8a-a1-e5-99-a8-3-43-15/</id>
+    <published>2019-03-08T08:24:24.000Z</published>
+    <updated>2019-06-29T14:50:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>打开：<a href="http://t.cn/EIJKfAY" target="_blank" rel="noopener">http://t.cn/EIJKfAY</a> 点击立即报名</p><p>打开：<a href="http://t.cn/EIJ9KUH" target="_blank" rel="noopener">http://t.cn/EIJ9KUH</a> 按上图选择香港CentOs系统1年30Mb服务器只需144元</p><p>活动时间：2019.3.4~3.15</p><p><img src="http://blog.ksh7.com/wp-content/uploads/2019/03/rjIMsVh_jpg-1-1024x387.jpg" alt></p><p><img src="http://blog.ksh7.com/wp-content/uploads/2019/03/rjIMvXu_jpg-1-1024x680.jpg" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;打开：&lt;a href=&quot;http://t.cn/EIJKfAY&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://t.cn/EIJKfAY&lt;/a&gt; 点击立即报名&lt;/p&gt;
+&lt;p&gt;打开：&lt;a href=&quot;http://t.cn/EIJ9KUH&quot; ta
+      
+    
+    </summary>
+    
+      <category term="福利活动" scheme="http://yoursite.com/categories/%E7%A6%8F%E5%88%A9%E6%B4%BB%E5%8A%A8/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>courseTable -- 可移动的React课程表组件</title>
+    <link href="http://yoursite.com/2019/03/08/coursetable-e5-8f-af-e7-a7-bb-e5-8a-a8-e7-9a-84react-e8-af-be-e7-a8-8b-e8-a1-a8-e7-bb-84-e4-bb-b6/"/>
+    <id>http://yoursite.com/2019/03/08/coursetable-e5-8f-af-e7-a7-bb-e5-8a-a8-e7-9a-84react-e8-af-be-e7-a8-8b-e8-a1-a8-e7-bb-84-e4-bb-b6/</id>
+    <published>2019-03-08T07:29:59.000Z</published>
+    <updated>2019-06-29T14:50:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Course-Table"><a href="#Course-Table" class="headerlink" title="Course Table"></a>Course Table</h1><h2 id="✨-Features"><a href="#✨-Features" class="headerlink" title="✨ Features"></a>✨ Features</h2><ul><li>可移动的 课程表</li><li>代码简单，欢迎优化</li><li>预览链接 <a href="https://Kshao123.github.io" target="_blank" rel="noopener">https://Kshao123.github.io</a></li></ul><p><a href="http://godban.github.io/browsers-support-badges/" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge"></a><br>IE / Edge</p><p><a href="http://godban.github.io/browsers-support-badges/" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox"></a><br>Firefox</p><p><a href="http://godban.github.io/browsers-support-badges/" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome"></a><br>Chrome</p><p><a href="http://godban.github.io/browsers-support-badges/" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari"></a><br>Safari</p><p><a href="http://godban.github.io/browsers-support-badges/" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera"></a><br>Opera</p><p><a href="http://godban.github.io/browsers-support-badges/" target="_blank" rel="noopener"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png" alt="Electron"></a><br>Electron</p><p>IE9, IE10, IE11, Edge</p><p>last 2 versions</p><p>last 2 versions</p><p>last 2 versions</p><p>last 2 versions</p><p>last 2 versions</p><h2 id="📦-Install"><a href="#📦-Install" class="headerlink" title="📦 Install"></a>📦 Install</h2><pre><code>npm i course-tablenpm i course-table -S</code></pre><h2 id="🔨-Usage"><a href="#🔨-Usage" class="headerlink" title="🔨 Usage"></a>🔨 Usage</h2><pre><code>import CourseTable from &apos;course-table&apos;;const courseTables = {      1: [        {          startTime:1551920827000,          endTime:1551924427000,          stuNameList: [&apos;123&apos;],          teaName: &apos;312&apos;        }      ]    };const handleConfirm = (data,handleOK) =&gt; {    handleOK()};ReactDOM.render(    &lt;CourseTable         courseTables={courseTables}        handleConfirm={handleConfirm}    /&gt;,     mountNode);</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Course-Table&quot;&gt;&lt;a href=&quot;#Course-Table&quot; class=&quot;headerlink&quot; title=&quot;Course Table&quot;&gt;&lt;/a&gt;Course Table&lt;/h1&gt;&lt;h2 id=&quot;✨-Features&quot;&gt;&lt;a href=&quot;#✨-F
+      
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
+    
+    
+      <category term="ReactComponent" scheme="http://yoursite.com/tags/ReactComponent/"/>
+    
+  </entry>
+  
+</feed>
