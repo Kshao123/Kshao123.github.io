@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "hexo server",
+    "watch": "hexo generate",
     "build": "hexo deploy"
   },
   "hexo": {
