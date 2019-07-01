@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-06-30T23:10:48.000Z</updated>
+  <updated>2019-07-01T16:07:32.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,83 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>css 底部菜单栏动画</title>
+    <link href="http://yoursite.com/2019/07/01/css-tab/"/>
+    <id>http://yoursite.com/2019/07/01/css-tab/</id>
+    <published>2019-07-01T15:09:22.000Z</published>
+    <updated>2019-07-01T16:07:32.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>从中间展开 after 需要<br>设置 position:absolute；left：0；right：0；bottom：0；margin：auto</p><iframe width="100%" height="500" src="//jsfiddle.net/142536yu/fq3pgnx0/embedded/js,html,css,result/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;从中间展开 after 需要&lt;br&gt;设置 position:absolute；left：0；right：0；bottom：0；margin：auto&lt;/p&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;500&quot; src=&quot;//jsfiddle.net/1425
+      
+    
+    </summary>
+    
+      <category term="cssTricks" scheme="http://yoursite.com/categories/cssTricks/"/>
+    
+    
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>css 背景渐变 实现优惠券</title>
+    <link href="http://yoursite.com/2019/07/01/coucpons-bg/"/>
+    <id>http://yoursite.com/2019/07/01/coucpons-bg/</id>
+    <published>2019-07-01T12:51:27.000Z</published>
+    <updated>2019-07-01T15:07:23.000Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="关键词"><a href="#关键词" class="headerlink" title="关键词"></a>关键词</h5><h6 id="线性渐变-径向渐变"><a href="#线性渐变-径向渐变" class="headerlink" title="线性渐变 径向渐变"></a>线性渐变 径向渐变</h6><ol><li>使用径向渐变实现缺口效果</li></ol><iframe width="100%" height="300" src="//jsfiddle.net/142536yu/5qpf47en/4/embedded/js,html,css,result/dark/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h5 id=&quot;关键词&quot;&gt;&lt;a href=&quot;#关键词&quot; class=&quot;headerlink&quot; title=&quot;关键词&quot;&gt;&lt;/a&gt;关键词&lt;/h5&gt;&lt;h6 id=&quot;线性渐变-径向渐变&quot;&gt;&lt;a href=&quot;#线性渐变-径向渐变&quot; class=&quot;headerlink&quot; title=&quot;线性渐
+      
+    
+    </summary>
+    
+      <category term="cssTricks" scheme="http://yoursite.com/categories/cssTricks/"/>
+    
+    
+      <category term="background" scheme="http://yoursite.com/tags/background/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mac + docker 容器搭建本地 gitlab ci runner + ssh | ftp 自动部署</title>
+    <link href="http://yoursite.com/2019/07/01/gitlab-ci/"/>
+    <id>http://yoursite.com/2019/07/01/gitlab-ci/</id>
+    <published>2019-07-01T10:09:24.000Z</published>
+    <updated>2019-07-01T15:10:27.000Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="安装-docker"><a href="#安装-docker" class="headerlink" title="安装 docker"></a>安装 docker</h4><blockquote><p><a href="https://www.docker.com/products/docker-toolbox" target="_blank" rel="noopener">https://www.docker.com/products/docker-toolbox</a></p></blockquote><h4 id="加速器"><a href="#加速器" class="headerlink" title="加速器"></a>加速器</h4><blockquote><p><a href="https://dashboard.daocloud.io/mirror" target="_blank" rel="noopener">https://dashboard.daocloud.io/mirror</a></p></blockquote><ol><li>点击立即开始－接入自有主机－我已有一台主机－选择MAC－直接点击</li><li>根据步骤 直至控制台显示有你的主机</li><li>去镜像仓库搜索 <code>gitlab-ce</code></li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">部署镜像可在命令行部署，或者刚刚下载的 Gui 工具内</span><br></pre></td></tr></table></figure><ol start="4"><li>部署好镜像，打开映射的主机端口，会显示重置密码(密码应为 八位+英文字符限制)默认用户名 <code>root</code></li><li>安装 runner 镜像，可在 <a href="https://dashboard.daocloud.io/" target="_blank" rel="noopener">Daocloud</a> 中部署到主机</li><li>注册runner</li></ol><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">在刚刚安装的</span> <span class="string">gitlab</span> <span class="string">中创建项目，在项目内的setting选项选中</span> <span class="string">Ci/CD</span></span><br><span class="line"></span><br><span class="line"><span class="string">在</span> <span class="string">Runners</span> <span class="string">选项中会看到对应的</span> <span class="string">链接</span> <span class="string">和</span> <span class="string">token</span></span><br></pre></td></tr></table></figure><p><img src="https://i.loli.net/2019/07/01/5d197ecc3e59810455.png" alt="image"></p><ol start="7"><li>注册 runner</li></ol><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">启动</span> <span class="string">runner</span> <span class="string">容器，并进入容器</span></span><br><span class="line"></span><br><span class="line"><span class="string">docker</span> <span class="string">exec</span> <span class="bullet">-it</span> <span class="string">runner</span> <span class="string">bash</span></span><br><span class="line"><span class="string">退出命令</span> <span class="string">exit</span></span><br><span class="line"></span><br><span class="line"><span class="string">进入容器输入</span></span><br><span class="line"></span><br><span class="line"><span class="string">gitlab-runner</span> <span class="string">register</span> <span class="bullet">-n</span> <span class="string">\</span></span><br><span class="line"><span class="bullet">   -</span><span class="bullet">-url</span> <span class="attr">http://172.17.0.3/</span> <span class="string">\</span></span><br><span class="line"><span class="bullet">   -</span><span class="bullet">-registration-token</span> <span class="string">PCfVAC_B_zJWDzz_xxkt</span> <span class="string">\</span></span><br><span class="line"><span class="bullet">   -</span><span class="bullet">-executor</span> <span class="string">docker</span> <span class="string">\</span></span><br><span class="line"><span class="bullet">   -</span><span class="bullet">-description</span> <span class="string">"runner1"</span> <span class="string">\</span></span><br><span class="line"><span class="bullet">   -</span><span class="bullet">-docker-image</span> <span class="string">"node:latest"</span> <span class="string">\</span></span><br><span class="line"><span class="bullet">   -</span><span class="bullet">-clone-url</span> <span class="attr">http://172.17.0.3/</span> </span><br><span class="line">   </span><br><span class="line"><span class="string">url：gitlab</span> <span class="string">的域名，docker内为容器的</span> <span class="string">IP</span></span><br><span class="line"><span class="string">registration-token：</span> <span class="string">刚刚复制的</span> <span class="string">token</span></span><br><span class="line"><span class="string">executor：</span> <span class="string">运行环境</span></span><br><span class="line"><span class="string">description：</span></span><br><span class="line"><span class="string">clone-url：</span> <span class="string">很重要，不添加可能会报错如下</span></span><br><span class="line"></span><br><span class="line"><span class="attr">fatal:</span> <span class="string">unable</span> <span class="string">to</span> <span class="string">access</span> <span class="string">'http://gitlab-ci-token:[MASKED]@f96d3c31771a</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">默认注册输入 gitlab-runner register  是按流程来的有 tag标签</span></span><br><span class="line"><span class="string">按上面步骤需要在 setting/[CI/CD]/runners 设置 tag</span></span><br></pre></td></tr></table></figure><h6 id="设置完成，可在-setting-CI-CD-runners-看到-runner"><a href="#设置完成，可在-setting-CI-CD-runners-看到-runner" class="headerlink" title="设置完成，可在  setting/[CI/CD]/runners 看到 runner"></a>设置完成，可在  setting/[CI/CD]/runners 看到 runner</h6><p><img src="https://img-blog.csdn.net/20170515161632358?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYWl4aWFveWFuZzE2OA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="image"></p><ol start="8"><li>配置 ssh mac/Linux 环境</li></ol><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 不建议使用 root 账户创建，可能会有各种问题</span></span><br><span class="line"><span class="comment"># 创建账户 kshao1</span></span><br><span class="line">useradd kshao1</span><br><span class="line"><span class="comment"># 修改密码</span></span><br><span class="line">passwd kshao1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 直接生成 公私钥 全程回车 免密登陆</span></span><br><span class="line">ssh-keygen -t rsa || ssh-keygen</span><br><span class="line"></span><br><span class="line"><span class="comment"># 一般用户会在 home/用户名/.ssh 看到文件密钥文件</span></span><br><span class="line"><span class="comment"># 如果没有以下文件则生成</span></span><br><span class="line">touch authorized_keys</span><br><span class="line"></span><br><span class="line"><span class="comment"># 该文件权限必须是 600 路径随意</span></span><br><span class="line">chmod <span class="number">600</span> /root/.ssh/authorized_keys</span><br><span class="line"></span><br><span class="line"><span class="comment"># 是&gt;&gt;而不是&gt;，双尖括号&gt;&gt;表示像向文件中追加：</span></span><br><span class="line">cat /root/.ssh/id_rsa.pub &gt;&gt; /root/.ssh/authorized_keys</span><br></pre></td></tr></table></figure><blockquote><p>细节 <a href="https://blog.csdn.net/nahancy/article/details/79059135" target="_blank" rel="noopener">https://blog.csdn.net/nahancy/article/details/79059135</a></p></blockquote><h6 id="使用-shell-ssh-密码链接"><a href="#使用-shell-ssh-密码链接" class="headerlink" title="使用 shell ssh 密码链接"></a>使用 shell ssh 密码链接</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/expect -f</span><br><span class="line">set TARGET 119.3.79.171</span><br><span class="line">set USER xxx</span><br><span class="line">set PASSWD xxx</span><br><span class="line">set PORT xxx</span><br><span class="line">set timeout 10</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">spawn ssh $USER@$TARGET -p $PORT</span><br><span class="line">expect &#123;</span><br><span class="line">    &quot;*yes/no&quot; &#123;send &quot;yes\r&quot;; exp_continue&#125;</span><br><span class="line">    &quot;*password:&quot; &#123;send &quot;$PASSWD\r&quot;&#125;</span><br><span class="line">&#125;</span><br><span class="line">interact</span><br></pre></td></tr></table></figure><ol start="9"><li>配值 .gitlab-ci.yml 文件<h6 id="Lftp-连接虚拟主机"><a href="#Lftp-连接虚拟主机" class="headerlink" title="Lftp 连接虚拟主机"></a>Lftp 连接虚拟主机</h6><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">image:</span> <span class="string">mwienk/docker-lftp:latest</span></span><br><span class="line"></span><br><span class="line"><span class="attr">stages:</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">deploy</span></span><br><span class="line"></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  stage:</span> <span class="string">deploy</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  script:</span></span><br><span class="line">    <span class="comment"># 指定目录覆盖上传 (强制更新)</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">ls</span> <span class="bullet">-la</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">lftp</span> <span class="bullet">-c</span> <span class="string">"set ftp:ssl-allow no; open -u $FTP_USERNAME,$FTP_PASSWORD $FTP_HOST -p $port;mirror -RLv ./public /gmlh97ux/wwwroot --ignore-time --transfer-all --parallel=50 --exclude-glob .git* --exclude .git/"</span></span><br><span class="line"><span class="attr">  tags:</span></span><br><span class="line">    <span class="comment"># runner 容器标签</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">docker</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  only:</span></span><br><span class="line">    <span class="comment"># 仅 master 分支</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">master</span></span><br></pre></td></tr></table></figure></li></ol><h6 id="ssh-连接服务器-需要准备好-密钥文件-scp-同理"><a href="#ssh-连接服务器-需要准备好-密钥文件-scp-同理" class="headerlink" title="ssh 连接服务器 需要准备好 密钥文件 scp 同理"></a>ssh 连接服务器 需要准备好 密钥文件 scp 同理</h6><h6 id="shell文件-可在-yml-中打开-script-xxx"><a href="#shell文件-可在-yml-中打开-script-xxx" class="headerlink" title="shell文件 可在 yml 中打开 script ./xxx"></a>shell文件 可在 yml 中打开 script ./xxx</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># -tt 取消提示</span></span><br><span class="line"><span class="comment"># ./id_rsa1 文件地址</span></span><br><span class="line">  ssh -tt -i ./id_rsa1 kshao1@119.3.79.170 -p 22  &lt;&lt; remotessh</span><br><span class="line">  <span class="built_in">echo</span> down</span><br><span class="line">  <span class="built_in">cd</span> /home/kshao1/.ssh</span><br><span class="line">  ls</span><br><span class="line"></span><br><span class="line">  <span class="built_in">exit</span></span><br><span class="line">remotessh</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;安装-docker&quot;&gt;&lt;a href=&quot;#安装-docker&quot; class=&quot;headerlink&quot; title=&quot;安装 docker&quot;&gt;&lt;/a&gt;安装 docker&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.docker.c
+      
+    
+    </summary>
+    
+      <category term="其他教程" scheme="http://yoursite.com/categories/%E5%85%B6%E4%BB%96%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="gitlab" scheme="http://yoursite.com/tags/gitlab/"/>
+    
+  </entry>
   
   <entry>
     <title>使用 Hexo + Next + Algolia 搜索 搭建博客</title>

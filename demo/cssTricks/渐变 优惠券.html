@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<style>
+  * {
+    margin: 0;
+    padding:0;
+  }
+  img {
+    width: 400px;
+    height: 400px;
+    display: block;
+    margin: 50px auto;
+  }
+
+  .box {
+    margin: 100px auto;
+  }
+
+  .box div { margin: auto }
+
+  details {
+    text-indent: 20px;
+    margin: 20px  0;
+  }
+
+  summary {
+    outline: none;
+  }
+
+  .c-style-1 {
+    position: relative;
+    width: 300px;
+    height: 150px;
+    margin-top: 20px;
+    background: radial-gradient(circle at top right, transparent 13px, #f26f4c 0) left top / 51% 50% no-repeat,
+    radial-gradient(circle at bottom right, transparent 13px, #f26f4c 0) left bottom / 51% 50% no-repeat,
+    radial-gradient(circle at left top, transparent 13px, #f26f4c 0) right top / 51% 50% no-repeat,
+    radial-gradient(circle at left bottom, transparent 13px, #f26f4c 0) right bottom / 51% 50% no-repeat;
+    filter: drop-shadow(2px 2px 2px rgba(0,0,0,.2));
+    /*background-origin: content-box;*/
+  }
+
+  .c-style-2:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -11px;
+    width: 11px;
+    /*background-color: #5cb85c;*/
+    background-image: linear-gradient(to bottom, #f26f4c 0px, transparent 5px, transparent),
+    radial-gradient(circle at 10px, transparent 5px, #f26f4c 5px);
+    background-repeat: repeat;
+    background-size: 11px 15px;
+  }
+
+
+  .tabs {
+    display: flex;
+    width: 70%;
+    justify-content: space-around;
+    margin: auto;
+  }
+
+  .tabs li {
+    list-style: none;
+    width: 20%;
+    color: #909399;
+    background-color: #fff;
+    position: relative;
+  }
+
+  .tabs li:hover {
+    color: #00adb5;
+
+  }
+
+  .tabs li:hover:after {
+    width: 100%;
+    left: 0;
+    transition-delay: 0.1s;
+  }
+
+  .tabs li:hover~:after {
+    left: 0;
+  }
+
+  .tabs li:after {
+    content: "";
+    width: 0;
+    height: 2px;
+    background-color: #00adb5;
+    position: absolute;
+    left: 100%;
+    bottom: 0;
+    transition: all .4s;
+  }
+
+</style>
+<style>
+  .coupons-wrap {
+    text-indent: 0;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    /*764 40%*/
+    width: 305px; /*减去两边的花边 17px（未换算）*/
+    height: 132px;
+    padding-top: 6px;
+    padding-left: 6px;
+    position: relative;
+    background: radial-gradient(circle at top right, transparent 11px, #f26f4c 0) left top / 99px 66px  no-repeat,
+    radial-gradient(circle at right bottom, transparent 11px, #f26f4c 0) left bottom / 99px 66px no-repeat,
+    radial-gradient(circle at left top, transparent 11px, #f26f4c 0) right top / 206px 66px no-repeat,
+    radial-gradient(circle at left bottom, transparent 11px, #f26f4c 0) right bottom / 206px 66px no-repeat;
+    -webkit-font-smoothing: antialiased;
+    filter: drop-shadow(2px 2px 2px rgba(0,0,0,.2));
+    box-sizing: border-box;
+  }
+  .coupons-wrap > div { margin: 0 }
+
+  .lacework:before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 7px;
+    top: 0;
+    left: -7px;
+    /* #f26f4c 5px: 第一段有颜色的距离，transparent 7px：圆的半径 */
+    background-image: linear-gradient(to bottom, #f26f4c 5px, transparent 7px, transparent),
+      /*6px 半径，1px, 12 前面颜色的距离加上半径的距离 6px 后面的半径距离*/
+    radial-gradient(6px circle at 1px 12px, transparent 6px, #f26f4c 6px);
+    /*一段距离的长度*/
+    background-size: 7px 18px;
+  }
+
+  .lacework:after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 7px;
+    top: 0;
+    right: -7px;
+    /* #f26f4c 5px: 第一段有颜色的距离，transparent 7px：圆的半径 */
+    background-image: linear-gradient(to bottom, #f26f4c 5px, transparent 7px, transparent),
+      /*6px 半径，6px: 需要突出来的距离 12 前面颜色的距离加上半径的距离 6px 后面的半径距离*/
+    radial-gradient(6px circle at 6px 12px, transparent 6px, #f26f4c 6px);
+    /*一段距离的长度*/
+    background-size: 7px 18px;
+  }
+
+  .coupons-name {
+    width: 65px;
+    height: 118px;
+    position: relative;
+    font-size: 20px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    color: #f26f4c;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .coupons-name > span {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 9px;
+  }
+
+  .coupons-name > p {
+    /*垂直方向 自左而右方向书写*/
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    /*margin-inline-start: 0px;*/
+    /*margin-inline-end: 0px;*/
+    writing-mode: vertical-rl;
+  }
+
+  .coupons-name:after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    right: -7px;
+    width: 7px;
+    top: 0;
+    /* #f26f4c 5px: 第一段有颜色的距离，transparent 7px：圆的半径 */
+    background-image: linear-gradient(to bottom, #ffffff -4px, transparent -5px, transparent), /*6px 半径，6px: 需要突出来的距离 12 前面颜色的距离加上半径的距离 6px 后面的半径距离*/ radial-gradient(13px circle at 7px 8px, transparent 5px, #ffffff 6px);
+    background-size: 11px 17px;
+  }
+
+  .coupons-line {
+    position: absolute;
+    height: calc(100% - 22px);
+    border: 1px dashed #fff;
+    top: 11px;
+    left: 98px;
+  }
+
+  .coupons-info {
+    width: 192px;
+    /*display: flex;*/
+    /*float: left;*/
+  }
+
+  .coupons-info > p {
+    text-align: center;
+    color: #fff;
+  }
+
+  .coupons-info-name {
+    line-height: 82px;
+    font-size: 30px;
+  }
+</style>
+<body>
+<div class="box">
+  <details open>
+    <summary>
+      第一种 原形镂空
+    </summary>
+    <div class="c-style-1"></div>
+  </details>
+
+
+  <details open>
+    <summary>
+      第二种 连续镂空
+    </summary>
+    <div class="c-style-1 c-style-2"></div>
+  </details>
+
+  <details>
+    <summary>
+      原图
+    </summary>
+    <img src="http://img95.699pic.com/element/40118/4001.png_860.png" alt="">
+  </details>
+
+  <details open>
+    <summary>
+      实现
+    </summary>
+    <div class="coupons-wrap lacework">
+      <div class="coupons-name">
+        <span>20元</span>
+        <p>优惠券</p>
+      </div>
+      <p class="coupons-line"></p>
+      <div class="coupons-info">
+        <p class="coupons-info-name">优惠券减 20</p>
+        <p style="font-size: 20px;">满 50 元可用</p>
+      </div>
+    </div>
+  </details>
+
+
+
+<!--  <div class="c-style-2"></div>-->
+
+
+  <ul class="tabs">
+    <li>tab1</li>
+    <li>tab1</li>
+    <li>tab1</li>
+    <li>tab1</li>
+    <li>tab1</li>
+  </ul>
+</div>
+</body>
+</html>
