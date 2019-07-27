@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      appId: '7661ZWVY54',
+      apiKey: '93b7f4c8012b31c3b4290bfbb1f19373',
+      indexName: 'blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="滚动歌词 把获取到的歌词 用换行符 split 分割 使用正则判断并分割出时间和歌词 把正则匹配出的 分、秒、毫秒 转换成秒 做 key 传入 temp 对象，或者 push 数组也可以，没有 key 的排序问题 通过 temp 遍历出 html 元素放入 content 监听 audio 的 [on]timeupdate 事件，关键字 e.target.currentTime 为当前播放时间 根">
+<meta name="keywords" content="demo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="滚动歌词">
+<meta property="og:url" content="http://yoursite.com/2019/07/02/music-gun/index.html">
+<meta property="og:site_name" content="kshao-blog">
+<meta property="og:description" content="滚动歌词 把获取到的歌词 用换行符 split 分割 使用正则判断并分割出时间和歌词 把正则匹配出的 分、秒、毫秒 转换成秒 做 key 传入 temp 对象，或者 push 数组也可以，没有 key 的排序问题 通过 temp 遍历出 html 元素放入 content 监听 audio 的 [on]timeupdate 事件，关键字 e.target.currentTime 为当前播放时间 根">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-07-02T15:51:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="滚动歌词">
+<meta name="twitter:description" content="滚动歌词 把获取到的歌词 用换行符 split 分割 使用正则判断并分割出时间和歌词 把正则匹配出的 分、秒、毫秒 转换成秒 做 key 传入 temp 对象，或者 push 数组也可以，没有 key 的排序问题 通过 temp 遍历出 html 元素放入 content 监听 audio 的 [on]timeupdate 事件，关键字 e.target.currentTime 为当前播放时间 根">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="kshao-blog" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/07/02/music-gun/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>滚动歌词 | kshao-blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">kshao-blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>文章</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Search</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="algolia-popup popup search-popup">
+  <div class="algolia-search">
+    <div class="algolia-search-input-icon">
+      <i class="fa fa-search"></i>
+    </div>
+    <div class="algolia-search-input" id="algolia-search-input"></div>
+  </div>
+
+  <div class="algolia-results">
+    <div id="algolia-stats"></div>
+    <div id="algolia-hits"></div>
+    <div id="algolia-pagination" class="algolia-pagination"></div>
+  </div>
+
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/02/music-gun/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kshao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="kshao-blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">滚动歌词
+
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-07-02 19:30:37 / Modified: 23:51:21" itemprop="dateCreated datePublished" datetime="2019-07-02T19:30:37+08:00">2019-07-02</time>
+            </span>
+          
+
+          
+            
+
+            
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="滚动歌词"><a href="#滚动歌词" class="headerlink" title="滚动歌词"></a>滚动歌词</h4><ol>
+<li>把获取到的歌词 用换行符 split 分割</li>
+<li>使用正则判断并分割出时间和歌词</li>
+<li>把正则匹配出的 分、秒、毫秒 转换成秒 做 key 传入 temp 对象，或者 push 数组也可以，没有 key 的排序问题</li>
+<li>通过 temp 遍历出 html 元素放入 content</li>
+<li>监听 audio 的 [on]timeupdate 事件，关键字 e.target.currentTime 为当前播放时间</li>
+<li>根据 时间 找到 匹配的歌词元素，计算元素的 top 与 父元素 top 的差，即为上滚的距离</li>
+<li>滚动时给当前 歌词元素 加上 active class 使其突出</li>
+</ol>
+<h6 id="获取到的歌词可在-log-里查看"><a href="#获取到的歌词可在-log-里查看" class="headerlink" title="获取到的歌词可在 log 里查看"></a>获取到的歌词可在 log 里查看</h6>
+<style>
+    audio {
+        width: 300px;
+        height: 100px;
+      }
+    
+      .lrc-box {
+        margin: 100px auto;
+      }
+    
+      .lrc-wrap {
+        margin: auto;
+        width: 80%;
+        height: 400px;
+        background-color: rgba(153, 204, 153, 0.48);
+        overflow: hidden;
+        padding: 0 15px;
+        position: relative;
+      }
+    
+      .lrc-content {
+        margin-top: 60px;
+        position: absolute;
+        text-align: center;
+        padding-top: 60px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        transition: all 1s;
+      }
+    
+      .lrc-content p {
+        text-align: center;
+        transition: all .1s;
+        /*transition-delay: .4s;*/
+      }
+    
+      .active {
+        color: white;
+        background-color: hotpink;
+      }
+</style>
+
+
+<div class="lrc-box">
+<audio id="musicBtn" style="width: 200px; height: 100px" autoplay controls="controls" src="../assets/music-gun/music.mp3"> </audio>
+  <div class="lrc-wrap">
+    <div class="lrc-content">
+
+    </div>
+  </div>
+</div>
+
+<script>
+const data = {
+    music: "[00:01.00]岁月神偷 - 金玟岐\n" +
+        "[00:06.00]\n" +
+        "[00:07.50]歌词编辑：\n" +
+        "[00:12.50]QQ：123123\n" +
+        "[00:17.50]\n" +
+        "[00:19.04]能够握紧的就别放了\n" +
+        "[00:23.09]能够拥抱的就别拉扯\n" +
+        "[00:27.22]时间着急的 冲刷着\n" +
+        "[00:31.65]剩下了什么\n" +
+        "[00:35.18]原谅走过的那些曲折\n" +
+        "[00:39.14]原来留下的都是真的\n" +
+        "[00:43.22]纵然似梦啊 半醒着\n" +
+        "[00:47.35]笑着哭着都快活\n" +
+        "[00:51.69]谁让\n" +
+        "[00:54.73]时间是让人猝不及防的东西\n" +
+        "[00:58.95]晴时有风阴有时雨\n" +
+        "[01:02.95]争不过朝夕 又念着往昔\n" +
+        "[01:06.93]偷走了青丝却留住一个你\n" +
+        "[01:11.00]岁月是一场有去无回的旅行\n" +
+        "[01:15.01]好的坏的都是风景\n" +
+        "[01:18.98]别怪我贪心 只是不愿醒\n" +
+        "[01:22.98]因为你只为你愿和我一起\n" +
+        "[01:27.00]看云淡风轻\n" +
+        "[01:31.14]\n" +
+        "[01:42.91]时间是让人猝不及防的东西\n" +
+        "[01:46.92]晴时有风阴有时雨\n" +
+        "[01:50.91]争不过朝夕 又念着往昔\n" +
+        "[01:54.92]偷走了青丝却留住一个你\n" +
+        "[01:58.89]岁月是一场有去无回的旅行\n" +
+        "[02:02.88]好的坏的都是风景\n" +
+        "[02:06.96]别怪我贪心 只是不愿醒\n" +
+        "[02:10.86]因为你只为你愿和我一起\n" +
+        "[02:16.32]看云淡风轻\n" +
+        "[02:20.07]"
+};
+console.log(data.music);
+const temp = {};
+const LRC = data.music;
+const matchLrc = LRC.split(/\n/);
+const reg = /\[(\d{2}):(\d{2})\.(\d{2})](.*)/;
+
+
+for (let i = 0; i < matchLrc.length; i += 1) {
+   const item = matchLrc[i];
+   // exec 没有匹配返回 null
+   const res = reg.exec(item);
+   if (! reg) continue;
+   const [_, m, s, ms, text] = res;
+   // 将他们转成秒 毫秒也可以做秒的四舍五入操作
+   // const key = (m * 60) + Math.round(s);
+   // - 0 05 - 0 = 5
+   // console.log((m * 60) + ((s + '.' + ms) - 0));
+   const key = (m * 60) + (s - 0);
+   temp[key] = text;
+}
+
+let html = '';
+
+for (let time in temp) {
+   html += `<p time=${time}>${temp[time]}</p>`
+}
+
+const lrcContent = document.querySelector('.lrc-content');
+
+lrcContent.innerHTML = html;
+
+const musicBtn = document.getElementById('musicBtn');
+let index = -1;
+musicBtn.ontimeupdate = e => {
+   // 获取秒数 与 dom 元素对应
+   // console.log(e.target.currentTime, 'time');
+   const key = Math.floor(e.target.currentTime);
+   if (! temp[key]) return;
+   const p = lrcContent.querySelector(`p[time='${key}']`);
+   // 此时的 p top值，大于 content，用 p - content 的 top 值，即为需要移动的距离
+   const far = p.offsetTop - lrcContent.offsetTop;
+   lrcContent.style.transform = `translate(-50%, -${far}px)`;
+   p.classList.add('active');
+   if (index > -1 && index !== key) lrcContent.querySelector(`p[time='${index}']`).classList.remove('active');
+   index = key;
+}
+
+</script>
+
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">data.music = <span class="string">'歌词'</span>; <span class="comment">// 歌词在 log 自行复制</span></span><br><span class="line"><span class="keyword">const</span> temp = &#123;&#125;;</span><br><span class="line"><span class="keyword">const</span> LRC = data.music;</span><br><span class="line"><span class="keyword">const</span> matchLrc = LRC.split(<span class="regexp">/\n/</span>);</span><br><span class="line"><span class="keyword">const</span> reg = <span class="regexp">/\[(\d&#123;2&#125;):(\d&#123;2&#125;)\.(\d&#123;2&#125;)](.*)/</span>;</span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; matchLrc.length; i += <span class="number">1</span>) &#123;</span><br><span class="line">   <span class="keyword">const</span> item = matchLrc[i];</span><br><span class="line">   <span class="comment">// exec 没有匹配返回 null</span></span><br><span class="line">   <span class="keyword">const</span> res = reg.exec(item);</span><br><span class="line">   <span class="keyword">if</span> (! reg) <span class="keyword">continue</span>;</span><br><span class="line">   <span class="keyword">const</span> [_, m, s, ms, text] = res;</span><br><span class="line">   <span class="comment">// 将他们转成秒 毫秒也可以做秒的四舍五入操作</span></span><br><span class="line">   <span class="comment">// const key = (m * 60) + Math.round(s);</span></span><br><span class="line">   <span class="comment">// - 0 05 - 0 = 5</span></span><br><span class="line">   <span class="comment">// console.log((m * 60) + ((s + '.' + ms) - 0));</span></span><br><span class="line">   <span class="keyword">const</span> key = (m * <span class="number">60</span>) + (s - <span class="number">0</span>);</span><br><span class="line">   temp[key] = text;</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line"><span class="keyword">let</span> html = <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> time <span class="keyword">in</span> temp) &#123;</span><br><span class="line">   html += <span class="string">`&lt;p time=<span class="subst">$&#123;time&#125;</span>&gt;<span class="subst">$&#123;temp[time]&#125;</span>&lt;/p&gt;`</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> lrcContent = <span class="built_in">document</span>.querySelector(<span class="string">'.lrc-content'</span>);</span><br><span class="line"></span><br><span class="line">lrcContent.innerHTML = html;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> musicBtn = <span class="built_in">document</span>.getElementById(<span class="string">'musicBtn'</span>);</span><br><span class="line"><span class="keyword">let</span> index = <span class="number">-1</span>;</span><br><span class="line">musicBtn.ontimeupdate = <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">   <span class="comment">// 获取秒数 与 dom 元素对应</span></span><br><span class="line">   <span class="comment">// console.log(e.target.currentTime, 'time');</span></span><br><span class="line">   <span class="keyword">const</span> key = <span class="built_in">Math</span>.floor(e.target.currentTime);</span><br><span class="line">   <span class="keyword">if</span> (! temp[key]) <span class="keyword">return</span>;</span><br><span class="line">   <span class="keyword">const</span> p = lrcContent.querySelector(<span class="string">`p[time='<span class="subst">$&#123;key&#125;</span>']`</span>);</span><br><span class="line">   <span class="comment">// 此时的 p top值，大于 content，用 p - content 的 top 值，即为需要移动的距离</span></span><br><span class="line">   <span class="keyword">const</span> far = p.offsetTop - lrcContent.offsetTop;</span><br><span class="line">   lrcContent.style.transform = <span class="string">`translate(-50%, -<span class="subst">$&#123;far&#125;</span>px)`</span>;</span><br><span class="line">   p.classList.add(<span class="string">'active'</span>);</span><br><span class="line">   <span class="keyword">if</span> (index &gt; <span class="number">-1</span> &amp;&amp; index !== key) lrcContent.querySelector(<span class="string">`p[time='<span class="subst">$&#123;index&#125;</span>']`</span>).classList.remove(<span class="string">'active'</span>);</span><br><span class="line">   index = key;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/demo/" rel="tag"># demo</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/01/css-tab/" rel="next" title="css 底部菜单栏动画">
+                <i class="fa fa-chevron-left"></i> css 底部菜单栏动画
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/03/shusuanfa/" rel="prev" title="shusuanfa">
+                shusuanfa <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">kshao</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">13</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/Kshao123" title="GitHub &rarr; https://github.com/Kshao123" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:14971857@qq.com" title="E-Mail &rarr; mailto:14971857@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#滚动歌词"><span class="nav-number">1.</span> <span class="nav-text">滚动歌词</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#获取到的歌词可在-log-里查看"><span class="nav-number">1.0.1.</span> <span class="nav-text">获取到的歌词可在 log 里查看</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kshao</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.9.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.2</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/algolia-search.js?v=7.1.2"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

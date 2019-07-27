@@ -12,7 +12,8 @@
  * - Refactored with eslint-config-theme-next style.
  */
 
-(function($) {
+(
+    function($) {
   'use strict';
 
   // AFFIX CLASS DEFINITION
@@ -165,4 +166,5 @@
     });
   });
 
-}(jQuery));
+}
+(jQuery));

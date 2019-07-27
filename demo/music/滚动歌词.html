@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<style>
+  audio {
+    width: 300px;
+    height: 100px;
+  }
+
+  .lrc-box {
+    margin: 100px auto;
+  }
+
+  .lrc-wrap {
+    margin: auto;
+    width: 400px;
+    height: 400px;
+    background-color: rgba(153, 204, 153, 0.48);
+    overflow: hidden;
+    padding: 0 15px;
+    position: relative;
+  }
+
+  .lrc-content {
+    margin-top: 60px;
+    position: absolute;
+    text-align: center;
+    padding-top: 60px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    transition: all 1s;
+  }
+
+  .lrc-content p {
+    text-align: center;
+    transition: all .1s;
+    /*transition-delay: .4s;*/
+  }
+
+  .active {
+    color: white;
+    background-color: hotpink;
+  }
+
+</style>
+<body>
+<audio id="musicBtn" src="./music.mp3" autoplay controls="controls"></audio>
+<div class="lrc-box">
+  <div class="lrc-wrap">
+    <div class="lrc-content">
+
+    </div>
+  </div>
+</div>
+</body>
+
+<script src="music.js"></script>
+<script>
+  /**
+   * 思路
+   * 1. 把获取到的歌词 用换行符 split 分割
+   * 2. 使用正则判断并分割出时间和歌词
+   * 3. 把正则匹配出的 分、秒、毫秒 转换成秒 做 key 传入 temp 对象，或者 push 数组也可以，没有 key 的排序问题
+   * 4. 通过 temp 遍历出 html 元素放入 content
+   * 5. 监听 audio 的 [on]timeupdate 事件，关键字 e.target.currentTime 为当前播放时间
+   * 6. 根据 时间 找到 匹配的歌词元素，计算元素的 top 与 父元素 top 的差，即为上滚的距离
+   * 7. 滚动时给当前 歌词元素 加上 active class 使其突出
+   */
+  // [00:07.50]歌词编辑
+  //   let a = 1;
+  //    const step = () => {
+  //         if (a ++ < 100) requestAnimationFrame(step);
+  //        console.log('im running');
+  //    };
+  //
+  //    step();
+
+    const temp = {};
+    const LRC = data.music;
+    const matchLrc = LRC.split(/\n/);
+    console.log(matchLrc);
+    const reg = /\[(\d{2}):(\d{2})\.(\d{2})](.*)/;
+
+
+    for (let i = 0; i < matchLrc.length; i += 1) {
+        const item = matchLrc[i];
+        // exec 没有匹配返回 null
+        const res = reg.exec(item);
+        if (! reg) continue;
+        const [_, m, s, ms, text] = res;
+        // 将他们转成秒 毫秒也可以做秒的四舍五入操作
+        // const key = (m * 60) + Math.round(s);
+        // - 0 05 - 0 = 5
+        // console.log((m * 60) + ((s + '.' + ms) - 0));
+        const key = (m * 60) + (s - 0);
+        temp[key] = text;
+    }
+
+    let html = '';
+
+    for (let time in temp) {
+        html += `<p time=${time}>${temp[time]}</p>`
+    }
+
+    const lrcContent = document.querySelector('.lrc-content');
+
+    lrcContent.innerHTML = html;
+
+    const musicBtn = document.getElementById('musicBtn');
+    let index = -1;
+    musicBtn.ontimeupdate = e => {
+        // 获取秒数 与 dom 元素对应
+        // console.log(e.target.currentTime, 'time');
+        const key = Math.floor(e.target.currentTime);
+        if (! temp[key]) return;
+        const p = lrcContent.querySelector(`p[time='${key}']`);
+        // 此时的 p top值，大于 content，用 p - content 的 top 值，即为需要移动的距离
+        const far = p.offsetTop - lrcContent.offsetTop;
+        lrcContent.style.transform = `translate(-50%, -${far}px)`;
+        p.classList.add('active');
+        if (index > -1 && index !== key) lrcContent.querySelector(`p[time='${index}']`).classList.remove('active');
+        index = key;
+    }
+
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
