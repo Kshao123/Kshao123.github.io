@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>kshao-blog</title>
   
-  <subtitle>博客、技术分享、线报福利、免费、kshao</subtitle>
+  <subtitle>Life Oriented Programming</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
