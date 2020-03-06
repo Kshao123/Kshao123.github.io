@@ -86,12 +86,15 @@ deploy:
 
 
 algolia:
-  applicationID: "7661ZWVY54"
-  appId: "7661ZWVY54"
-  apiKey: "93b7f4c8012b31c3b4290bfbb1f19373"
-  adminApiKey: "bfc01253e2556e778a3012f3dc252b54"
+  # 7661ZWVY54
+  applicationID: "24V3RVXPO3"
+  appId: "24V3RVXPO3"
+  # 93b7f4c8012b31c3b4290bfbb1f19373
+  apiKey: "c81797d1feb87e8443c0ab01baf22080"
+  # bfc01253e2556e778a3012f3dc252b54
+  adminApiKey: "26abc16b03c675a16dc57ca28b4a635b"
   chunkSize: 5000
-  indexName: "blog"
+  indexName: "kshao-blog"
   fields:
     - content:strip:truncate,0,500
     - excerpt:strip
