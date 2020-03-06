@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="description" content="">
+  <meta name="author" content="kshao">
+  <meta name="keywords" content="">
+  <title>使用 Hexo + Next + Algolia 搜索 搭建博客 - kshao-blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+
+  <link  rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css" />
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>kshao-blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">归档</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">分类</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关于</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" false
+         style="background: url('https://cdn.jsdelivr.net/gh/Royce2019/img/img/XWhqOrF2EivdJBm.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <p class="mt-3 post-meta">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                  星期一, 七月 1日 2019, 3:35 凌晨
+                </p>
+              
+
+              <p class="mt-1">
+                
+                  
+                  <span class="post-meta">
+                    <i class="far fa-chart-bar"></i>
+                    1.3k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta">
+                      <i class="far fa-clock"></i>
+                      5 分钟
+                  </span>
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  <span id="busuanzi_container_page_pv" class="post-meta" style="display: none">
+                    <i class="far fa-eye" aria-hidden="true"></i>
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>
+                
+              </p>
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="fas fa-angle-down scroll-down-arrow"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          
+          <div class="markdown-body">
+            <h2 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h2><h5 id="全局安装"><a href="#全局安装" class="headerlink" title="全局安装"></a>全局安装</h5><pre><code>$ npm install hexo-cli -g #282a2e</code></pre><h5 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h5><pre><code class="Python">$ hexo init [folder]
+# folder  项目名称</code></pre>
+<h5 id="启动预览"><a href="#启动预览" class="headerlink" title="启动预览"></a>启动预览</h5><pre><code class="Python">$ hexo server 预览
+
+# 如你是 webstrom 可在 package 内的 scripts 中添加
+
+&quot;start&quot;: &quot;hexo server&quot;
+
+# 方便以后启动预览</code></pre>
+<h5 id="新建页面"><a href="#新建页面" class="headerlink" title="新建页面"></a>新建页面</h5><pre><code class="Python">$ hexo new [layout] &lt;title&gt;</code></pre>
+<h4 id="安装-Next-主题"><a href="#安装-Next-主题" class="headerlink" title="安装 Next 主题"></a>安装 Next 主题</h4><blockquote>
+<p>官网 <a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">http://theme-next.iissnan.com/</a></p>
+</blockquote>
+<pre><code class="Python"># 官网提供的是 旧版 链接，注意本文的发布日期再去官网对照
+$ cd hexo
+$ git clone https://github.com/theme-next/hexo-theme-next themes/next</code></pre>
+<h6 id="安装完成之后去站点配置文件，根目录-config-选用-Next"><a href="#安装完成之后去站点配置文件，根目录-config-选用-Next" class="headerlink" title="安装完成之后去站点配置文件，根目录/_config 选用 Next"></a>安装完成之后去站点配置文件，根目录/_config 选用 Next</h6><pre><code>theme: next</code></pre><h5 id="配置菜单的-分类、标签"><a href="#配置菜单的-分类、标签" class="headerlink" title="配置菜单的 分类、标签"></a>配置菜单的 分类、标签</h5><pre><code class="Python">$ cd your-hexo-site
+$ hexo new page tags</code></pre>
+<h6 id="修改菜单-Next-主题配置文件"><a href="#修改菜单-Next-主题配置文件" class="headerlink" title="修改菜单(Next 主题配置文件)"></a>修改菜单(Next 主题配置文件)</h6><pre><code>menu:
+  home: /
+  archives: /archives
+  tags: /tags</code></pre><h6 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h6><pre><code># ---
+# 分类
+categories:
+  - 其他教程
+# 标签
+tags:
+  - blog
+# ---</code></pre><h4 id="安装-Algolia-搜索"><a href="#安装-Algolia-搜索" class="headerlink" title="安装 Algolia 搜索"></a>安装 Algolia 搜索</h4><h6 id="此操作流程只在-Next-主题下测试"><a href="#此操作流程只在-Next-主题下测试" class="headerlink" title="此操作流程只在 Next 主题下测试"></a>此操作流程只在 Next 主题下测试</h6><h1 align="center">Algolia 搜索</h1>
+
+<p>NexT 内部提供 Algolia 的搜索功能，要使用此功能请确保所使用的 NexT 版本在 <code>v5.1.0</code> 之后。需要注意的是，仅仅将 <code>next/_config.yml</code> 中 <code>algolia_search</code> 的 <code>enable</code> 打开<strong>并不能让你使用 Algolia 搜索</strong>，你还需要<strong>使用对应的 Hexo-Algolia 插件</strong> 才能真正在博客页面中使用 Algolia 搜索。按照下面介绍的步骤操作即可完成 Algolia 搜索的安装。</p>
+<ol>
+<li><p>前往 <a href="https://www.algolia.com/" target="_blank" rel="noopener">Algolia 注册页面</a>，注册一个新账户。 可以使用 GitHub 或者 Google 账户直接登录，注册后的 14 天内拥有所有功能（包括收费类别的）。之后若未续费会自动降级为免费账户，免费账户 总共有 10,000 条记录，每月有 100,000 的可以操作数。注册完成后，创建一个新的 Index，这个 Index 将在后面使用。</p>
+<p> <img src="http://theme-next.iissnan.com/uploads/algolia/algolia-step-2.png" srcset="/img/loading.gif" alt=""></p>
+</li>
+<li><p>Index 创建完成后，此时这个 Index 里未包含任何数据。接下来需要安装 <a href="https://github.com/oncletom/hexo-algolia" target="_blank" rel="noopener">Hexo Algolia</a> 扩展，这个扩展的功能是搜集站点的内容并通过 API 发送给 Algolia。前往站点根目录，执行命令安装：</p>
+<pre><code> $ cd hexo
+ $ npm install --save hexo-algolia</code></pre></li>
+<li><p>在 <code>API Keys</code> 页面找到需要使用的一些配置的值，包括 <code>ApplicationID</code> 和 <code>Search-Only API Key</code>。注意，<code>Admin API Key</code> 需要保密保存，不要外泄。</p>
+<p> <img src="https://user-images.githubusercontent.com/8521181/35479066-64e35aec-0428-11e8-91f9-1ec3afa45c5c.png" srcset="/img/loading.gif" alt=""></p>
+</li>
+<li><p>在 <code>API Keys</code> 页面，点击 <code>ALL API KEYS</code> 找到新建 INDEX 对应的 key，<strong>编辑权限</strong>，在弹出框中找到 ACL ，<strong>勾选 Add records、 Delete records、List indices、Delete index 权限</strong>，点击 <code>update</code> 更新。</p>
+<p> <img src="https://user-images.githubusercontent.com/8521181/35479064-611aa0b4-0428-11e8-85a1-cfb449b486ec.png" srcset="/img/loading.gif" alt=""><br> <img src="https://user-images.githubusercontent.com/8521181/35479084-d4f7ac02-0428-11e8-95a6-c4e3b1bef47b.png" srcset="/img/loading.gif" alt=""></p>
+</li>
+<li><p>编辑 <code>站点配置文件</code>，新增以下配置，除了 <code>chunkSize</code> 字段，替换成在 Algolia 获取到的值：</p>
+<pre><code class="yml"> algolia:
+   applicationID: &#39;applicationID&#39;
+   apiKey: &#39;apiKey&#39;
+   indexName: &#39;indexName&#39;
+   chunkSize: 5000</code></pre>
+</li>
+<li><p>当配置完成，在站点根目录下执行一下命令来更新上传 Index。请注意观察命令的输出。</p>
+<pre><code> $ export HEXO_ALGOLIA_INDEXING_KEY=Search-Only API key # 使用 Git Bash
+ # set HEXO_ALGOLIA_INDEXING_KEY=Search-Only API key # 使用 Windows CMD 命令行
+ $ hexo clean
+ $ hexo algolia</code></pre><p> <img src="http://theme-next.iissnan.com/uploads/algolia/algolia-step-4.png" srcset="/img/loading.gif" alt=""></p>
+</li>
+<li><p>切换到 NexT 目录，并安装 algolia-instant-search 到 <code>source/lib</code> 目录。</p>
+<pre><code> $ cd themes/next
+ $ git clone https://github.com/theme-next/theme-next-algolia-instant-search source/lib/algolia-instant-search</code></pre><p> 如果你想直接使用 CDN 设置 Algolia Search，则需要在<code>主题配置文件</code>中添加 vendors 字段：</p>
+<pre><code class="yml"> vendors:
+   ...
+   # Internal version: 1
+   # https://www.algolia.com
+   algolia_instant_js: https://cdn.jsdelivr.net/npm/instantsearch.js@2.4.1/dist/instantsearch.js
+   algolia_instant_css: https://cdn.jsdelivr.net/npm/instantsearch.js@2.4.1/dist/instantsearch.min.css
+   ...</code></pre>
+</li>
+<li><p>更改<code>主题配置文件</code>，找到 Algolia Search 配置部分，将 <code>enable</code> 改为 <code>true</code>。同时你需要<strong>关闭</strong>其他搜索插件，如 Local Search 等。你也可以根据需要调整 <code>labels</code> 中的文本：</p>
+<pre><code class="yml"> # Algolia Search
+ algolia_search:
+   enable: true
+   hits:
+     per_page: 10
+   labels:
+     input_placeholder: Search for Posts
+     hits_empty: &quot;We didn&#39;t find any results for the search: ${query}&quot;
+     hits_stats: &quot;${hits} results found in ${time} ms&quot;</code></pre>
+</li>
+</ol>
+<h2 align="center">已知的问题</h2>
+
+<ol>
+<li>考虑到 Algolia 免费账户的限制，目前 <a href="https://github.com/oncletom/hexo-algolia" target="_blank" rel="noopener">Hexo-Algolia</a> 插件最新版本去掉了正文索引功能。</li>
+<li><a href="https://github.com/LouisBarranqueiro/hexo-algoliasearch" target="_blank" rel="noopener">Hexo-Algoliasearch</a> 插件提供了正文索引功能，不过需要替换 NEXT 主题中的关键字。对于免费账户，<code>Record Too Big</code> 的问题同样存在。<ul>
+<li>替换 <code>source/js/algolia-search.js</code> 中所有的 <code>applicationID</code> 为 <code>appId</code></li>
+<li>替换 <code>layout/_partials/head/head.swig</code> 中所有的 <code>applicationID</code> 为 <code>appId</code></li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>此文档在 /themes/nest/docs/ALGOLIA-SEARCH</p>
+</blockquote>
+<h4 id="看完以上文档，默认你以安装完-Algolia，接下来使用-Hexo-Algoliasearch"><a href="#看完以上文档，默认你以安装完-Algolia，接下来使用-Hexo-Algoliasearch" class="headerlink" title="看完以上文档，默认你以安装完 Algolia，接下来使用 Hexo-Algoliasearch"></a>看完以上文档，默认你以安装完 Algolia，接下来使用 Hexo-Algoliasearch</h4><ul>
+<li>首先安装 <a href="https://github.com/LouisBarranqueiro/hexo-algoliasearch" target="_blank" rel="noopener">Hexo-Algoliasearch</a></li>
+</ul>
+<h5 id="在站点配置文件"><a href="#在站点配置文件" class="headerlink" title="在站点配置文件"></a>在站点配置文件</h5><pre><code class="yml">algolia:
+  # appid 为 applicationID 如未替换需替换
+  appId: &quot;Z7A3XW4R2I&quot;
+  # search only key
+  apiKey: &quot;12db1ad54372045549ef465881c17e743&quot;
+  adminApiKey: &quot;40321c7c207e7f73b63a19aa24c4761b&quot;
+  chunkSize: 5000
+  indexName: &quot;my-hexo-blog&quot;
+  fields:
+    - content:strip:truncate,0,500
+    - excerpt:strip
+    - gallery
+    - permalink
+    - photos
+    - slug
+    - tags
+    - title</code></pre>
+<p>配置完成后运行</p>
+<pre><code class="yml">$ hexo clean
+$ hexo algolia</code></pre>
+<hr>
+<p>配置好以上，Next的<code>algolia</code>搜索是没有内容搜索的，所以配置了上面的插件。<br>默认 <code>algolia</code> 搜索显示只有标题，关键词未高亮，所以开始了老本行工作。</p>
+<ol>
+<li>打开配置文件 <code>/themes/next/source/js</code> 替换以下内容</li>
+</ol>
+<pre><code class="javaScript">instantsearch.widgets.hits({
+      container  : &#39;#algolia-hits&#39;,
+      hitsPerPage: algoliaSettings.hits.per_page || 10,
+      templates  : {
+        item: function(data) {
+          var link = data.permalink ? data.permalink : CONFIG.root + data.path;
+          return (
+            `
+              &lt;ul&gt;
+                &lt;li&gt;
+                  &lt;a href=${link} class=&quot;algolia-hit-item-link&quot;&gt;${data._highlightResult.title.value}&lt;/a&gt;
+                  &lt;a href=${link} class=&quot;algolia-hit-item-match&quot;&gt;
+                    &lt;p&gt;${data._highlightResult.contentStripTruncate.value}&lt;/p&gt;
+                  &lt;/a&gt;
+                &lt;/li&gt;
+              &lt;/ul&gt;
+
+            `
+          );
+        },
+        empty: function(data) {
+          return (
+            &#39;&lt;div id=&quot;algolia-hits-empty&quot;&gt;&#39;
+          + algoliaSettings.labels.hits_empty.replace(/\$\{query}/, data.query)
+          + &#39;&lt;/div&gt;&#39;
+          );
+        }
+      },
+      cssClasses: {
+        item: &#39;algolia-hit-item&#39;
+      }
+    })</code></pre>
+<ol start="2">
+<li>修改 css <code>/themes/next/source/css/main.styl</code></li>
+</ol>
+<pre><code class="styl">.algolia-hit-item-match
+  text-decoration none
+  border none
+  color rgba(31, 31, 31, 0.37)
+  &amp;:hover
+    color rgba(34, 34, 34, 0.53)
+
+  em
+    padding 3px
+    border-bottom: 1px dashed #f00;
+    font-weight: bold;
+    color: #f00;</code></pre>
+
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+              <span>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/%E5%85%B6%E4%BB%96%E6%95%99%E7%A8%8B/">其他教程</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+              
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/blog/">blog</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container">
+        <div id="toc">
+  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+      </div>
+    
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+  </div>
+</div>
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+    <div class="col-lg-7 mx-auto nopadding-md">
+      <div class="container custom mx-auto">
+        <script src='//code.tidio.co/55l5jjfkbaab78j17fpfbldcybiixeyi.js'></script>
+      </div>
+    </div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+
+    
+  <div>
+    
+      <!-- 不蒜子统计PV -->
+      
+      <span id="busuanzi_container_site_pv" style="display: none">
+      总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    </span>
+    
+    
+      <!-- 不蒜子统计UV -->
+      
+      <span id="busuanzi_container_site_uv" style="display: none">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人
+    </span>
+    
+  </div>
+
+
+    
+
+    <!-- cnzz Analytics icon -->
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var navHeight = $('#navbar').height();
+      var toc = $('#toc');
+      var main = $('main');
+      var tocT = navHeight + (toc.offset().top - main.offset().top);
+      var tocLimMin = main.offset().top - navHeight;
+      var tocLimMax = $('#comments').offset().top - navHeight;
+      $(window).scroll(function () {
+        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
+        if (tocLimMin <= scroH && scroH <= tocLimMax) {
+          toc.css({
+            'display': 'block',
+            'position': 'fixed',
+            'top': tocT,
+          });
+        } else if (scroH <= tocLimMin) {
+          toc.css({
+            'position': '',
+            'top': '',
+          });
+        } else if (scroH > tocLimMax) {
+          toc.css('display', 'none');
+        }
+      });
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        scrollSmooth: true,
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc > p').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+
+
+
+
+  <script defer src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "使用 Hexo + Next + Algolia 搜索 搭建博客&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
