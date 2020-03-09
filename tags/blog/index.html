@@ -7,11 +7,13 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
-  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/blog-logo.png">
+  <link rel="icon" type="image/png" href="/img/blog-logo.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   
   <meta name="description" content="">
   <meta name="author" content="kshao">
@@ -27,8 +29,6 @@
 
 
 
-  <link  rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css" />
-
 <link  rel="stylesheet" href="/css/main.css" />
 
 
@@ -38,7 +38,8 @@
 <!-- 自定义样式保持在最底部 -->
 
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-material-oceanic.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -139,8 +140,17 @@
                 
 
 <div class="list-group">
-<!--  <p class="h4">共计 1 篇文章</p>-->
+<!--  <p class="h4">共计 2 篇文章</p>-->
   <hr>
+  
+    
+      
+      <p class="h5">2020</p>
+    
+    <a href="/2020/03/09/update-theme-fluid/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">双线部署博客，解决 github 访问速度问题</span>
+      <span style="float: right;">03-09</span>
+    </a>
   
     
       
@@ -259,14 +269,6 @@
 <!-- Plugins -->
 
 
-
-  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
-      prettyPrint();
-    })
-  </script>
 
 
 

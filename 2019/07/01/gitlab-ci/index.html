@@ -7,11 +7,13 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
-  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/blog-logo.png">
+  <link rel="icon" type="image/png" href="/img/blog-logo.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   
   <meta name="description" content="">
   <meta name="author" content="kshao">
@@ -27,8 +29,6 @@
 
 
 
-  <link  rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css" />
-
 <link  rel="stylesheet" href="/css/main.css" />
 
 
@@ -38,7 +38,8 @@
 <!-- 自定义样式保持在最底部 -->
 
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-material-oceanic.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -132,7 +133,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    702 字
+                    688 字
                   </span>
                 
 
@@ -194,14 +195,14 @@
 <li>安装 runner 镜像，可在 <a href="https://dashboard.daocloud.io/" target="_blank" rel="noopener">Daocloud</a> 中部署到主机</li>
 <li>注册runner</li>
 </ol>
-<pre><code class="yml">在刚刚安装的 gitlab 中创建项目，在项目内的setting选项选中 Ci/CD
+<pre class="line-numbers language-yml"><code class="language-yml">在刚刚安装的 gitlab 中创建项目，在项目内的setting选项选中 Ci/CD
 
-在 Runners 选项中会看到对应的 链接 和 token</code></pre>
+在 Runners 选项中会看到对应的 链接 和 token<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://i.loli.net/2019/07/01/5d197ecc3e59810455.png" srcset="/img/loading.gif" alt="image"></p>
 <ol start="7">
 <li>注册 runner</li>
 </ol>
-<pre><code class="yml">启动 runner 容器，并进入容器
+<pre class="line-numbers language-yml"><code class="language-yml">启动 runner 容器，并进入容器
 
 docker exec -it runner bash
 退出命令 exit
@@ -212,8 +213,8 @@ gitlab-runner register -n \
    --url http://172.17.0.3/ \
    --registration-token PCfVAC_B_zJWDzz_xxkt \
    --executor docker \
-   --description &quot;runner1&quot; \
-   --docker-image &quot;node:latest&quot; \
+   --description "runner1" \
+   --docker-image "node:latest" \
    --clone-url http://172.17.0.3/ 
 
 url：gitlab 的域名，docker内为容器的 IP
@@ -222,15 +223,15 @@ executor： 运行环境
 description：
 clone-url： 很重要，不添加可能会报错如下
 
-fatal: unable to access &#39;http://gitlab-ci-token:[MASKED]@f96d3c31771a
+fatal: unable to access 'http://gitlab-ci-token:[MASKED]@f96d3c31771a
 
 默认注册输入 gitlab-runner register  是按流程来的有 tag标签
-按上面步骤需要在 setting/[CI/CD]/runners 设置 tag</code></pre>
+按上面步骤需要在 setting/[CI/CD]/runners 设置 tag<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h6 id="设置完成，可在-setting-CI-CD-runners-看到-runner"><a href="#设置完成，可在-setting-CI-CD-runners-看到-runner" class="headerlink" title="设置完成，可在  setting/[CI/CD]/runners 看到 runner"></a>设置完成，可在  setting/[CI/CD]/runners 看到 runner</h6><p><img src="https://img-blog.csdn.net/20170515161632358?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYWl4aWFveWFuZzE2OA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" srcset="/img/loading.gif" alt="image"></p>
 <ol start="8">
 <li>配置 ssh mac/Linux 环境</li>
 </ol>
-<pre><code class="Python"># 不建议使用 root 账户创建，可能会有各种问题
+<pre class="line-numbers language-Python"><code class="language-Python"># 不建议使用 root 账户创建，可能会有各种问题
 # 创建账户 kshao1
 useradd kshao1
 # 修改密码
@@ -246,8 +247,8 @@ touch authorized_keys
 # 该文件权限必须是 600 路径随意
 chmod 600 /root/.ssh/authorized_keys
 
-# 是&gt;&gt;而不是&gt;，双尖括号&gt;&gt;表示像向文件中追加：
-cat /root/.ssh/id_rsa.pub &gt;&gt; /root/.ssh/authorized_keys</code></pre>
+# 是>>而不是>，双尖括号>>表示像向文件中追加：
+cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>细节 <a href="https://blog.csdn.net/nahancy/article/details/79059135" target="_blank" rel="noopener">https://blog.csdn.net/nahancy/article/details/79059135</a></p>
 </blockquote>
@@ -266,8 +267,8 @@ expect {
     &quot;*password:&quot; {send &quot;$PASSWD\r&quot;}
 }
 interact</code></pre><ol start="9">
-<li>配值 .gitlab-ci.yml 文件<h6 id="Lftp-连接虚拟主机"><a href="#Lftp-连接虚拟主机" class="headerlink" title="Lftp 连接虚拟主机"></a>Lftp 连接虚拟主机</h6><pre><code class="yml">image: mwienk/docker-lftp:latest
-</code></pre>
+<li>配值 .gitlab-ci.yml 文件<h6 id="Lftp-连接虚拟主机"><a href="#Lftp-连接虚拟主机" class="headerlink" title="Lftp 连接虚拟主机"></a>Lftp 连接虚拟主机</h6><pre class="line-numbers language-yml"><code class="language-yml">image: mwienk/docker-lftp:latest
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 </ol>
 <p>stages:</p>
@@ -275,14 +276,9 @@ interact</code></pre><ol start="9">
 <li>deploy</li>
 </ul>
 <p>deploy:<br>  stage: deploy</p>
-<p>  script:</p>
-<pre><code># 指定目录覆盖上传 (强制更新)
-  - ls -la
-  - lftp -c &quot;set ftp:ssl-allow no; open -u $FTP_USERNAME,$FTP_PASSWORD $FTP_HOST -p $port;mirror -RLv ./public /gmlh97ux/wwwroot --ignore-time --transfer-all --parallel=50 --exclude-glob .git* --exclude .git/&quot;</code></pre><p>  tags:</p>
-<pre><code># runner 容器标签
-- docker</code></pre><p>  only:</p>
-<pre><code># 仅 master 分支
-- master</code></pre><pre><code>###### ssh 连接服务器 需要准备好 密钥文件 scp 同理
+<p>  script:<br>    # 指定目录覆盖上传 (强制更新)<br>      - ls -la<br>      - lftp -c “set ftp:ssl-allow no; open -u $FTP_USERNAME,$FTP_PASSWORD $FTP_HOST -p $port;mirror -RLv ./public /gmlh97ux/wwwroot –ignore-time –transfer-all –parallel=50 –exclude-glob .git* –exclude .git/“<br>  tags:<br>    # runner 容器标签<br>    - docker</p>
+<p>  only:<br>    # 仅 master 分支<br>    - master</p>
+<pre><code>###### ssh 连接服务器 需要准备好 密钥文件 scp 同理
 ###### shell文件 可在 yml 中打开 script ./xxx
 ```bash
 #!/bin/sh
@@ -493,14 +489,6 @@ remotessh
 <!-- Plugins -->
 
 
-
-  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
-      prettyPrint();
-    })
-  </script>
 
 
 

@@ -7,11 +7,13 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
-  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/blog-logo.png">
+  <link rel="icon" type="image/png" href="/img/blog-logo.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   
   <meta name="description" content="">
   <meta name="author" content="kshao">
@@ -27,8 +29,6 @@
 
 
 
-  <link  rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css" />
-
 <link  rel="stylesheet" href="/css/main.css" />
 
 
@@ -38,7 +38,8 @@
 <!-- 自定义样式保持在最底部 -->
 
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-material-oceanic.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -147,59 +148,40 @@
     
     
     <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2019/07/06/react-context/">
-        <p class="h4 index-header">React.withContext 和 getChildContext 的使用</p>
+      <a href="/2020/03/09/update-theme-fluid/">
+        <p class="h4 index-header">双线部署博客，解决 github 访问速度问题</p>
       </a>
 
-      <a href="/2019/07/06/react-context/">
+      <a href="/2020/03/09/update-theme-fluid/">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1"></div>
+          <div class="index-text mb-1">项目部署 Github 并且仓库名为 &quot;userName&quot;.github.io
+项目设置绑定域名，建议开启 https在 项目/设置/githubPage 下绑定域名
+域名绑定页面，选 cname(github 给的二级域名)，线路：境外项目部署到 coding 上
+https://coding.net
+
+项目/构建与部署 点立即部署（后续可自动化部署）同页面上半部分找到二级域名为 cname，线路选择默认。并在当前页面的设置里绑定你的域名（申请证书失败的话需要把域名境外线路调回默认）hexo 快速部署项目插件以下为 ssh 连接，可自行百度（双账号邮箱建议保持一致，方便注</div>
         </div>
       </a>
 
       <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-07-06&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-09&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/React/">React</a>&nbsp;
+            <a href="/categories/%E5%85%B6%E4%BB%96%E6%95%99%E7%A8%8B/">其他教程</a>&nbsp;
           &nbsp;
         
         
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2019/07/03/shusuanfa/">
-        <p class="h4 index-header">shusuanfa</p>
-      </a>
-
-      <a href="/2019/07/03/shusuanfa/">
-        
-        
+          <i class="iconfont icon-tag"></i>
           
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">cnm123123123123123123123wo hen 5 1497
-</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-07-03&nbsp;&nbsp;
-        
-        
+            <a href="/tags/blog/">blog</a>&nbsp;
+          
         
       </div>
     </div>
@@ -411,20 +393,20 @@ https://dashboard.daocloud.io/mirror
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">安装 Hexo全局安装$ npm install hexo-cli -g #282a2e创建项目$ hexo init [folder]
+          <div class="index-text mb-1">
+title: blog-theme-fluiddate: 2020-03-09 20:33:18categories:    - 其他教程tags:    - blog
+
+安装 Hexo全局安装$ npm install hexo-cli -g #282a2e创建项目$ hexo init [folder]
 # folder  项目名称
 启动预览$ hexo server 预览
 
 # 如你是 webstrom 可在 package 内的 scripts 中添加
 
-&quot;start&quot;: &quot;hexo server&quot;
+"start": "hexo server"
 
 # 方便以后启动预览
-新建页面$ hexo new [layout] &lt;title&gt;
-安装 Next 主题
-官网 http://theme-next.iissnan.com/
-
-# 官网提供的是 旧版 链</div>
+新建页面$ hexo new [layout] 
+安装 Ne</div>
         </div>
       </a>
 
@@ -576,6 +558,48 @@ cnpm i --save-dev less less-loader然后在webpack.config中配置
     </div>
   </div>
 
+  <div class="row mx-auto index-card">
+    
+    
+    <div class="col-12 col-md-12 mx-auto index-info">
+      <a href="/2019/03/08/e7-bc-96-e8-af-91-e7-ae-ad-e5-a4-b4-e5-87-bd-e6-95-b0-bable-e9-85-8d-e7-bd-ae/">
+        <p class="h4 index-header">编译修饰符 Bable配置</p>
+      </a>
+
+      <a href="/2019/03/08/e7-bc-96-e8-af-91-e7-ae-ad-e5-a4-b4-e5-87-bd-e6-95-b0-bable-e9-85-8d-e7-bd-ae/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">xiu npm install –save-dev babel-plugin-transform-decorators-legacy
+在根目录.babelrc文件里
+&quot;plugins&quot;: [&quot;transform-decorators-legacy&quot;]
+
+如果没有babel.lrc文件请搜索对应框架的文件配置</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-03-08&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/webpack/">webpack</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/babel/">babel</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
 
 
   <nav aria-label="index posts navigation">
@@ -696,14 +720,6 @@ cnpm i --save-dev less less-loader然后在webpack.config中配置
 <!-- Plugins -->
 
 
-
-  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
-      prettyPrint();
-    })
-  </script>
 
 
 

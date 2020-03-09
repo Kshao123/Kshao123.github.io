@@ -7,16 +7,18 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
-  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/blog-logo.png">
+  <link rel="icon" type="image/png" href="/img/blog-logo.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
   <meta name="description" content="">
   <meta name="author" content="kshao">
   <meta name="keywords" content="博客，技术分享，线报福利，免费，kshao，blog, 面试，kshao-博客，kshao-blog">
-  <title>React.withContext 和 getChildContext 的使用 - kshao-blog</title>
+  <title>双线部署博客，解决 github 访问速度问题 - kshao-blog</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -27,8 +29,6 @@
 
 
 
-  <link  rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css" />
-
 <link  rel="stylesheet" href="/css/main.css" />
 
 
@@ -38,7 +38,8 @@
 <!-- 自定义样式保持在最底部 -->
 
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-material-oceanic.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -123,7 +124,7 @@
               
                 <p class="mt-3 post-meta">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                  星期六, 七月 6日 2019, 10:46 上午
+                  星期一, 三月 9日 2020, 8:33 晚上
                 </p>
               
 
@@ -132,7 +133,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    0 字
+                    236 字
                   </span>
                 
 
@@ -178,7 +179,24 @@
         <div class="post-content mx-auto" id="post">
           
           <div class="markdown-body">
-            
+            <h1 id="项目部署-Github-并且仓库名为-quot-userName-quot-github-io"><a href="#项目部署-Github-并且仓库名为-quot-userName-quot-github-io" class="headerlink" title="项目部署 Github 并且仓库名为 &quot;userName&quot;.github.io"></a>项目部署 Github 并且仓库名为 <code>&quot;userName&quot;</code>.github.io</h1><p><img src="https://kshao.coding.net/p/web-pic/d/web-pic/git/raw/master/blog-pic/update-theme-fluid/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202020-03-09%2020.47.47.png" srcset="/img/loading.gif" alt=""></p>
+<h1 id="项目设置绑定域名，建议开启-https"><a href="#项目设置绑定域名，建议开启-https" class="headerlink" title="项目设置绑定域名，建议开启 https"></a>项目设置绑定域名，建议开启 https</h1><h5 id="在-项目-设置-githubPage-下绑定域名"><a href="#在-项目-设置-githubPage-下绑定域名" class="headerlink" title="在 项目/设置/githubPage 下绑定域名"></a>在 项目/设置/githubPage 下绑定域名</h5><p><img src="/img/update-theme-fluid/1.png" srcset="/img/loading.gif" alt=""></p>
+<h4 id="域名绑定页面，选-cname-github-给的二级域名-，线路：境外"><a href="#域名绑定页面，选-cname-github-给的二级域名-，线路：境外" class="headerlink" title="域名绑定页面，选 cname(github 给的二级域名)，线路：境外"></a>域名绑定页面，选 cname(github 给的二级域名)，线路：境外</h4><h1 id="项目部署到-coding-上"><a href="#项目部署到-coding-上" class="headerlink" title="项目部署到 coding 上"></a>项目部署到 coding 上</h1><blockquote>
+<p><a href="https://coding.net" target="_blank" rel="noopener">https://coding.net</a></p>
+</blockquote>
+<h4 id="项目-构建与部署-点立即部署（后续可自动化部署）"><a href="#项目-构建与部署-点立即部署（后续可自动化部署）" class="headerlink" title="项目/构建与部署 点立即部署（后续可自动化部署）"></a>项目/构建与部署 点立即部署（后续可自动化部署）</h4><h5 id="同页面上半部分找到二级域名为-cname，线路选择默认。并在当前页面的设置里绑定你的域名（申请证书失败的话需要把域名境外线路调回默认）"><a href="#同页面上半部分找到二级域名为-cname，线路选择默认。并在当前页面的设置里绑定你的域名（申请证书失败的话需要把域名境外线路调回默认）" class="headerlink" title="同页面上半部分找到二级域名为 cname，线路选择默认。并在当前页面的设置里绑定你的域名（申请证书失败的话需要把域名境外线路调回默认）"></a>同页面上半部分找到二级域名为 cname，线路选择默认。并在当前页面的设置里绑定你的域名（申请证书失败的话需要把域名境外线路调回默认）</h5><h3 id="hexo-快速部署项目插件"><a href="#hexo-快速部署项目插件" class="headerlink" title="hexo 快速部署项目插件"></a>hexo 快速部署项目插件</h3><h6 id="以下为-ssh-连接，可自行百度（双账号邮箱建议保持一致，方便注册-ssh）"><a href="#以下为-ssh-连接，可自行百度（双账号邮箱建议保持一致，方便注册-ssh）" class="headerlink" title="以下为 ssh 连接，可自行百度（双账号邮箱建议保持一致，方便注册 ssh）"></a>以下为 ssh 连接，可自行百度（双账号邮箱建议保持一致，方便注册 ssh）</h6><pre class="line-numbers language-yaml"><code class="language-yaml">npm i hexo<span class="token punctuation">-</span>deployer<span class="token punctuation">-</span>git <span class="token punctuation">-</span>S
+yarn add hexo<span class="token punctuation">-</span>deployer<span class="token punctuation">-</span>git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h4 id="hexo-配置文件"><a href="#hexo-配置文件" class="headerlink" title="hexo 配置文件"></a>hexo 配置文件</h4><pre class="line-numbers language-diff"><code class="language-diff"> deploy:
+  type: git
+ # 触发分支
+  branch: master
+  repo:
+    github: git@github.com:&lt;userName>/&lt;projectName>.git
+    coding: git@e.coding.net:xxx/xxx.git<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="触发流程"><a href="#触发流程" class="headerlink" title="触发流程"></a>触发流程</h5><pre class="line-numbers language-yaml"><code class="language-yaml">hexo clean
+hexo generate
+hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
             <hr>
           </div>
           <br>
@@ -188,12 +206,19 @@
               <span>
                 <i class="iconfont icon-inbox"></i>
                 
-                  <a class="hover-with-bg" href="/categories/React/">React</a>
+                  <a class="hover-with-bg" href="/categories/%E5%85%B6%E4%BB%96%E6%95%99%E7%A8%8B/">其他教程</a>
                   &nbsp;
                 
               </span>&nbsp;&nbsp;
             
               
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/blog/">blog</a>
+                
+              </span>
+            
             </p>
             
               <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
@@ -369,14 +394,6 @@
 
 
 
-  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
-      prettyPrint();
-    })
-  </script>
-
 
 
   <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
@@ -384,7 +401,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "React.withContext 和 getChildContext 的使用&nbsp;",
+        "双线部署博客，解决 github 访问速度问题&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

@@ -7,11 +7,13 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
-  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/blog-logo.png">
+  <link rel="icon" type="image/png" href="/img/blog-logo.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   
   <meta name="description" content="">
   <meta name="author" content="kshao">
@@ -27,8 +29,6 @@
 
 
 
-  <link  rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css" />
-
 <link  rel="stylesheet" href="/css/main.css" />
 
 
@@ -38,7 +38,8 @@
 <!-- 自定义样式保持在最底部 -->
 
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-material-oceanic.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -142,48 +143,6 @@
               <div class="col-12 col-md-10 m-auto">
                 
 
-
-  <div class="row mx-auto index-card">
-    
-    
-    <div class="col-12 col-md-12 mx-auto index-info">
-      <a href="/2019/03/08/e7-bc-96-e8-af-91-e7-ae-ad-e5-a4-b4-e5-87-bd-e6-95-b0-bable-e9-85-8d-e7-bd-ae/">
-        <p class="h4 index-header">编译修饰符 Bable配置</p>
-      </a>
-
-      <a href="/2019/03/08/e7-bc-96-e8-af-91-e7-ae-ad-e5-a4-b4-e5-87-bd-e6-95-b0-bable-e9-85-8d-e7-bd-ae/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">xiu npm install –save-dev babel-plugin-transform-decorators-legacy
-在根目录.babelrc文件里
-&quot;plugins&quot;: [&quot;transform-decorators-legacy&quot;]
-
-如果没有babel.lrc文件请搜索对应框架的文件配置</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-03-08&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/webpack/">webpack</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/babel/">babel</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
 
   <div class="row mx-auto index-card">
     
@@ -399,14 +358,6 @@ npm i course-table -S🔨 Usageimport CourseTable</div>
 <!-- Plugins -->
 
 
-
-  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
-      prettyPrint();
-    })
-  </script>
 
 
 
