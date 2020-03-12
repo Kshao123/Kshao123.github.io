@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>kshao-blog</title>
+  
+  <subtitle>Life Oriented Programming</subtitle>
+  <link href="/sitemap.xml" rel="self"/>
+  
+  <link href="https://blog.ksh7.com/"/>
+  <updated>2020-03-12T14:29:03.000Z</updated>
+  <id>https://blog.ksh7.com/</id>
+  
+  <author>
+    <name>kshao</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>css-svg实现小于12号字体</title>
+    <link href="https://blog.ksh7.com/2020/03/12/css-svg-12px-fontsize/"/>
+    <id>https://blog.ksh7.com/2020/03/12/css-svg-12px-fontsize/</id>
+    <published>2020-03-12T14:16:39.000Z</published>
+    <updated>2020-03-12T14:29:03.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;效果&quot;&gt;&lt;a href=&quot;#效果&quot; class=&quot;headerlink&quot; title=&quot;效果&quot;&gt;&lt;/a&gt;效果&lt;/h1&gt;
+&lt;style&gt;
+  .s12-wrap {
+    display: flex;
+    align-items: center;
+   
+        
+      
+    
+    </summary>
+    
+      <category term="cssTricks" scheme="https://blog.ksh7.com/categories/cssTricks/"/>
+    
+    
+      <category term="css" scheme="https://blog.ksh7.com/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>css-手风琴动效</title>
+    <link href="https://blog.ksh7.com/2020/03/12/css-shouFengQin/"/>
+    <id>https://blog.ksh7.com/2020/03/12/css-shouFengQin/</id>
+    <published>2020-03-12T12:06:34.000Z</published>
+    <updated>2020-03-12T12:13:29.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+&lt;style&gt;
+.sfq-wrap {
+  width: 100%;
+  min-width: 400px;
+  margin: 100px auto;
+}
+.sfq-wrap ul,
+.sfq-wrap li {
+  padding: 0;
+  margin: 0;
+ 
+        
+      
+    
+    </summary>
+    
+      <category term="cssTricks" scheme="https://blog.ksh7.com/categories/cssTricks/"/>
+    
+    
+      <category term="css" scheme="https://blog.ksh7.com/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>三角边框-实心/镂空</title>
+    <link href="https://blog.ksh7.com/2020/03/11/san-jiao-bian-kuang/"/>
+    <id>https://blog.ksh7.com/2020/03/11/san-jiao-bian-kuang/</id>
+    <published>2020-03-11T14:03:04.000Z</published>
+    <updated>2020-03-12T07:20:21.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;实心边框&quot;&gt;&lt;a href=&quot;#实心边框&quot; class=&quot;headerlink&quot; title=&quot;实心边框&quot;&gt;&lt;/a&gt;实心边框&lt;/h1&gt;
+&lt;style&gt;
+  .sanjiao-wrap {
+    width: 400px;
+    min-height:
+        
+      
+    
+    </summary>
+    
+      <category term="cssTricks" scheme="https://blog.ksh7.com/categories/cssTricks/"/>
+    
+    
+      <category term="css" scheme="https://blog.ksh7.com/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>底部 footer 自适应</title>
+    <link href="https://blog.ksh7.com/2020/03/11/btn-sticky-footer/"/>
+    <id>https://blog.ksh7.com/2020/03/11/btn-sticky-footer/</id>
+    <published>2020-03-11T12:13:51.000Z</published>
+    <updated>2020-03-12T07:20:21.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h5 id=&quot;底部-footer-自适应在底部&quot;&gt;&lt;a href=&quot;#底部-footer-自适应在底部&quot; class=&quot;headerlink&quot; title=&quot;底部 footer 自适应在底部&quot;&gt;&lt;/a&gt;底部 footer 自适应在底部&lt;/h5&gt;
+&lt;style&gt;
+ 
+        
+      
+    
+    </summary>
+    
+      <category term="cssTricks" scheme="https://blog.ksh7.com/categories/cssTricks/"/>
+    
+    
+      <category term="css" scheme="https://blog.ksh7.com/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>css 实现毛玻璃</title>
+    <link href="https://blog.ksh7.com/2020/03/11/filter-glass/"/>
+    <id>https://blog.ksh7.com/2020/03/11/filter-glass/</id>
+    <published>2020-03-11T07:58:39.000Z</published>
+    <updated>2020-03-12T07:20:21.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;solution&quot;&gt;&lt;a href=&quot;#solution&quot; class=&quot;headerlink&quot; title=&quot;solution&quot;&gt;&lt;/a&gt;solution&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;filter: blur(x px);&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1
+        
+      
+    
+    </summary>
+    
+      <category term="cssTricks" scheme="https://blog.ksh7.com/categories/cssTricks/"/>
+    
+    
+      <category term="css" scheme="https://blog.ksh7.com/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>绝对定位-元素宽度自动撑开</title>
+    <link href="https://blog.ksh7.com/2020/03/10/css-position-width/"/>
+    <id>https://blog.ksh7.com/2020/03/10/css-position-width/</id>
+    <published>2020-03-10T12:02:32.000Z</published>
+    <updated>2020-03-12T07:20:21.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+&lt;style&gt;
+  .wrap {
+    position: relative;
+    margin: auto;
+    height: 30px;
+    width: 120px;
+    margin-bottom: 50px;
+    border: 1px
+        
+      
+    
+    </summary>
+    
+      <category term="cssTricks" scheme="https://blog.ksh7.com/categories/cssTricks/"/>
+    
+    
+      <category term="css" scheme="https://blog.ksh7.com/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>双线部署博客，解决 github 访问速度问题</title>
+    <link href="https://blog.ksh7.com/2020/03/09/update-theme-fluid/"/>
+    <id>https://blog.ksh7.com/2020/03/09/update-theme-fluid/</id>
+    <published>2020-03-09T12:33:18.000Z</published>
+    <updated>2020-03-09T14:18:18.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;项目部署-Github-并且仓库名为-quot-userName-quot-github-io&quot;&gt;&lt;a href=&quot;#项目部署-Github-并且仓库名为-quot-userName-quot-github-io&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="其他教程" scheme="https://blog.ksh7.com/categories/%E5%85%B6%E4%BB%96%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="blog" scheme="https://blog.ksh7.com/tags/blog/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>滚动歌词</title>
+    <link href="https://blog.ksh7.com/2019/07/02/music-gun/"/>
+    <id>https://blog.ksh7.com/2019/07/02/music-gun/</id>
+    <published>2019-07-02T11:30:37.000Z</published>
+    <updated>2019-07-02T15:51:21.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h4 id=&quot;滚动歌词&quot;&gt;&lt;a href=&quot;#滚动歌词&quot; class=&quot;headerlink&quot; title=&quot;滚动歌词&quot;&gt;&lt;/a&gt;滚动歌词&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;把获取到的歌词 用换行符 split
+        
+      
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="https://blog.ksh7.com/categories/JavaScript/"/>
+    
+    
+      <category term="demo" scheme="https://blog.ksh7.com/tags/demo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>css 底部菜单栏动画</title>
+    <link href="https://blog.ksh7.com/2019/07/01/css-tab/"/>
+    <id>https://blog.ksh7.com/2019/07/01/css-tab/</id>
+    <published>2019-07-01T15:09:22.000Z</published>
+    <updated>2019-07-01T16:07:32.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;从中间展开 after 需要&lt;br&gt;设置 position:absolute；left：0；right：0；bottom：0；margin：auto&lt;/p&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;500&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="cssTricks" scheme="https://blog.ksh7.com/categories/cssTricks/"/>
+    
+    
+      <category term="css" scheme="https://blog.ksh7.com/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>css 背景渐变 实现优惠券</title>
+    <link href="https://blog.ksh7.com/2019/07/01/coucpons-bg/"/>
+    <id>https://blog.ksh7.com/2019/07/01/coucpons-bg/</id>
+    <published>2019-07-01T12:51:27.000Z</published>
+    <updated>2019-07-01T15:07:23.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h5 id=&quot;关键词&quot;&gt;&lt;a href=&quot;#关键词&quot; class=&quot;headerlink&quot; title=&quot;关键词&quot;&gt;&lt;/a&gt;关键词&lt;/h5&gt;&lt;h6 id=&quot;线性渐变-径向渐变&quot;&gt;&lt;a href=&quot;#线性渐变-径向渐变&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="cssTricks" scheme="https://blog.ksh7.com/categories/cssTricks/"/>
+    
+    
+      <category term="background" scheme="https://blog.ksh7.com/tags/background/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mac + docker 容器搭建本地 gitlab ci runner + ssh | ftp 自动部署</title>
+    <link href="https://blog.ksh7.com/2019/07/01/gitlab-ci/"/>
+    <id>https://blog.ksh7.com/2019/07/01/gitlab-ci/</id>
+    <published>2019-07-01T10:09:24.000Z</published>
+    <updated>2019-07-01T15:10:27.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h4 id=&quot;安装-docker&quot;&gt;&lt;a href=&quot;#安装-docker&quot; class=&quot;headerlink&quot; title=&quot;安装 docker&quot;&gt;&lt;/a&gt;安装 docker&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="其他教程" scheme="https://blog.ksh7.com/categories/%E5%85%B6%E4%BB%96%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="gitlab" scheme="https://blog.ksh7.com/tags/gitlab/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用 Hexo + Next + Algolia 搜索 搭建博客</title>
+    <link href="https://blog.ksh7.com/2019/07/01/blog/"/>
+    <id>https://blog.ksh7.com/2019/07/01/blog/</id>
+    <published>2019-06-30T19:35:25.000Z</published>
+    <updated>2020-03-12T07:20:21.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;hr&gt;
+&lt;p&gt;title: blog-theme-fluid&lt;br&gt;date: 2020-03-09 20:33:18&lt;br&gt;categories:&lt;br&gt;    - 其他教程&lt;br&gt;tags:&lt;br&gt;    - blog&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2
+        
+      
+    
+    </summary>
+    
+      <category term="其他教程" scheme="https://blog.ksh7.com/categories/%E5%85%B6%E4%BB%96%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="blog" scheme="https://blog.ksh7.com/tags/blog/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>图片懒加载的两种方法-节流 IntersectionObserver</title>
+    <link href="https://blog.ksh7.com/2019/03/17/e5-9b-be-e7-89-87-e6-87-92-e5-8a-a0-e8-bd-bd-e7-9a-84-e4-b8-a4-e7-a7-8d-e6-96-b9-e6-b3-95-e8-8a-82-e6-b5-81-intersectionobserver/"/>
+    <id>https://blog.ksh7.com/2019/03/17/e5-9b-be-e7-89-87-e6-87-92-e5-8a-a0-e8-bd-bd-e7-9a-84-e4-b8-a4-e7-a7-8d-e6-96-b9-e6-b3-95-e8-8a-82-e6-b5-81-intersectionobserver/</id>
+    <published>2019-03-17T10:10:17.000Z</published>
+    <updated>2019-06-29T14:50:44.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;strong&gt;第一种：&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;以下代码皆在 React 中测试使用&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;使用 &lt;strong&gt;&lt;em&gt;window&lt;/em&gt;&lt;/strong&gt; 上的
+        
+      
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="https://blog.ksh7.com/categories/JavaScript/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>算法面试题-查找指定的字符串</title>
+    <link href="https://blog.ksh7.com/2019/03/09/e7-ae-97-e6-b3-95-e9-9d-a2-e8-af-95-e9-a2-98-e6-9f-a5-e6-89-be-e6-8c-87-e5-ae-9a-e7-9a-84-e5-ad-97-e7-ac-a6-e4-b8-b2/"/>
+    <id>https://blog.ksh7.com/2019/03/09/e7-ae-97-e6-b3-95-e9-9d-a2-e8-af-95-e9-a2-98-e6-9f-a5-e6-89-be-e6-8c-87-e5-ae-9a-e7-9a-84-e5-ad-97-e7-ac-a6-e4-b8-b2/</id>
+    <published>2019-03-09T08:28:36.000Z</published>
+    <updated>2019-06-29T14:50:44.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;实现一个算法，寻找字符串中出现次数最少的、并且首次出现位置最前的字符如&lt;br&gt;“&lt;em&gt;cbaacfdeaebb&lt;/em&gt;“，符合要求的是”f”，因为他只出现了一次（次数最少）。&lt;br&gt;并且比其他只出现一次的字符（如”d”）首次出现的位置最靠前。&lt;/p&gt;
+&lt;pre&gt;&lt;cod
+        
+      
+    
+    </summary>
+    
+      <category term="面试" scheme="https://blog.ksh7.com/categories/%E9%9D%A2%E8%AF%95/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>在react中使用antd+less+css modules</title>
+    <link href="https://blog.ksh7.com/2019/03/09/e5-9c-a8react-e4-b8-ad-e4-bd-bf-e7-94-a8antdlesscss-modules/"/>
+    <id>https://blog.ksh7.com/2019/03/09/e5-9c-a8react-e4-b8-ad-e4-bd-bf-e7-94-a8antdlesscss-modules/</id>
+    <published>2019-03-09T05:56:20.000Z</published>
+    <updated>2019-06-29T14:50:44.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h4 id=&quot;配置less&quot;&gt;&lt;a href=&quot;#配置less&quot; class=&quot;headerlink&quot; title=&quot;配置less&quot;&gt;&lt;/a&gt;配置less&lt;/h4&gt;&lt;p&gt;首先安装less和less-loader&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cnpm i --save-dev
+        
+      
+    
+    </summary>
+    
+      <category term="webpack" scheme="https://blog.ksh7.com/categories/webpack/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>编译修饰符 Bable配置</title>
+    <link href="https://blog.ksh7.com/2019/03/08/e7-bc-96-e8-af-91-e7-ae-ad-e5-a4-b4-e5-87-bd-e6-95-b0-bable-e9-85-8d-e7-bd-ae/"/>
+    <id>https://blog.ksh7.com/2019/03/08/e7-bc-96-e8-af-91-e7-ae-ad-e5-a4-b4-e5-87-bd-e6-95-b0-bable-e9-85-8d-e7-bd-ae/</id>
+    <published>2019-03-08T15:32:00.000Z</published>
+    <updated>2019-06-29T14:50:44.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;xiu npm install –save-dev babel-plugin-transform-decorators-legacy&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;在根目录.babelrc文件里
+&amp;quot;plugins&amp;quot;:
+        
+      
+    
+    </summary>
+    
+      <category term="webpack" scheme="https://blog.ksh7.com/categories/webpack/"/>
+    
+    
+      <category term="babel" scheme="https://blog.ksh7.com/tags/babel/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>阿里云 144 元 一年30Mb香港服务器 3.4~3.15</title>
+    <link href="https://blog.ksh7.com/2019/03/08/e9-98-bf-e9-87-8c-e4-ba-91-144-e5-85-83-e4-b8-80-e5-b9-b430mb-e9-a6-99-e6-b8-af-e6-9c-8d-e5-8a-a1-e5-99-a8-3-43-15/"/>
+    <id>https://blog.ksh7.com/2019/03/08/e9-98-bf-e9-87-8c-e4-ba-91-144-e5-85-83-e4-b8-80-e5-b9-b430mb-e9-a6-99-e6-b8-af-e6-9c-8d-e5-8a-a1-e5-99-a8-3-43-15/</id>
+    <published>2019-03-08T08:24:24.000Z</published>
+    <updated>2019-06-29T14:50:44.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;打开：&lt;a href=&quot;http://t.cn/EIJKfAY&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://t.cn/EIJKfAY&lt;/a&gt; 点击立即报名&lt;/p&gt;
+&lt;p&gt;打开：&lt;a href=&quot;http://t.cn/EIJ9KUH&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="福利活动" scheme="https://blog.ksh7.com/categories/%E7%A6%8F%E5%88%A9%E6%B4%BB%E5%8A%A8/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>courseTable -- 可移动的React课程表组件</title>
+    <link href="https://blog.ksh7.com/2019/03/08/coursetable-e5-8f-af-e7-a7-bb-e5-8a-a8-e7-9a-84react-e8-af-be-e7-a8-8b-e8-a1-a8-e7-bb-84-e4-bb-b6/"/>
+    <id>https://blog.ksh7.com/2019/03/08/coursetable-e5-8f-af-e7-a7-bb-e5-8a-a8-e7-9a-84react-e8-af-be-e7-a8-8b-e8-a1-a8-e7-bb-84-e4-bb-b6/</id>
+    <published>2019-03-08T07:29:59.000Z</published>
+    <updated>2019-06-29T14:50:44.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Course-Table&quot;&gt;&lt;a href=&quot;#Course-Table&quot; class=&quot;headerlink&quot; title=&quot;Course Table&quot;&gt;&lt;/a&gt;Course Table&lt;/h1&gt;&lt;h2 id=&quot;✨-Features&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="https://blog.ksh7.com/categories/JavaScript/"/>
+    
+    
+      <category term="ReactComponent" scheme="https://blog.ksh7.com/tags/ReactComponent/"/>
+    
+  </entry>
+  
+</feed>
