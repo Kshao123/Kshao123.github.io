@@ -18,7 +18,7 @@
   <meta name="description" content="免费服务器，免费手法短息，kshao-blog，seo，面试题，前端，vue，react，JavaScript，js，html，css，less">
   <meta name="author" content="kshao">
   <meta name="keywords" content="博客，技术分享，线报福利，免费，kshao，blog, 面试，kshao-博客，kshao-blog，教程，服务器">
-  <title>算法面试题-查找指定的字符串 - kshao-blog</title>
+  <title>底部 footer 自适应 - kshao-blog</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -124,7 +124,7 @@
               
                 <p class="mt-3 post-meta">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                  星期六, 三月 9日 2019, 4:28 下午
+                  星期三, 三月 11日 2020, 8:13 晚上
                 </p>
               
 
@@ -133,7 +133,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    162 字
+                    1.1k 字
                   </span>
                 
 
@@ -141,7 +141,7 @@
                   
                   <span class="post-meta">
                       <i class="far fa-clock"></i>
-                      1 分钟
+                      3 分钟
                   </span>
                 
 
@@ -179,25 +179,108 @@
         <div class="post-content mx-auto" id="post">
           
           <div class="markdown-body">
-            <p>实现一个算法，寻找字符串中出现次数最少的、并且首次出现位置最前的字符如<br>“<em>cbaacfdeaebb</em>“，符合要求的是”f”，因为他只出现了一次（次数最少）。<br>并且比其他只出现一次的字符（如”d”）首次出现的位置最靠前。</p>
-<pre><code>const findMinStr = (str) =&gt; {
-    const hash = {};
-    for (let i = 0; i &lt; str.length; i += 1) {
-      hash[str[i]] = hash[str[i]] || { index: i, count: 0 };
-      hash[str[i]].count += 1;
-    }
+            <h5 id="底部-footer-自适应在底部"><a href="#底部-footer-自适应在底部" class="headerlink" title="底部 footer 自适应在底部"></a>底部 footer 自适应在底部</h5>
+<style>
+  .btn-wrap {
+    position: relative;
+    width: 300px;
+    height: 500px;
+    overflow-y: auto;
+    margin: 100px auto;
+    border: 1px solid;
+  }
 
-    return Object.keys(hash).map(item =&gt; {
-      return Object.assign({ char: item }, hash[item]);
-    })
-      .sort((a, b) =&gt; a.count - b.count)
-      .filter((item, index, arr) =&gt; item.count === arr[0].count)
-      .sort((a, b) =&gt; a.index - b.index)[0].char
-};
+  .btn-content-wrap {
+    min-height: 100%;
+    text-align: center;
+    background-color: azure;
+  }
+  .btn-content {
+    padding-bottom: 40px;
+  }
+  .btn-footer {
+    margin-top: -40px;
+    background-color: #00adb5;
+    line-height: 40px;
+    color: #fff;
+    text-align: center;
+  }
+  .btn-s-input:checked ~ .btn-content > .btn-s-text {
+    display: none;
+  }
+</style>
 
-const str = &#39;cbaacfdeaebb&#39;;
+<section class="btn-wrap">
+  <div class="btn-content-wrap">
+    <input class="btn-s-input" type="checkbox">
+    <label>隐藏</label>
+    <div class="btn-content">
+      <p class="btn-s-text">
+        内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+        内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+        内容内内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+        内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+        内容内内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+        内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+        内容内内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+        内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+        内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+      </p>
+    </div>
+  </div>
+  <footer class="btn-footer">
+    footer
+  </footer>
+</section>
 
-findMinStr (str)  // &#39;f&#39;</code></pre>
+
+<h4 id="css"><a href="#css" class="headerlink" title="css"></a>css</h4><pre class="line-numbers language-css"><code class="language-css">  <span class="token selector"><span class="token class">.wrap</span> </span><span class="token punctuation">{</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">300</span>px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">500</span>px<span class="token punctuation">;</span>
+    <span class="token property">overflow-y</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">100</span>px auto<span class="token punctuation">;</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">1</span>px solid<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token selector"><span class="token class">.content-wrap</span> </span><span class="token punctuation">{</span>
+    <span class="token property">min-height</span><span class="token punctuation">:</span> <span class="token number">100%</span><span class="token punctuation">;</span>
+    <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span> azure<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector"><span class="token class">.content</span> </span><span class="token punctuation">{</span>
+    <span class="token property">padding-bottom</span><span class="token punctuation">:</span> <span class="token number">40</span>px<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token selector"><span class="token class">.footer</span> </span><span class="token punctuation">{</span>
+    <span class="token property">margin-top</span><span class="token punctuation">:</span> -<span class="token number">40</span>px<span class="token punctuation">;</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token hexcode">#00adb5</span><span class="token punctuation">;</span>
+    <span class="token property">line-height</span><span class="token punctuation">:</span> <span class="token number">40</span>px<span class="token punctuation">;</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#fff</span><span class="token punctuation">;</span>
+    <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="html"><a href="#html" class="headerlink" title="html"></a>html</h4><pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>section</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>wrap<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>content-wrap<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>s-input<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>checkbox<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span><span class="token punctuation">></span></span>隐藏<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>content<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>s-text<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+        内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+        内容内内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+        内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+        内容内内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+        内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+        内容内内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+        内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+        内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>footer</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>footer<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    footer
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>footer</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>section</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
             <hr>
           </div>
           <br>
@@ -207,12 +290,19 @@ findMinStr (str)  // &#39;f&#39;</code></pre>
               <span>
                 <i class="iconfont icon-inbox"></i>
                 
-                  <a class="hover-with-bg" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a>
+                  <a class="hover-with-bg" href="/categories/cssTricks/">cssTricks</a>
                   &nbsp;
                 
               </span>&nbsp;&nbsp;
             
               
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/css/">css</a>
+                
+              </span>
+            
             </p>
             
               <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
@@ -425,7 +515,7 @@ findMinStr (str)  // &#39;f&#39;</code></pre>
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "算法面试题-查找指定的字符串&nbsp;",
+        "底部 footer 自适应&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
