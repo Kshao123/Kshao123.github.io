@@ -116,16 +116,16 @@ tags:
 <p>NexT 内部提供 Algolia 的搜索功能，要使用此功能请确保所使用的 NexT 版本在 <code>v5.1.0</code> 之后。需要注意的是，仅仅将 <code>next/_config.yml</code> 中 <code>algolia_search</code> 的 <code>enable</code> 打开<strong>并不能让你使用 Algolia 搜索</strong>，你还需要<strong>使用对应的 Hexo-Algolia 插件</strong> 才能真正在博客页面中使用 Algolia 搜索。按照下面介绍的步骤操作即可完成 Algolia 搜索的安装。</p>
 <ol>
 <li><p>前往 <a href="https://www.algolia.com/" target="_blank" rel="noopener">Algolia 注册页面</a>，注册一个新账户。 可以使用 GitHub 或者 Google 账户直接登录，注册后的 14 天内拥有所有功能（包括收费类别的）。之后若未续费会自动降级为免费账户，免费账户 总共有 10,000 条记录，每月有 100,000 的可以操作数。注册完成后，创建一个新的 Index，这个 Index 将在后面使用。</p>
-<p> <a href="http://theme-next.iissnan.com/uploads/algolia/algolia-step-2.png" target="_blank" rel="noopener" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="http://theme-next.iissnan.com/uploads/algolia/algolia-step-2.png" class="lazyload"></a></p>
+<p> <a href="http://theme-next.iissnan.com/uploads/algolia/algolia-step-2.png" target="_blank" rel="noopener" data-fancybox="group" data-caption class="fancybox"><img alt data-src="http://theme-next.iissnan.com/uploads/algolia/algolia-step-2.png" class="lazyload" title></a></p>
 </li>
 <li><p>Index 创建完成后，此时这个 Index 里未包含任何数据。接下来需要安装 <a href="https://github.com/oncletom/hexo-algolia" target="_blank" rel="noopener">Hexo Algolia</a> 扩展，这个扩展的功能是搜集站点的内容并通过 API 发送给 Algolia。前往站点根目录，执行命令安装：</p>
 <pre><code> $ cd hexo
  $ npm install --save hexo-algolia</code></pre></li>
 <li><p>在 <code>API Keys</code> 页面找到需要使用的一些配置的值，包括 <code>ApplicationID</code> 和 <code>Search-Only API Key</code>。注意，<code>Admin API Key</code> 需要保密保存，不要外泄。</p>
-<p> <a href="https://user-images.githubusercontent.com/8521181/35479066-64e35aec-0428-11e8-91f9-1ec3afa45c5c.png" target="_blank" rel="noopener" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://user-images.githubusercontent.com/8521181/35479066-64e35aec-0428-11e8-91f9-1ec3afa45c5c.png" class="lazyload"></a></p>
+<p> <a href="https://user-images.githubusercontent.com/8521181/35479066-64e35aec-0428-11e8-91f9-1ec3afa45c5c.png" target="_blank" rel="noopener" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://user-images.githubusercontent.com/8521181/35479066-64e35aec-0428-11e8-91f9-1ec3afa45c5c.png" class="lazyload" title></a></p>
 </li>
 <li><p>在 <code>API Keys</code> 页面，点击 <code>ALL API KEYS</code> 找到新建 INDEX 对应的 key，<strong>编辑权限</strong>，在弹出框中找到 ACL ，<strong>勾选 Add records、 Delete records、List indices、Delete index 权限</strong>，点击 <code>update</code> 更新。</p>
-<p> <a href="https://user-images.githubusercontent.com/8521181/35479064-611aa0b4-0428-11e8-85a1-cfb449b486ec.png" target="_blank" rel="noopener" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://user-images.githubusercontent.com/8521181/35479064-611aa0b4-0428-11e8-85a1-cfb449b486ec.png" class="lazyload"></a><br> <a href="https://user-images.githubusercontent.com/8521181/35479084-d4f7ac02-0428-11e8-95a6-c4e3b1bef47b.png" target="_blank" rel="noopener" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="https://user-images.githubusercontent.com/8521181/35479084-d4f7ac02-0428-11e8-95a6-c4e3b1bef47b.png" class="lazyload"></a></p>
+<p> <a href="https://user-images.githubusercontent.com/8521181/35479064-611aa0b4-0428-11e8-85a1-cfb449b486ec.png" target="_blank" rel="noopener" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://user-images.githubusercontent.com/8521181/35479064-611aa0b4-0428-11e8-85a1-cfb449b486ec.png" class="lazyload" title></a><br> <a href="https://user-images.githubusercontent.com/8521181/35479084-d4f7ac02-0428-11e8-95a6-c4e3b1bef47b.png" target="_blank" rel="noopener" data-fancybox="group" data-caption class="fancybox"><img alt data-src="https://user-images.githubusercontent.com/8521181/35479084-d4f7ac02-0428-11e8-95a6-c4e3b1bef47b.png" class="lazyload" title></a></p>
 </li>
 <li><p>编辑 <code>站点配置文件</code>，新增以下配置，除了 <code>chunkSize</code> 字段，替换成在 Algolia 获取到的值：</p>
 <pre class="line-numbers language-yml"><code class="language-yml"> algolia:
@@ -138,7 +138,7 @@ tags:
 <pre><code> $ export HEXO_ALGOLIA_INDEXING_KEY=Search-Only API key # 使用 Git Bash
  # set HEXO_ALGOLIA_INDEXING_KEY=Search-Only API key # 使用 Windows CMD 命令行
  $ hexo clean
- $ hexo algolia</code></pre><p> <a href="http://theme-next.iissnan.com/uploads/algolia/algolia-step-4.png" target="_blank" rel="noopener" data-fancybox="group" data-caption class="fancybox"><img alt title data-src="http://theme-next.iissnan.com/uploads/algolia/algolia-step-4.png" class="lazyload"></a></p>
+ $ hexo algolia</code></pre><p> <a href="http://theme-next.iissnan.com/uploads/algolia/algolia-step-4.png" target="_blank" rel="noopener" data-fancybox="group" data-caption class="fancybox"><img alt data-src="http://theme-next.iissnan.com/uploads/algolia/algolia-step-4.png" class="lazyload" title></a></p>
 </li>
 <li><p>切换到 NexT 目录，并安装 algolia-instant-search 到 <code>source/lib</code> 目录。</p>
 <pre><code> $ cd themes/next
