@@ -6,7 +6,7 @@
   <link href="/sitemap.xml" rel="self"/>
   
   <link href="https://blog.ksh7.com/"/>
-  <updated>2020-03-19T07:27:02.000Z</updated>
+  <updated>2020-03-19T07:59:44.000Z</updated>
   <id>https://blog.ksh7.com/</id>
   
   <author>
@@ -17,13 +17,30 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>demo-parabola-js</title>
+    <title>parabola-js demo page</title>
     <link href="https://blog.ksh7.com/2020/03/19/demo-parabola-js/"/>
     <id>https://blog.ksh7.com/2020/03/19/demo-parabola-js/</id>
     <published>2020-03-19T07:25:44.000Z</published>
-    <updated>2020-03-19T07:27:02.000Z</updated>
+    <updated>2020-03-19T07:59:44.000Z</updated>
     
     <summary type="html">
+    
+      
+      
+        
+        
+          
+ &lt;style&gt;
+   .wrap {
+     overflow: hidden;
+   }
+   .box-1 {
+     position: relative;
+     width: 70%;
+     height: 400px;
+     margin:
+        
+      
     
     </summary>
     
