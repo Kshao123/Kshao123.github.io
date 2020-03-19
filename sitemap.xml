@@ -6,7 +6,7 @@
   <link href="/sitemap.xml" rel="self"/>
   
   <link href="https://blog.ksh7.com/"/>
-  <updated>2020-03-12T14:29:03.000Z</updated>
+  <updated>2020-03-19T07:59:44.000Z</updated>
   <id>https://blog.ksh7.com/</id>
   
   <author>
@@ -15,6 +15,68 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>parabola-js demo page</title>
+    <link href="https://blog.ksh7.com/2020/03/19/demo-parabola-js/"/>
+    <id>https://blog.ksh7.com/2020/03/19/demo-parabola-js/</id>
+    <published>2020-03-19T07:25:44.000Z</published>
+    <updated>2020-03-19T07:59:44.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+ &lt;style&gt;
+   .wrap {
+     overflow: hidden;
+   }
+   .box-1 {
+     position: relative;
+     width: 70%;
+     height: 400px;
+     margin:
+        
+      
+    
+    </summary>
+    
+      <category term="demo-page" scheme="https://blog.ksh7.com/categories/demo-page/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>css svg loading demo</title>
+    <link href="https://blog.ksh7.com/2020/03/13/css-svg-loading/"/>
+    <id>https://blog.ksh7.com/2020/03/13/css-svg-loading/</id>
+    <published>2020-03-13T12:19:55.000Z</published>
+    <updated>2020-03-13T12:58:06.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;本篇将记录一些 loading demo。&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;通过svg属性stroke-dashoffset-偏移和svg的差速旋转实现-loading&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="cssTricks" scheme="https://blog.ksh7.com/categories/cssTricks/"/>
+    
+    
+      <category term="css" scheme="https://blog.ksh7.com/tags/css/"/>
+    
+  </entry>
   
   <entry>
     <title>css-svg实现小于12号字体</title>
