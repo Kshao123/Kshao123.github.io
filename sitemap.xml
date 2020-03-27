@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>kshao-blog</title>
+  
+  <subtitle>Life Oriented Programming</subtitle>
+  <link href="/sitemap.xml" rel="self"/>
+  
+  <link href="https://ksh7.com/"/>
+  <updated>2020-03-27T07:19:21.000Z</updated>
+  <id>https://ksh7.com/</id>
+  
+  <author>
+    <name>kshao</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vue-vue3</title>
+    <link href="https://ksh7.com/2020/03/27/vue-vue3/"/>
+    <id>https://ksh7.com/2020/03/27/vue-vue3/</id>
+    <published>2020-03-27T07:16:44.000Z</published>
+    <updated>2020-03-27T07:19:21.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="vue" scheme="https://ksh7.com/categories/vue/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>js-复制，document.execCommand 的一些小坑</title>
+    <link href="https://ksh7.com/2020/03/27/js-copy/"/>
+    <id>https://ksh7.com/2020/03/27/js-copy/</id>
+    <published>2020-03-27T07:04:34.000Z</published>
+    <updated>2020-03-27T07:15:48.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;对于 execCommand 来复制的使用应该不会很陌生，这几天使用的碰上了一个新问题，此方法在请求的时候是无法使用的，往下看👇&lt;/p&gt;
+&lt;h1 id=&quot;默认使用复制&quot;&gt;&lt;a href=&quot;#默认使用复制&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="https://ksh7.com/categories/JavaScript/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>bilibili-哔哩哔哩bv转av，附官方API</title>
+    <link href="https://ksh7.com/2020/03/27/wl-bilibili-bvToAv/"/>
+    <id>https://ksh7.com/2020/03/27/wl-bilibili-bvToAv/</id>
+    <published>2020-03-27T06:46:44.000Z</published>
+    <updated>2020-03-27T06:56:36.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;最近小破站的出的 BV 号怪恶心的，下面来一个bv转av demo，输入完整链接或bv号即可。&lt;/p&gt;
+
+&lt;style&gt;
+.bili-wrap {
+  margin: 100px auto;
+  width: max-content;
+}
+.bili-wrap
+        
+      
+    
+    </summary>
+    
+      <category term="网络" scheme="https://ksh7.com/categories/%E7%BD%91%E7%BB%9C/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>一个 Git 项目配置多个仓库</title>
+    <link href="https://ksh7.com/2020/03/26/git-Repository/"/>
+    <id>https://ksh7.com/2020/03/26/git-Repository/</id>
+    <published>2020-03-26T13:09:54.000Z</published>
+    <updated>2020-03-26T13:44:41.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;废话不多直接x&lt;/p&gt;
+&lt;h1 id=&quot;普通添加仓库&quot;&gt;&lt;a href=&quot;#普通添加仓库&quot; class=&quot;headerlink&quot; title=&quot;普通添加仓库&quot;&gt;&lt;/a&gt;普通添加仓库&lt;/h1&gt;&lt;pre class=&quot;line-numbers
+        
+      
+    
+    </summary>
+    
+      <category term="Git" scheme="https://ksh7.com/categories/Git/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>git ssh key 设置，多邮箱配置</title>
+    <link href="https://ksh7.com/2020/03/26/wl-ssh-git/"/>
+    <id>https://ksh7.com/2020/03/26/wl-ssh-git/</id>
+    <published>2020-03-26T12:37:51.000Z</published>
+    <updated>2020-03-26T13:08:03.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;单邮箱的小伙伴可能没这样的烦恼，但是邮箱多的又需要使用 ssh 的连接就需要此教程啦。&lt;/p&gt;
+&lt;h1 id=&quot;先最基本的配置-ssh-吧&quot;&gt;&lt;a href=&quot;#先最基本的配置-ssh-吧&quot; class=&quot;headerlink&quot; title=&quot;先最基本的配置 ssh
+        
+      
+    
+    </summary>
+    
+      <category term="git" scheme="https://ksh7.com/categories/git/"/>
+    
+    
+      <category term="ssh" scheme="https://ksh7.com/tags/ssh/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>es2020 实用的几个新方法</title>
+    <link href="https://ksh7.com/2020/03/26/js-es-2020-1/"/>
+    <id>https://ksh7.com/2020/03/26/js-es-2020-1/</id>
+    <published>2020-03-26T07:04:35.000Z</published>
+    <updated>2020-03-26T12:30:55.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h4 id=&quot;最近-JavaScript-从-es6-就提高了更新频率，2019还没有结束-2020的规范就已经开始出草案了😵。&quot;&gt;&lt;a href=&quot;#最近-JavaScript-从-es6-就提高了更新频率，2019还没有结束-2020的规范就已经开始出草案了😵。&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="ECMA 规范" scheme="https://ksh7.com/categories/ECMA-%E8%A7%84%E8%8C%83/"/>
+    
+    
+      <category term="es2020" scheme="https://ksh7.com/tags/es2020/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>分享一个破防盗链方法，亲测。。。（Referrer-Policy）</title>
+    <link href="https://ksh7.com/2020/03/20/wl-fdl/"/>
+    <id>https://ksh7.com/2020/03/20/wl-fdl/</id>
+    <published>2020-03-20T15:50:48.000Z</published>
+    <updated>2020-03-25T15:56:25.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;em&gt;&lt;strong&gt;废话少说，来这的有几个不是因为盗图不显示再去搜索di，盗图一时爽 一直盗图一直爽。🤣&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;言归正传！盗图可耻，请尊重版权！👀&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3
+        
+      
+    
+    </summary>
+    
+      <category term="网络" scheme="https://ksh7.com/categories/%E7%BD%91%E7%BB%9C/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>js-面试-并发，记录下并发，并行，串行</title>
+    <link href="https://ksh7.com/2020/03/20/js-ms-bf/"/>
+    <id>https://ksh7.com/2020/03/20/js-ms-bf/</id>
+    <published>2020-03-20T13:11:20.000Z</published>
+    <updated>2020-03-20T17:14:56.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;区分-并发-并行-串行&quot;&gt;&lt;a href=&quot;#区分-并发-并行-串行&quot; class=&quot;headerlink&quot; title=&quot;区分 并发 并行 串行&quot;&gt;&lt;/a&gt;区分 并发 并行 串行&lt;/h1&gt;&lt;p&gt;之前很容易搞混 并发和并行，所以记录一哈&lt;/p&gt;
+&lt;h4
+        
+      
+    
+    </summary>
+    
+      <category term="面试" scheme="https://ksh7.com/categories/%E9%9D%A2%E8%AF%95/"/>
+    
+    
+      <category term="并发" scheme="https://ksh7.com/tags/%E5%B9%B6%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>parabola-js demo page</title>
+    <link href="https://ksh7.com/2020/03/19/demo-parabola-js/"/>
+    <id>https://ksh7.com/2020/03/19/demo-parabola-js/</id>
+    <published>2020-03-19T07:25:44.000Z</published>
+    <updated>2020-03-19T07:59:44.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+ &lt;style&gt;
+   .wrap {
+     overflow: hidden;
+   }
+   .box-1 {
+     position: relative;
+     width: 70%;
+     height: 400px;
+     margin:
+        
+      
+    
+    </summary>
+    
+      <category term="demo-page" scheme="https://ksh7.com/categories/demo-page/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>css svg loading demo</title>
+    <link href="https://ksh7.com/2020/03/13/css-svg-loading/"/>
+    <id>https://ksh7.com/2020/03/13/css-svg-loading/</id>
+    <published>2020-03-13T12:19:55.000Z</published>
+    <updated>2020-03-13T12:58:06.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;本篇将记录一些 loading demo。&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;通过svg属性stroke-dashoffset-偏移和svg的差速旋转实现-loading&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="cssTricks" scheme="https://ksh7.com/categories/cssTricks/"/>
+    
+    
+      <category term="css" scheme="https://ksh7.com/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>css-svg实现小于12号字体</title>
+    <link href="https://ksh7.com/2020/03/12/css-svg-12px-fontsize/"/>
+    <id>https://ksh7.com/2020/03/12/css-svg-12px-fontsize/</id>
+    <published>2020-03-12T14:16:39.000Z</published>
+    <updated>2020-03-12T14:29:03.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;效果&quot;&gt;&lt;a href=&quot;#效果&quot; class=&quot;headerlink&quot; title=&quot;效果&quot;&gt;&lt;/a&gt;效果&lt;/h1&gt;
+&lt;style&gt;
+  .s12-wrap {
+    display: flex;
+    align-items: center;
+   
+        
+      
+    
+    </summary>
+    
+      <category term="cssTricks" scheme="https://ksh7.com/categories/cssTricks/"/>
+    
+    
+      <category term="css" scheme="https://ksh7.com/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>css-手风琴动效</title>
+    <link href="https://ksh7.com/2020/03/12/css-shouFengQin/"/>
+    <id>https://ksh7.com/2020/03/12/css-shouFengQin/</id>
+    <published>2020-03-12T12:06:34.000Z</published>
+    <updated>2020-03-12T12:13:29.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+&lt;style&gt;
+.sfq-wrap {
+  width: 100%;
+  min-width: 400px;
+  margin: 100px auto;
+}
+.sfq-wrap ul,
+.sfq-wrap li {
+  padding: 0;
+  margin: 0;
+ 
+        
+      
+    
+    </summary>
+    
+      <category term="cssTricks" scheme="https://ksh7.com/categories/cssTricks/"/>
+    
+    
+      <category term="css" scheme="https://ksh7.com/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>三角边框-实心/镂空</title>
+    <link href="https://ksh7.com/2020/03/11/san-jiao-bian-kuang/"/>
+    <id>https://ksh7.com/2020/03/11/san-jiao-bian-kuang/</id>
+    <published>2020-03-11T14:03:04.000Z</published>
+    <updated>2020-03-12T07:20:21.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;实心边框&quot;&gt;&lt;a href=&quot;#实心边框&quot; class=&quot;headerlink&quot; title=&quot;实心边框&quot;&gt;&lt;/a&gt;实心边框&lt;/h1&gt;
+&lt;style&gt;
+  .sanjiao-wrap {
+    width: 400px;
+    min-height:
+        
+      
+    
+    </summary>
+    
+      <category term="cssTricks" scheme="https://ksh7.com/categories/cssTricks/"/>
+    
+    
+      <category term="css" scheme="https://ksh7.com/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>底部 footer 自适应</title>
+    <link href="https://ksh7.com/2020/03/11/btn-sticky-footer/"/>
+    <id>https://ksh7.com/2020/03/11/btn-sticky-footer/</id>
+    <published>2020-03-11T12:13:51.000Z</published>
+    <updated>2020-03-12T07:20:21.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h5 id=&quot;底部-footer-自适应在底部&quot;&gt;&lt;a href=&quot;#底部-footer-自适应在底部&quot; class=&quot;headerlink&quot; title=&quot;底部 footer 自适应在底部&quot;&gt;&lt;/a&gt;底部 footer 自适应在底部&lt;/h5&gt;
+&lt;style&gt;
+ 
+        
+      
+    
+    </summary>
+    
+      <category term="cssTricks" scheme="https://ksh7.com/categories/cssTricks/"/>
+    
+    
+      <category term="css" scheme="https://ksh7.com/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>css 实现毛玻璃</title>
+    <link href="https://ksh7.com/2020/03/11/filter-glass/"/>
+    <id>https://ksh7.com/2020/03/11/filter-glass/</id>
+    <published>2020-03-11T07:58:39.000Z</published>
+    <updated>2020-03-12T07:20:21.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;solution&quot;&gt;&lt;a href=&quot;#solution&quot; class=&quot;headerlink&quot; title=&quot;solution&quot;&gt;&lt;/a&gt;solution&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;filter: blur(x px);&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1
+        
+      
+    
+    </summary>
+    
+      <category term="cssTricks" scheme="https://ksh7.com/categories/cssTricks/"/>
+    
+    
+      <category term="css" scheme="https://ksh7.com/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>绝对定位-元素宽度自动撑开</title>
+    <link href="https://ksh7.com/2020/03/10/css-position-width/"/>
+    <id>https://ksh7.com/2020/03/10/css-position-width/</id>
+    <published>2020-03-10T12:02:32.000Z</published>
+    <updated>2020-03-12T07:20:21.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+&lt;style&gt;
+  .wrap {
+    position: relative;
+    margin: auto;
+    height: 30px;
+    width: 120px;
+    margin-bottom: 50px;
+    border: 1px
+        
+      
+    
+    </summary>
+    
+      <category term="cssTricks" scheme="https://ksh7.com/categories/cssTricks/"/>
+    
+    
+      <category term="css" scheme="https://ksh7.com/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>双线部署博客，解决 github 访问速度问题</title>
+    <link href="https://ksh7.com/2020/03/09/update-theme-fluid/"/>
+    <id>https://ksh7.com/2020/03/09/update-theme-fluid/</id>
+    <published>2020-03-09T12:33:18.000Z</published>
+    <updated>2020-03-09T14:18:18.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;项目部署-Github-并且仓库名为-quot-userName-quot-github-io&quot;&gt;&lt;a href=&quot;#项目部署-Github-并且仓库名为-quot-userName-quot-github-io&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="其他教程" scheme="https://ksh7.com/categories/%E5%85%B6%E4%BB%96%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="blog" scheme="https://ksh7.com/tags/blog/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>滚动歌词</title>
+    <link href="https://ksh7.com/2019/07/02/music-gun/"/>
+    <id>https://ksh7.com/2019/07/02/music-gun/</id>
+    <published>2019-07-02T11:30:37.000Z</published>
+    <updated>2019-07-02T15:51:21.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h4 id=&quot;滚动歌词&quot;&gt;&lt;a href=&quot;#滚动歌词&quot; class=&quot;headerlink&quot; title=&quot;滚动歌词&quot;&gt;&lt;/a&gt;滚动歌词&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;把获取到的歌词 用换行符 split
+        
+      
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="https://ksh7.com/categories/JavaScript/"/>
+    
+    
+      <category term="demo" scheme="https://ksh7.com/tags/demo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>css 底部菜单栏动画</title>
+    <link href="https://ksh7.com/2019/07/01/css-tab/"/>
+    <id>https://ksh7.com/2019/07/01/css-tab/</id>
+    <published>2019-07-01T15:09:22.000Z</published>
+    <updated>2019-07-01T16:07:32.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;从中间展开 after 需要&lt;br&gt;设置 position:absolute；left：0；right：0；bottom：0；margin：auto&lt;/p&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;500&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="cssTricks" scheme="https://ksh7.com/categories/cssTricks/"/>
+    
+    
+      <category term="css" scheme="https://ksh7.com/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>css 背景渐变 实现优惠券</title>
+    <link href="https://ksh7.com/2019/07/01/coucpons-bg/"/>
+    <id>https://ksh7.com/2019/07/01/coucpons-bg/</id>
+    <published>2019-07-01T12:51:27.000Z</published>
+    <updated>2019-07-01T15:07:23.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h5 id=&quot;关键词&quot;&gt;&lt;a href=&quot;#关键词&quot; class=&quot;headerlink&quot; title=&quot;关键词&quot;&gt;&lt;/a&gt;关键词&lt;/h5&gt;&lt;h6 id=&quot;线性渐变-径向渐变&quot;&gt;&lt;a href=&quot;#线性渐变-径向渐变&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="cssTricks" scheme="https://ksh7.com/categories/cssTricks/"/>
+    
+    
+      <category term="background" scheme="https://ksh7.com/tags/background/"/>
+    
+  </entry>
+  
+</feed>
