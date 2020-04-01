@@ -6,7 +6,7 @@
   <link href="/sitemap.xml" rel="self"/>
   
   <link href="https://ksh7.com/"/>
-  <updated>2020-03-30T16:49:01.000Z</updated>
+  <updated>2020-04-01T20:04:26.000Z</updated>
   <id>https://ksh7.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>活动-育碧喜加一，雷曼：传奇 - 截至(4)月(3)日</title>
+    <link href="https://ksh7.com/2020/04/02/wl-active/"/>
+    <id>https://ksh7.com/2020/04/02/wl-active/</id>
+    <published>2020-04-01T19:34:15.000Z</published>
+    <updated>2020-04-01T20:04:26.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;最近大厂都在清库存嘛~ 又送看门狗，又送雷曼，这两个游戏质量相对来说算高哒。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://store.ubi.com/cn/game?pid=56c4948888a7e300458b47da&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="活动" scheme="https://ksh7.com/categories/%E6%B4%BB%E5%8A%A8/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>vue-vue3 CompositionApi</title>
@@ -66,11 +92,11 @@
   </entry>
   
   <entry>
-    <title>bilibili-哔哩哔哩bv转av，附官方API</title>
+    <title>bilibili-在线哔哩哔哩bv号转av号工具，附官方API</title>
     <link href="https://ksh7.com/2020/03/27/wl-bilibili-bvToAv/"/>
     <id>https://ksh7.com/2020/03/27/wl-bilibili-bvToAv/</id>
     <published>2020-03-27T06:46:44.000Z</published>
-    <updated>2020-04-01T16:42:32.000Z</updated>
+    <updated>2020-04-01T20:07:35.000Z</updated>
     
     <summary type="html">
     
@@ -557,32 +583,6 @@
     
     
       <category term="css" scheme="https://ksh7.com/tags/css/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>css 背景渐变 实现优惠券</title>
-    <link href="https://ksh7.com/2019/07/01/coucpons-bg/"/>
-    <id>https://ksh7.com/2019/07/01/coucpons-bg/</id>
-    <published>2019-07-01T12:51:27.000Z</published>
-    <updated>2019-07-01T15:07:23.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h5 id=&quot;关键词&quot;&gt;&lt;a href=&quot;#关键词&quot; class=&quot;headerlink&quot; title=&quot;关键词&quot;&gt;&lt;/a&gt;关键词&lt;/h5&gt;&lt;h6 id=&quot;线性渐变-径向渐变&quot;&gt;&lt;a href=&quot;#线性渐变-径向渐变&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="cssTricks" scheme="https://ksh7.com/categories/cssTricks/"/>
-    
-    
-      <category term="background" scheme="https://ksh7.com/tags/background/"/>
     
   </entry>
   
