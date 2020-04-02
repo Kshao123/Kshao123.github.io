@@ -6,7 +6,7 @@
   <link href="/sitemap.xml" rel="self"/>
   
   <link href="https://ksh7.com/"/>
-  <updated>2020-04-02T13:24:36.000Z</updated>
+  <updated>2020-04-02T15:33:23.000Z</updated>
   <id>https://ksh7.com/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>页面结构语义化</title>
+    <link href="https://ksh7.com/2020/04/02/html-lan-rag/"/>
+    <id>https://ksh7.com/2020/04/02/html-lan-rag/</id>
+    <published>2020-04-02T14:11:45.000Z</published>
+    <updated>2020-04-02T15:33:23.000Z</updated>
+    
+    <summary type="html">
+    
+      前端标签语义化，面试，html，html5
+    
+    </summary>
+    
+      <category term="面试" scheme="https://ksh7.com/categories/%E9%9D%A2%E8%AF%95/"/>
+    
+    
+      <category term="html" scheme="https://ksh7.com/tags/html/"/>
+    
+  </entry>
   
   <entry>
     <title>js-面试，手写代码系列：bind，call，apply，new</title>
@@ -534,33 +554,6 @@
     
     
       <category term="blog" scheme="https://ksh7.com/tags/blog/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>滚动歌词</title>
-    <link href="https://ksh7.com/2019/07/02/music-gun/"/>
-    <id>https://ksh7.com/2019/07/02/music-gun/</id>
-    <published>2019-07-02T11:30:37.000Z</published>
-    <updated>2019-07-02T15:51:21.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h4 id=&quot;滚动歌词&quot;&gt;&lt;a href=&quot;#滚动歌词&quot; class=&quot;headerlink&quot; title=&quot;滚动歌词&quot;&gt;&lt;/a&gt;滚动歌词&lt;/h4&gt;&lt;ol&gt;
-&lt;li&gt;把获取到的歌词 用换行符 split
-        
-      
-    
-    </summary>
-    
-      <category term="JavaScript" scheme="https://ksh7.com/categories/JavaScript/"/>
-    
-    
-      <category term="demo" scheme="https://ksh7.com/tags/demo/"/>
     
   </entry>
   
