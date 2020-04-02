@@ -6,7 +6,7 @@
   <link href="/sitemap.xml" rel="self"/>
   
   <link href="https://ksh7.com/"/>
-  <updated>2020-04-01T23:26:49.000Z</updated>
+  <updated>2020-04-02T09:02:46.000Z</updated>
   <id>https://ksh7.com/</id>
   
   <author>
@@ -17,11 +17,35 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>js-</title>
+    <link href="https://ksh7.com/2020/04/02/ms-writeCode/"/>
+    <id>https://ksh7.com/2020/04/02/ms-writeCode/</id>
+    <published>2020-04-02T08:32:13.000Z</published>
+    <updated>2020-04-02T09:02:46.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;哪個英文字母最酷？ &lt;span class=&quot;hide-inline&quot;&gt;&lt;a class=&quot;hide-button button--primary button--animated&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="面试" scheme="https://ksh7.com/categories/%E9%9D%A2%E8%AF%95/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>活动-育碧喜加一，雷曼：传奇 - 截至(4)月(3)日</title>
     <link href="https://ksh7.com/2020/04/02/wl-active/"/>
     <id>https://ksh7.com/2020/04/02/wl-active/</id>
     <published>2020-04-01T19:34:15.000Z</published>
-    <updated>2020-04-01T23:26:49.000Z</updated>
+    <updated>2020-04-02T10:01:34.000Z</updated>
     
     <summary type="html">
     
@@ -96,7 +120,7 @@
     <link href="https://ksh7.com/2020/03/27/wl-bilibili-bvToAv/"/>
     <id>https://ksh7.com/2020/03/27/wl-bilibili-bvToAv/</id>
     <published>2020-03-27T06:46:44.000Z</published>
-    <updated>2020-04-01T23:28:43.000Z</updated>
+    <updated>2020-04-02T12:54:12.000Z</updated>
     
     <summary type="html">
     
@@ -123,7 +147,7 @@
         
         
           &lt;p&gt;废话不多直接x&lt;/p&gt;
-&lt;h1 id=&quot;普通添加仓库&quot;&gt;&lt;a href=&quot;#普通添加仓库&quot; class=&quot;headerlink&quot; title=&quot;普通添加仓库&quot;&gt;&lt;/a&gt;普通添加仓库&lt;/h1&gt;&lt;pre class=&quot;line-numbers
+&lt;h1 id=&quot;普通添加仓库&quot;&gt;&lt;a href=&quot;#普通添加仓库&quot; class=&quot;headerlink&quot; title=&quot;普通添加仓库&quot;&gt;&lt;/a&gt;普通添加仓库&lt;/h1&gt;&lt;figure class=&quot;highlight
         
       
     
@@ -166,7 +190,7 @@
     <link href="https://ksh7.com/2020/03/26/js-es-2020-1/"/>
     <id>https://ksh7.com/2020/03/26/js-es-2020-1/</id>
     <published>2020-03-26T07:04:35.000Z</published>
-    <updated>2020-03-26T12:30:55.000Z</updated>
+    <updated>2020-04-02T09:42:16.000Z</updated>
     
     <summary type="html">
     
@@ -543,33 +567,6 @@
     
     
       <category term="demo" scheme="https://ksh7.com/tags/demo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>css 底部菜单栏动画</title>
-    <link href="https://ksh7.com/2019/07/01/css-tab/"/>
-    <id>https://ksh7.com/2019/07/01/css-tab/</id>
-    <published>2019-07-01T15:09:22.000Z</published>
-    <updated>2019-07-01T16:07:32.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;从中间展开 after 需要&lt;br&gt;设置 position:absolute；left：0；right：0；bottom：0；margin：auto&lt;/p&gt;
-&lt;iframe width=&quot;100%&quot; height=&quot;500&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="cssTricks" scheme="https://ksh7.com/categories/cssTricks/"/>
-    
-    
-      <category term="css" scheme="https://ksh7.com/tags/css/"/>
     
   </entry>
   
