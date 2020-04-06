@@ -4,6 +4,48 @@
   
     
     <entry>
+      <title>bilibili-哔哩哔哩 B站 封面提取在线工具</title>
+      <link href="/2020/04/06/wl-tool-bili-cover/"/>
+      <url>/2020/04/06/wl-tool-bili-cover/</url>
+      
+        <content type="html"><![CDATA[<h1 id="B站-封面提取工具"><a href="#B站-封面提取工具" class="headerlink" title="B站 封面提取工具"></a>B站 封面提取工具</h1><blockquote><p>闲着没事干。。。</p></blockquote><section style="width: max-content; margin: auto; padding: 10px; border: 1px solid">  <h1>bilibili-哔哩哔哩 B站 封面提取在线工具</h1>  <input id="wl-bl-inp" style="width: 80%" type="text">  <button id="wl-bl-btn">提取</button>  <div style="margin-top: 20px;">    结果：<span>    <a target="_blank" id="wl-bl-sp" href="#">暂无</a>  </span> <button id="wl-bl-cp">copy</button>  </div>  <figure id="bl-img" style="margin: 20px 0 0 0; padding: 0">    <figcaption style="margin-bottom: 20px;">图片预览：</figcaption>  </figure></section><script>  "use strict";  var bvUrl = 'https://www.bilibili.com/video/BV1gs411B7y4/',    avUrl = 'https://www.bilibili.com/video/av4606803/',    blInp = document.getElementById('wl-bl-inp'),    blBtn = document.getElementById('wl-bl-btn'),    blsp = document.getElementById('wl-bl-sp'),    blcp = document.getElementById('wl-bl-cp');  var setAttr = function setAttr(dom, attr, value) {    dom[attr] = value;  };  var copyText = function copyText(value) {    var inp = document.createElement('input');    inp.setAttribute('value', value);    document.body.appendChild(inp);    inp.select();    inp.setSelectionRange(0, 9999);    if (document.execCommand('copy')) {      document.execCommand('copy');    }    document.body.removeChild(inp);    ga('send', 'event', 'copy', 'click', 'bilibili-copy-cover');  };  setAttr(blInp, 'value', bvUrl);  blBtn.addEventListener('click', async function () {    try {      setAttr(blsp, 'innerHTML', 'loading....');       if (document.getElementById('bl-img-child')) {                  document.getElementById('bl-img').removeChild(document.getElementById('bl-img-child'));        }      var value = blInp.value;      var reg = /BV\w+/g;      var avReg = /av\d+/gi;      var id = '';      if (!value) throw new Error(); // 为 BV      if (reg.test(value)) {        var bvId = value.match(reg);        if (!bvId || !bvId.length) throw new Error();        id = bvId;      } else if (avReg.test(value)) {        var avId = value.match(avReg);        if (!avId || !avId.length) throw new Error();        id = avId;      } else throw new Error();      var data = await fetch("https://1798248453614055.cn-shanghai.fc.aliyuncs.com/2016-08-15/proxy/getBdy-GreetingService-EE494AFDB77E/getBiliCover/?aid=".concat(id));      var _await$data$json = await data.json(),        _await$data$json$data = _await$data$json.data,        result = _await$data$json$data.result,        url = _await$data$json$data.url;      if (result) {        setAttr(blsp, 'innerHTML', url);        setAttr(blsp, 'href', url);        var img = document.createElement('img');        img.src = url;        img.setAttribute('id', 'bl-img-child')        document.getElementById('bl-img').appendChild(img);        img = null;      }    } catch (e) {      alert('AV 或 BV 号有误！');      setAttr(blsp, 'innerHTML', '获取错误，请稍后再试！');    }    ga('send', 'event', '提取bilibli封面', 'click', 'bilibili-for-cover');  });  blcp.addEventListener("click", function () {    copyText(blsp.innerHTML);  });</script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络 </category>
+          
+          <category> 在线工具 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>在线一键获取百度云盘万能钥匙，百度云盘密码 提取码查询</title>
+      <link href="/2020/04/06/wl-tool-bdyKey/"/>
+      <url>/2020/04/06/wl-tool-bdyKey/</url>
+      
+        <content type="html"><![CDATA[<h1 id="提取码获取原理"><a href="#提取码获取原理" class="headerlink" title="提取码获取原理"></a>提取码获取原理</h1><div class="note primary no-icon">            <p>此方法非暴力破解，冷门资源可能无法获取密码！<br>通过爬虫和其他用户分享的方式提取密码，所以你的资源热度越高获取提取码的几率就越大。</p>          </div><p><strong><em>在线提取工具</em></strong></p><style>.wl-wrap-bdyp-key {  width: 100%;  text-align: center;  border: 1px solid;  padding-bottom: 20px;}</style><section class="wl-wrap-bdyp-key">  <h1>百度云盘万能钥匙，百度云盘密码 提取码查询</h1>  <div>    <input style="width: 30%" id="wl-bdy-inp" type="text">    <button id="wl-bdy-btn">查询密码</button>  </div>  <div style="text-align: center; margin-top: 20px;">    <p style="width: max-content; margin: auto; text-align: left; min-width: 200px;">      返回结果: <span id="wl-bdy-sp" style="color: #49B1F5">暂无</span>    </p>  </div></section><script>"use strict";function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }var inp = document.getElementById('wl-bdy-inp');var btn = document.getElementById('wl-bdy-btn');var showSp = document.getElementById('wl-bdy-sp');var dValue = 'http://pan.baidu.com/s/1c0lcMqs';var setAttr = function setAttr(dom, attr, value) {  dom[attr] = value;};setAttr(inp, 'value', dValue);btn.addEventListener('click', async function () {  var value = inp.value;  if (!value.trim()) {    return alert('请输入正确的链接');  }  setAttr(showSp, 'innerHTML', 'loading');  try {    var data = await fetch("https://1798248453614055.cn-shanghai.fc.aliyuncs.com/2016-08-15/proxy/getBdy-GreetingService-EE494AFDB77E/getBdy/?url=".concat(value), {      method: 'post'    });    var res = await data.json();    if (res) {      var _data = res.data;      if (typeof _data === 'string') setAttr(showSp, 'innerHTML', _data);else if (_typeof(_data) === 'object') {        if (_typeof(_data.secess)) setAttr(showSp, 'innerHTML', _data.info);      } else throw new Error();    }  } catch (e) {    setAttr(showSp, 'innerHTML', '获取失败');  }  ga('send', 'event', '提取百度网盘密码', 'click', 'bdy-key');});</script><hr /><p><img src="/" class="lazyload" data-src="https://wx1.sinaimg.cn/mw690/0085UwQ9ly1gdk5dko7a0j30p50grjt0.jpg"  alt="百度网盘获取提取码示例"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络 </category>
+          
+          <category> 在线工具 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>bilibili-在线或本地哔哩哔哩bv号转av号提取互转工具，附官方API和本地JS代码</title>
       <link href="/2020/04/05/wl-bilibili-bvToAv/"/>
       <url>/2020/04/05/wl-bilibili-bvToAv/</url>
@@ -14,6 +56,8 @@
       <categories>
           
           <category> 网络 </category>
+          
+          <category> 工具 </category>
           
       </categories>
       
