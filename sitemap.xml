@@ -6,7 +6,7 @@
   <link href="/sitemap.xml" rel="self"/>
   
   <link href="https://ksh7.com/"/>
-  <updated>2020-04-07T13:02:28.000Z</updated>
+  <updated>2020-04-13T13:03:16.000Z</updated>
   <id>https://ksh7.com/</id>
   
   <author>
@@ -15,6 +15,62 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>梯子 —— 网络加速器 xxnet 配合谷歌云，流畅访问 YouTube、Facebook等墙外世界</title>
+    <link href="https://ksh7.com/2020/04/13/wl-vpn-xxnet/"/>
+    <id>https://ksh7.com/2020/04/13/wl-vpn-xxnet/</id>
+    <published>2020-04-13T12:28:13.000Z</published>
+    <updated>2020-04-13T13:03:16.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;div class=&quot;note primary no-icon&quot;&gt;
+            &lt;p&gt;自建梯子唯一的问题还是服务器的问题，一兆不够用五兆买不起。。。便宜的搬瓦工要是脸黑也能被墙，所以找个好一点的梯子难啊~&lt;/p&gt;
+          &lt;/div&gt;
+
+&lt;h1
+        
+      
+    
+    </summary>
+    
+    
+      <category term="vpn" scheme="https://ksh7.com/tags/vpn/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>github 油猴脚本，国内镜像加速站、快速克隆配置 - github 克隆加速</title>
+    <link href="https://ksh7.com/2020/04/13/wl-github-mirror/"/>
+    <id>https://ksh7.com/2020/04/13/wl-github-mirror/</id>
+    <published>2020-04-13T07:02:05.000Z</published>
+    <updated>2020-04-13T12:40:36.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;div class=&quot;note primary no-icon&quot;&gt;
+            &lt;p&gt;&lt;code&gt;GitHub&lt;/code&gt; 的 clone 加速之前有去找过其他方法，什么修改 host 啥的，都以 gg 告终。最近看到油猴有出脚本那今天就碰一碰。&lt;/p&gt;
+   
+        
+      
+    
+    </summary>
+    
+      <category term="网络" scheme="https://ksh7.com/categories/%E7%BD%91%E7%BB%9C/"/>
+    
+    
+      <category term="github" scheme="https://ksh7.com/tags/github/"/>
+    
+  </entry>
   
   <entry>
     <title>serverless - 无服务 云函数的入门记录</title>
@@ -457,74 +513,6 @@
 &lt;p&gt;&lt;code&gt;本篇将记录一些 loading demo。&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&quot;通过svg属性stroke-dashoffset-偏移和svg的差速旋转实现-loading&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="cssTricks" scheme="https://ksh7.com/categories/cssTricks/"/>
-    
-    
-      <category term="css" scheme="https://ksh7.com/tags/css/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>css-svg实现小于12号字体</title>
-    <link href="https://ksh7.com/2020/03/12/css-svg-12px-fontsize/"/>
-    <id>https://ksh7.com/2020/03/12/css-svg-12px-fontsize/</id>
-    <published>2020-03-12T14:16:39.000Z</published>
-    <updated>2020-03-12T14:29:03.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;效果&quot;&gt;&lt;a href=&quot;#效果&quot; class=&quot;headerlink&quot; title=&quot;效果&quot;&gt;&lt;/a&gt;效果&lt;/h1&gt;
-&lt;style&gt;
-  .s12-wrap {
-    display: flex;
-    align-items: center;
-   
-        
-      
-    
-    </summary>
-    
-      <category term="cssTricks" scheme="https://ksh7.com/categories/cssTricks/"/>
-    
-    
-      <category term="css" scheme="https://ksh7.com/tags/css/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>css-手风琴动效</title>
-    <link href="https://ksh7.com/2020/03/12/css-shouFengQin/"/>
-    <id>https://ksh7.com/2020/03/12/css-shouFengQin/</id>
-    <published>2020-03-12T12:06:34.000Z</published>
-    <updated>2020-03-12T12:13:29.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          
-&lt;style&gt;
-.sfq-wrap {
-  width: 100%;
-  min-width: 400px;
-  margin: 100px auto;
-}
-.sfq-wrap ul,
-.sfq-wrap li {
-  padding: 0;
-  margin: 0;
- 
         
       
     
