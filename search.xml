@@ -4,6 +4,50 @@
   
     
     <entry>
+      <title>echarts- 中国地图的 map json 数据，顺便分享文字居中的版本</title>
+      <link href="/2020/04/14/echart-map-china/"/>
+      <url>/2020/04/14/echart-map-china/</url>
+      
+        <content type="html"><![CDATA[<h1 id="原版中国地图数据和居中地图"><a href="#原版中国地图数据和居中地图" class="headerlink" title="原版中国地图数据和居中地图"></a>原版中国地图数据和居中地图</h1><p><a href="https://gitee.com/jyk123/codes/act73bv5n9uhps6dxkz2g20" target="_blank" rel="noopener">点他</a></p><p><img src="/" class="lazyload" data-src="https://wxt.sinaimg.cn/mw690/0085UwQ9ly1gdtn971z4vj30dg0chgng.jpg"  alt="echarts 中国地图展示"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> echarts </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>面试-实现 lodash 的 _get 功能</title>
+      <link href="/2020/04/14/js-ms-get/"/>
+      <url>/2020/04/14/js-ms-get/</url>
+      
+        <content type="html"><![CDATA[<div class="note primary no-icon">            <p>面试遇到的题目，记录一哈，简易实现 lodash 方法</p>          </div><h1 id="原题目，其实和实现-get-方法没啥区别，实现思路不同而已"><a href="#原题目，其实和实现-get-方法没啥区别，实现思路不同而已" class="headerlink" title="原题目，其实和实现 _get 方法没啥区别，实现思路不同而已"></a>原题目，其实和实现 _get 方法没啥区别，实现思路不同而已</h1><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">题目:</span><br><span class="line">现有 Json 数据，格式如下:</span><br><span class="line">json = &#123; <span class="string">"a"</span>: [ &#123; <span class="string">"b"</span>: <span class="string">"c"</span> &#125; , ... ] , ... &#125;; 请实现一个方法:<span class="keyword">get</span>(json, "a[0].b")，使其返回值为 c。 要求:自己实现遍历逻辑，不允许使用正则表达式、不允许使用 eval()等类似 方法。</span><br><span class="line">测试用例:</span><br><span class="line">json = &#123; <span class="string">"a"</span>: [ &#123; <span class="string">"b"</span>: <span class="string">"c"</span> &#125;, <span class="string">"d"</span> ], <span class="string">"x"</span>: <span class="number">1</span>&#125; <span class="keyword">get</span>(json, "a[0].b") == "c"</span><br><span class="line"><span class="keyword">get</span>(json, "a[1]") == "d"</span><br><span class="line"><span class="keyword">get</span>(json, "x") == 1</span><br></pre></td></tr></table></figure><h1 id="原题解就不献丑啦"><a href="#原题解就不献丑啦" class="headerlink" title="原题解就不献丑啦~"></a>原题解就不献丑啦~</h1><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">  <span class="keyword">const</span> str2path = <span class="function">(<span class="params">path</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> reg = <span class="regexp">/[^.[\]]/g</span></span><br><span class="line">    <span class="keyword">let</span> result = []</span><br><span class="line">    <span class="comment">// const rePropName = /[^.[\]]+|\[(?:([^"'][^[]*)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g</span></span><br><span class="line">    path.replace(reg, <span class="function"><span class="keyword">function</span> (<span class="params">key</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (key) &#123;</span><br><span class="line">        result.push(key.trim())</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> <span class="keyword">get</span> = (obj, path) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> basePath = str2path(path);</span><br><span class="line">    <span class="keyword">let</span> index = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (obj !== <span class="literal">null</span> &amp;&amp; index &lt; basePath.length) &#123;</span><br><span class="line">      obj = obj[basePath[index ++]];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">const</span> obj = &#123;</span><br><span class="line">      a: &#123;</span><br><span class="line">        b: &#123;</span><br><span class="line">          c: <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">get</span>(obj, 'a[b].c') // 1</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 面试 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>梯子 —— 网络加速器 xxnet 配合谷歌云，流畅访问 YouTube、Facebook等墙外世界</title>
       <link href="/2020/04/13/wl-vpn-xxnet/"/>
       <url>/2020/04/13/wl-vpn-xxnet/</url>
