@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>记录阿里云函数 Fun 和 Cloud Toolkit 工具的使用，本地开发测试云函数</title>
+      <link href="/2020/04/26/serverless-fun/"/>
+      <url>/2020/04/26/serverless-fun/</url>
+      
+        <content type="html"><![CDATA[<div class="note primary no-icon">            <p>阿里提供了 <code>Fun</code> 和 <code>Cloud Toolkit</code> 两款工具来本地测试函数，流程如下。</p>          </div><h1 id="安装-Fun-工具"><a href="#安装-Fun-工具" class="headerlink" title="安装 Fun 工具"></a>安装 <code>Fun</code> 工具</h1><p><code>Fun</code> 为命令行工具，可在本地预览和部署函数<br><a href="https://hub.fastgit.org/alibaba/funcraft/blob/master/docs/usage/installation-zh.md" target="_blank" rel="noopener">官方安装教程</a></p><h4 id="npm-全局安装"><a href="#npm-全局安装" class="headerlink" title="npm 全局安装"></a>npm 全局安装</h4><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="code"><pre><span class="line">npm install @alicloud/fun -g</span><br></pre></td></tr></table></figure><blockquote><p>注意！在本地运行函数需要安装 <code>docker</code>，<code>docker</code>安装推荐 <code>DaoCloud</code>，国内的镜像安装包和加速源测试下来相对阿里的源快一点</p></blockquote><h4 id="fun-init"><a href="#fun-init" class="headerlink" title="fun init"></a>fun init</h4><p>创建函数，根据需要选择函数类型</p><h4 id="fun-local-start"><a href="#fun-local-start" class="headerlink" title="fun local start"></a>fun local start</h4><p>运行函数，热更新。<br><code>fun local start &lt;函数名&gt;</code> 启动指定函数，无热更新</p><h4 id="fun-config"><a href="#fun-config" class="headerlink" title="fun config"></a>fun config</h4><p>登录阿里云，部署需要这一步</p><h4 id="fun-deploy"><a href="#fun-deploy" class="headerlink" title="fun deploy"></a>fun deploy</h4><p>部署，指定函数部署 <code>fun deploy &lt;函数名&gt;</code></p><blockquote><p>启动函数时，如果你的函数依赖未安装或者不全都会报错，需要在有 <code>yml</code> 配置文件路径下运行 <code>fun install</code>即可</p></blockquote><h1 id="安装-Cloud-Toolkit-IDE-插件"><a href="#安装-Cloud-Toolkit-IDE-插件" class="headerlink" title="安装 Cloud Toolkit IDE 插件"></a>安装 <code>Cloud Toolkit</code> IDE 插件</h1><p><code>jetbrain</code> 系列支持 <code>php</code>、<code>idea</code>，在 <code>plugin</code> 搜索 <code>Alibaba Cloud Toolkit</code> 即可<br>不支持 <code>webStorm</code>给差评，<code>vscode</code> 等其他编辑器点下面</p><p><a href="https://cn.aliyun.com/product/cloudtoolkit" target="_blank" rel="noopener">官网地址</a></p><h4 id="拉取云函数"><a href="#拉取云函数" class="headerlink" title="拉取云函数"></a>拉取云函数</h4><p>安装完插件后 <code>idea</code> 的函数工具栏是在右边，右边，右边！（idea 2020.1），左边的是服务器部署相关的工具。<br><img src="/" class="lazyload" data-src="https://wxt.sinaimg.cn/mw690/0085UwQ9ly1ge7767zmo8j30fo0eddgu.jpg"  alt="插件展示"></p><p>从远程获取函数<br><img src="/" class="lazyload" data-src="https://wxt.sinaimg.cn/mw690/0085UwQ9ly1ge7763qmp0j30ek0c3755.jpg"  alt="从远程获取函数"></p><h4 id="运行函数"><a href="#运行函数" class="headerlink" title="运行函数"></a>运行函数</h4><p>在本地函数右击，如果报错可在命令行用 <code>fun</code> 运行</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> serverless </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>在线图片canvas水印，一键水印，附纯前端 js 代码</title>
       <link href="/2020/04/23/wl-pic-waterMask/"/>
       <url>/2020/04/23/wl-pic-waterMask/</url>

@@ -6,7 +6,7 @@
   <link href="/sitemap.xml" rel="self"/>
   
   <link href="https://ksh7.com/"/>
-  <updated>2020-04-25T19:11:50.000Z</updated>
+  <updated>2020-04-26T07:27:41.000Z</updated>
   <id>https://ksh7.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>记录阿里云函数 Fun 和 Cloud Toolkit 工具的使用，本地开发测试云函数</title>
+    <link href="https://ksh7.com/2020/04/26/serverless-fun/"/>
+    <id>https://ksh7.com/2020/04/26/serverless-fun/</id>
+    <published>2020-04-26T06:48:10.000Z</published>
+    <updated>2020-04-26T07:27:41.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;div class=&quot;note primary no-icon&quot;&gt;
+            &lt;p&gt;阿里提供了 &lt;code&gt;Fun&lt;/code&gt; 和 &lt;code&gt;Cloud Toolkit&lt;/code&gt; 两款工具来本地测试函数，流程如下。&lt;/p&gt;
+         
+        
+      
+    
+    </summary>
+    
+      <category term="serverless" scheme="https://ksh7.com/categories/serverless/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>在线图片canvas水印，一键水印，附纯前端 js 代码</title>
@@ -485,34 +511,6 @@ body{margin:0;font:12px &quot;Microsoft
     
     
       <category term="es2020" scheme="https://ksh7.com/tags/es2020/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>分享一个破防盗链方法，亲测。。。（Referrer-Policy）</title>
-    <link href="https://ksh7.com/2020/03/20/wl-fdl/"/>
-    <id>https://ksh7.com/2020/03/20/wl-fdl/</id>
-    <published>2020-03-20T15:50:48.000Z</published>
-    <updated>2020-03-25T15:56:25.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;&lt;em&gt;&lt;strong&gt;废话少说，来这的有几个不是因为盗图不显示再去搜索di，盗图一时爽 一直盗图一直爽。🤣&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;言归正传！盗图可耻，请尊重版权！👀&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3
-        
-      
-    
-    </summary>
-    
-      <category term="网络" scheme="https://ksh7.com/categories/%E7%BD%91%E7%BB%9C/"/>
-    
     
   </entry>
   
