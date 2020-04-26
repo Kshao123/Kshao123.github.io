@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>mac 配置java环境变量，jdk 的 mac 百度云盘资源</title>
+      <link href="/2020/04/26/mac-java-jdk/"/>
+      <url>/2020/04/26/mac-java-jdk/</url>
+      
+        <content type="html"><![CDATA[<div class="note primary no-icon">            <p>记录配置流程~</p>          </div><h1 id="JDK8-Mac-的百度网盘资源"><a href="#JDK8-Mac-的百度网盘资源" class="headerlink" title="JDK8 Mac 的百度网盘资源"></a>JDK8 Mac 的百度网盘资源</h1><p>链接: <a href="https://pan.baidu.com/s/1i0Fq7UVkmAtRTal-_J9GsQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1i0Fq7UVkmAtRTal-_J9GsQ</a><br>提取码: 1234</p><h1 id="Mac-环境变量配置"><a href="#Mac-环境变量配置" class="headerlink" title="Mac 环境变量配置"></a>Mac 环境变量配置</h1><ol><li>打开命令行 cd ~<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="code"><pre><span class="line">cd ~</span><br></pre></td></tr></table></figure></li><li>编辑配置文件<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="code"><pre><span class="line">open .bash_peofile</span><br></pre></td></tr></table></figure></li></ol><p>3.配置<br>路径根据自己的安装版本修改</p><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home</span></span><br><span class="line"><span class="string">PATH=$JAVA_HOME/bin:$PATH:.</span></span><br><span class="line"><span class="string">CLASSPATH=$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar:.</span></span><br><span class="line"><span class="string">export</span> <span class="string">JAVA_HOME</span></span><br><span class="line"><span class="string">export</span> <span class="string">PATH</span></span><br><span class="line"><span class="string">export</span> <span class="string">CLASSPATH</span></span><br></pre></td></tr></table></figure><p>4.</p><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="code"><pre><span class="line">source .bash_profile</span><br></pre></td></tr></table></figure><p><img src="/" class="lazyload" data-src="https://wxt.sinaimg.cn/mw690/0085UwQ9ly1ge79nlidizj30go05g3ys.jpg"  alt=".bash_profile"></p><h1 id="java-version"><a href="#java-version" class="headerlink" title="java -version"></a>java -version</h1><p><img src="/" class="lazyload" data-src="https://wxt.sinaimg.cn/mw690/0085UwQ9ly1ge79nfmjokj30d9026glq.jpg"  alt="version"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> java </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>记录阿里云函数 Fun 和 Cloud Toolkit 工具的使用，本地开发测试云函数</title>
       <link href="/2020/04/26/serverless-fun/"/>
       <url>/2020/04/26/serverless-fun/</url>

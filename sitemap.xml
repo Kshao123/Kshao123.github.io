@@ -6,7 +6,7 @@
   <link href="/sitemap.xml" rel="self"/>
   
   <link href="https://ksh7.com/"/>
-  <updated>2020-04-26T07:27:41.000Z</updated>
+  <updated>2020-04-26T08:58:07.000Z</updated>
   <id>https://ksh7.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mac 配置java环境变量，jdk 的 mac 百度云盘资源</title>
+    <link href="https://ksh7.com/2020/04/26/mac-java-jdk/"/>
+    <id>https://ksh7.com/2020/04/26/mac-java-jdk/</id>
+    <published>2020-04-26T08:46:43.000Z</published>
+    <updated>2020-04-26T08:58:07.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;div class=&quot;note primary no-icon&quot;&gt;
+            &lt;p&gt;记录配置流程~&lt;/p&gt;
+          &lt;/div&gt;
+
+&lt;h1 id=&quot;JDK8-Mac-的百度网盘资源&quot;&gt;&lt;a href=&quot;#JDK8-Mac-的百度网盘资源&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="java" scheme="https://ksh7.com/categories/java/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>记录阿里云函数 Fun 和 Cloud Toolkit 工具的使用，本地开发测试云函数</title>
@@ -485,32 +513,6 @@ body{margin:0;font:12px &quot;Microsoft
     
     
       <category term="ssh" scheme="https://ksh7.com/tags/ssh/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>es2020 实用的几个新方法</title>
-    <link href="https://ksh7.com/2020/03/26/js-es-2020-1/"/>
-    <id>https://ksh7.com/2020/03/26/js-es-2020-1/</id>
-    <published>2020-03-26T07:04:35.000Z</published>
-    <updated>2020-04-02T09:42:16.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h4 id=&quot;最近-JavaScript-从-es6-就提高了更新频率，2019还没有结束-2020的规范就已经开始出草案了😵。&quot;&gt;&lt;a href=&quot;#最近-JavaScript-从-es6-就提高了更新频率，2019还没有结束-2020的规范就已经开始出草案了😵。&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="ECMA 规范" scheme="https://ksh7.com/categories/ECMA-%E8%A7%84%E8%8C%83/"/>
-    
-    
-      <category term="es2020" scheme="https://ksh7.com/tags/es2020/"/>
     
   </entry>
   
