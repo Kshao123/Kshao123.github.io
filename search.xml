@@ -4,6 +4,44 @@
   
     
     <entry>
+      <title>react、react-native 配置 Mobx，Mobx的多 store</title>
+      <link href="/2020/05/03/mobx-rn/"/>
+      <url>/2020/05/03/mobx-rn/</url>
+      
+        <content type="html"><![CDATA[<h1 id="安装-Mobx-及所需相关-babel-依赖"><a href="#安装-Mobx-及所需相关-babel-依赖" class="headerlink" title="安装 Mobx 及所需相关 babel 依赖"></a>安装 <code>Mobx</code> 及所需相关 <code>babel</code> 依赖</h1><ol><li><p>Mobx</p><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="code"><pre><span class="line">npm insatall mobx --save</span><br><span class="line">npm insatall mobx-react --save</span><br></pre></td></tr></table></figure></li><li><p>babel</p><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="code"><pre><span class="line">npm install babel-plugin-transform-decorators-legacy --save-dev</span><br><span class="line">npm install @babel/plugin-proposal-decorators --save-dev</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 或者</span></span><br><span class="line">npm install @babel/plugin-proposal-decorators babel-plugin-transform-decorators-legacy --save-dev</span><br></pre></td></tr></table></figure></li><li><p>配置 babel</p></li></ol><p><code>.babelrc</code> 或者 <code>babel.config.js</code> 或者在 <code>package.json</code> 中</p><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="code"><pre><span class="line">plugins:[</span><br><span class="line">  ["@babel/plugin-proposal-decorators", &#123;"legacy":true&#125;],</span><br><span class="line">  ["@babel/plugin-proposal-class-properties", &#123;"loose":true&#125;]</span><br><span class="line">]</span><br></pre></td></tr></table></figure><ol start="4"><li>配置 mobx，多 store 组合</li></ol><p><code>文件结构</code></p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">project</span><br><span class="line">│   app.js  </span><br><span class="line">└───src</span><br><span class="line">│   │</span><br><span class="line">│   └───stores</span><br><span class="line">│       │   todo.js</span><br><span class="line">│       │   index.js</span><br><span class="line">│       │   ...</span><br><span class="line">│   └───pages</span><br><span class="line">│       │   todoPage.js</span><br><span class="line">│       │   ...</span><br><span class="line">│</span><br></pre></td></tr></table></figure><p>4.1 src/stores/todo.js</p><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  observable,</span><br><span class="line">  action,</span><br><span class="line">  computed,</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'mobx'</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">TodoStore</span> </span>&#123;</span><br><span class="line">  @observable name = <span class="string">'555'</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 不接受任何参</span></span><br><span class="line">  @computed <span class="keyword">get</span> getName() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// @autorun( () =&gt; &#123;</span></span><br><span class="line">  <span class="comment">// &#125;)</span></span><br><span class="line">  </span><br><span class="line">  @action.bound setName(name) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name, name);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 或者</span></span><br><span class="line">  @action</span><br><span class="line">  setName = <span class="function">(<span class="params">name</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name, name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> STORE_TODO = <span class="string">'todoStore'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> TodoStore;</span><br></pre></td></tr></table></figure><p>4.2 <code>src/stores/index.js</code></p><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> TodoStore, &#123; STORE_TODO, TodoType &#125; <span class="keyword">from</span> <span class="string">"./todo"</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RootStore</span> </span>&#123;</span><br><span class="line">  [STORE_TODO]: TodoType</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">this</span>[STORE_TODO] = <span class="keyword">new</span> TodoStore();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> RootStore();</span><br></pre></td></tr></table></figure><p>4.4 <code>/app.js</code></p><figure class="highlight diff"><table><tr><td class="code"><pre><span class="line"><span class="addition">+ import RootStore from './src/store/index';</span></span><br><span class="line"><span class="addition">+ import &#123; Provider &#125; from 'mobx-react';</span></span><br><span class="line"></span><br><span class="line">const App: () =&gt; React$Node = () =&gt; &#123;</span><br><span class="line">  return (</span><br><span class="line"><span class="addition">+    &lt;Provider &#123;...RootStore&#125;&gt;</span></span><br><span class="line">        .....</span><br><span class="line"><span class="addition">+    &lt;/Provider&gt;</span></span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> mobx </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>谷歌playStore镜像 Chrome 浏览器插件</title>
+      <link href="/2020/04/29/playStore-source/"/>
+      <url>/2020/04/29/playStore-source/</url>
+      
+        <content type="html"><![CDATA[<h1 id="APk-download"><a href="#APk-download" class="headerlink" title="APk download"></a>APk download</h1><div class="note info no-icon">            <p>谷歌应用商店时常抽风，所以、备个稳定的下包方法能减少时间的浪费</p>          </div><div class="note primary no-icon">            <p><a onclick="ga('send', 'event', 'jump', 'click', 'apk-download');" target='_black' href='https://chrome.google.com/webstore/detail/apk-downloader/fgljidimohbcmjdabiecfeikkmpbjegm?utm_source=chrome-ntp-icon'>下载地址</a></p>          </div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 插件分享 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>mac 配置java环境变量，jdk 的 mac 百度云盘资源</title>
       <link href="/2020/04/26/mac-java-jdk/"/>
       <url>/2020/04/26/mac-java-jdk/</url>
@@ -74,6 +112,31 @@
           
       </categories>
       
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>面试-事件循环 eventLoop 记录</title>
+      <link href="/2020/04/14/js-ms-eventloop/"/>
+      <url>/2020/04/14/js-ms-eventloop/</url>
+      
+        <content type="html"><![CDATA[<div class="note primary no-icon">            <p>了解事件循环便于你更进一步理解JavaScript这门语言</p>          </div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 面试 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> js </tag>
+            
+        </tags>
       
     </entry>
     
