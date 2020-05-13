@@ -4,6 +4,69 @@
   
     
     <entry>
+      <title>面试- 头条的简单的一道面试题</title>
+      <link href="/2020/05/13/js-ms-scoop/"/>
+      <url>/2020/05/13/js-ms-scoop/</url>
+      
+        <content type="html"><![CDATA[<div class="note info no-icon">            <p>很简单~ 但是容易错~</p>          </div><h1 id="原题"><a href="#原题" class="headerlink" title="原题"></a>原题</h1><blockquote><p>执行代码求输出，并说明为什么，严格模式下输出有变化吗，为什么</p></blockquote><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="keyword">this</span>.b = <span class="number">3</span>;&#125;</span><br><span class="line"><span class="keyword">var</span> c = <span class="keyword">new</span> a();</span><br><span class="line">a.prototype.b = <span class="number">9</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="number">7</span>;</span><br><span class="line">a();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"><span class="built_in">console</span>.log(c.b);</span><br></pre></td></tr></table></figure><details>  <summary onclick="ga('send', 'event', 'open', 'click', 'ms-scoop');">    点击展开 console  </summary><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// 3</span></span><br><span class="line"><span class="built_in">console</span>.log(c.b); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure></details><div class="note info no-icon">            <p>比较容易混淆的是可能不会注意到最后函数 <code>a</code> 的执行~</p>          </div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 面试 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>配置 React 源码的本地调试环境</title>
+      <link href="/2020/05/13/react-source/"/>
+      <url>/2020/05/13/react-source/</url>
+      
+        <content type="html"><![CDATA[<h1 id="配置-React-源码的本地调试环境"><a href="#配置-React-源码的本地调试环境" class="headerlink" title="配置 React 源码的本地调试环境"></a>配置 React 源码的本地调试环境</h1><ol><li>creat-react-app &lt;项目名称&gt;</li><li>yarn run eject</li><li>clone 官方源码（目前是 master latest）小版本可能会有些许异同，可以根据命令行的报错信息再去搜索（镜像 react 仓库，clone 慢的可以使用这个）</li></ol><h6 id="根目录中执行"><a href="#根目录中执行" class="headerlink" title="根目录中执行"></a>根目录中执行</h6><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone --depth=1 https://github.com.cnpmjs.org/facebook/react.git src/react</span><br></pre></td></tr></table></figure><h1 id="修改相关配置"><a href="#修改相关配置" class="headerlink" title="修改相关配置"></a>修改相关配置</h1><ol><li>链接本地源码<br><code>react/config/webpack.config.js</code></li></ol><figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">resolve: &#123;</span><br><span class="line">    alias: &#123;</span><br><span class="line">        'react-native': 'react-native-web',</span><br><span class="line"><span class="deletion">-       ...(isEnvProductionProfile &amp;&amp; &#123;</span></span><br><span class="line"><span class="deletion">-         'react-dom$': 'react-dom/profiling',</span></span><br><span class="line"><span class="deletion">-         'scheduler/tracing': 'scheduler/tracing-profiling',</span></span><br><span class="line"><span class="deletion">-       &#125;),</span></span><br><span class="line"><span class="deletion">-       ...(modules.webpackAliases || &#123;&#125;),</span></span><br><span class="line">        </span><br><span class="line"><span class="addition">+        'react': path.resolve(__dirname, '../src/react/packages/react'),</span></span><br><span class="line"><span class="addition">+        'react-dom': path.resolve(__dirname, '../src/react/packages/react-dom'),</span></span><br><span class="line"><span class="addition">+        'shared': path.resolve(__dirname, '../src/react/packages/shared'),</span></span><br><span class="line"><span class="addition">+        'react-reconciler': path.resolve(__dirname, '../src/react/packages/react-reconciler'),</span></span><br><span class="line">         'react-events': path.resolve(__dirname, '../src/react/packages/events')</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ol start="2"><li>修改环境变量</li></ol><blockquote><p>这一步不同版本中可能会出现变量不对等的情况<br>如有报错可以看下源码中的 <code>.eslintrc.js</code> 里面的 <code>globals</code> 属性</p></blockquote><p><code>react/config/env.js</code></p><figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">  const stringified = &#123;</span><br><span class="line">    ....,</span><br><span class="line">    </span><br><span class="line"><span class="addition">+    __DEV__: true,</span></span><br><span class="line"><span class="addition">+    SharedArrayBuffer: true,</span></span><br><span class="line"><span class="addition">+    spyOnDev: true,</span></span><br><span class="line"><span class="addition">+    spyOnDevAndProd: true,</span></span><br><span class="line"><span class="addition">+    spyOnProd: true,</span></span><br><span class="line"><span class="addition">+    __PROFILE__: true,</span></span><br><span class="line"><span class="addition">+    __UMD__: true,</span></span><br><span class="line"><span class="addition">+    __EXPERIMENTAL__: true,</span></span><br><span class="line"><span class="addition">+    __VARIANT__: true,</span></span><br><span class="line"><span class="addition">+    gate: true,</span></span><br><span class="line"><span class="addition">+    trustedTypes: true,</span></span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure><p>2.1 项目根目录中创建 <code>.eslintrc.json</code> 文件</p><figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"extends"</span>: <span class="string">"react-app"</span>,</span><br><span class="line">  <span class="attr">"globals"</span>: &#123;</span><br><span class="line">    <span class="attr">"SharedArrayBuffer"</span>: <span class="literal">true</span>,</span><br><span class="line"></span><br><span class="line">    <span class="attr">"spyOnDev"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"spyOnDevAndProd"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"spyOnProd"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"__PROFILE__"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"__UMD__"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"__EXPERIMENTAL__"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"__VARIANT__"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"gate"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"trustedTypes"</span>: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ol start="3"><li>忽略 <code>flow</code><blockquote><p>webstrom 中可自动识别 flow，其他编辑器可能需要下载插件 </p></blockquote></li></ol><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yarn add @babel/plugin-transform-flow-strip-types -D</span><br></pre></td></tr></table></figure><p>3.1 添加配置</p><p><code>react/config/webpack.config.js[babel-loader]</code></p><figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">plugins: [</span><br><span class="line"><span class="addition">+ require.resolve('@babel/plugin-transform-flow-strip-types'),</span></span><br><span class="line">  [</span><br><span class="line">    require.resolve('babel-plugin-named-asset-import'),</span><br><span class="line">    &#123;</span><br><span class="line">      loaderMap: &#123;</span><br><span class="line">        svg: &#123;</span><br><span class="line">          ReactComponent:</span><br><span class="line">            '@svgr/webpack?-svgo,+titleProp,+ref![path]',</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">  ],</span><br><span class="line">],</span><br></pre></td></tr></table></figure><ol start="4"><li>导出 <code>HostConfig</code></li></ol><p>修改文件<code>/react/packages/react-reconciler/src/ReactFiberHostConfig.js</code>。</p><figure class="highlight diff"><table><tr><td class="code"><pre><span class="line"><span class="deletion">- invariant(false, 'This module must be shimmed by a specific renderer.');</span></span><br><span class="line"><span class="addition">+ export * from './forks/ReactFiberHostConfig.dom'</span></span><br></pre></td></tr></table></figure><p>4.1 修改文件<code>/react/packages/shared/ReactSharedInternals.js</code>。<code>react</code>此时未<code>export</code>内容，直接从<code>ReactSharedInternals</code>拿值</p><figure class="highlight diff"><table><tr><td class="code"><pre><span class="line"><span class="deletion">- import * as React from 'react';</span></span><br><span class="line"></span><br><span class="line"><span class="deletion">- const ReactSharedInternals =</span></span><br><span class="line"><span class="deletion">-   React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;</span></span><br><span class="line"></span><br><span class="line"><span class="addition">+ import ReactSharedInternals from '../react/src/ReactSharedInternals'</span></span><br><span class="line"></span><br><span class="line">export default ReactSharedInternals;</span><br></pre></td></tr></table></figure><p>4.2 关闭 <code>eslint</code> 扩展</p><p><code>/react/.eslingrc.js[module.exports]</code></p><figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">  extends: [</span><br><span class="line"><span class="deletion">-   'fbjs',</span></span><br><span class="line">    'prettier'</span><br><span class="line">  ],</span><br></pre></td></tr></table></figure><h1 id="相关报错"><a href="#相关报错" class="headerlink" title="相关报错"></a>相关报错</h1><h2 id="invariant"><a href="#invariant" class="headerlink" title="invariant"></a>invariant</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Error: Internal React error: invariant() is meant to be replaced at compile time. There is no runtime version.</span><br></pre></td></tr></table></figure><p>解决</p><figure class="highlight diff"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">export default function invariant(condition, format, a, b, c, d, e, f) &#123;</span><br><span class="line"><span class="addition">+  return;</span></span><br><span class="line"></span><br><span class="line">  throw new Error(</span><br><span class="line">    'Internal React error: invariant() is meant to be replaced at compile ' +</span><br><span class="line">      'time. There is no runtime version.',</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="完结撒花"><a href="#完结撒花" class="headerlink" title="完结撒花"></a>完结撒花</h1><ul><li>github <a href="https://github.com/Kshao123/react-source" target="_blank" rel="noopener">源码地址</a></li><li>版本更新复制 clone 代码即可，建议 pull，避免代码覆盖问题</li></ul><p><img src="/" class="lazyload" data-src="https://wxt.sinaimg.cn/mw690/0085UwQ9ly1ger6uwu5soj30n10lldhb.jpg"  alt="运行结果"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> react </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>node 中 request 的 302 的相关问题</title>
+      <link href="/2020/05/07/node-request/"/>
+      <url>/2020/05/07/node-request/</url>
+      
+        <content type="html"><![CDATA[<div class="note info no-icon">            <p>在 <code>node</code> <code>request</code> 爬虫中遇到 302 的相关问题</p>          </div><h1 id="followRedirect-不进行跳转"><a href="#followRedirect-不进行跳转" class="headerlink" title="followRedirect 不进行跳转"></a><code>followRedirect</code> 不进行跳转</h1><blockquote><p>此时可获得跳转前的 <code>response</code> 的相关信息，这在某些场景中很有用~</p></blockquote><figure class="highlight diff"><table><tr><td class="code"><pre><span class="line">   rp(&#123;</span><br><span class="line">     uri,</span><br><span class="line"><span class="addition">+    followRedirect: false,</span></span><br><span class="line">     headers: &#123;</span><br><span class="line">       "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 5_0 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A334 Safari/7534.48.3"</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;, (err, resp, body) =&gt; &#123;</span><br><span class="line">     </span><br><span class="line">   &#125;)</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> node </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> request </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>在线工具 - 一键获取抖音无水印视频，抖音动态封面，抖音去水印解析工具</title>
       <link href="/2020/05/06/wl-dy-video/"/>
       <url>/2020/05/06/wl-dy-video/</url>
