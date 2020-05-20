@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>win10 重装系统，电脑出现：&quot;由于最近更改电脑硬件而无法正常启动&quot;，或重装卡在：&quot;海内存知己&quot;等问题解决方法</title>
+      <link href="/2020/05/20/wl-system/"/>
+      <url>/2020/05/20/wl-system/</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><div class="note info no-icon">            <p>本篇不仅可以学到如何重装系统，还能解决在重装中遇到的各种问题，绝了。（也是佩服我，重装一次改遇到的问题全有了）</p>          </div><h1 id="罗列问题（按装系统顺序列出-）"><a href="#罗列问题（按装系统顺序列出-）" class="headerlink" title="罗列问题（按装系统顺序列出~）"></a>罗列问题（按装系统顺序列出~）</h1><ol><li>开机出现 <code>&quot;由于最近更改电脑硬件而无法正常启动&quot;</code>，如下图<br><img src="/" class="lazyload" data-src="https://wxt.sinaimg.cn/mw690/0085UwQ9ly1geyzrxgcvlj30h80cxaas.jpg"  alt="由于最近更改电脑硬件而无法正常启动"></li><li>重装出现 <code>&quot;Windows 安装程序无法将 Windows 配置为此计算机的硬件上运行&quot;</code>，如下图<br><img src="/" class="lazyload" data-src="https://wxt.sinaimg.cn/mw690/0085UwQ9ly1gez0aa04wej30fa098mx9.jpg"  alt="重装错误"></li><li>上一步中使用 <code>msoobe.exe</code> 出现或卡在 <code>海内存知己，天涯若比邻</code>，如下图<br><img src="/" class="lazyload" data-src="https://wxt.sinaimg.cn/mw690/0085UwQ9ly1gez0cz83r3j30i30dhaan.jpg"  alt="海内存知己，天涯若比邻"></li><li>U盘 重装系统 微软官方 <code>PE</code> 中出现 <code>&quot;缺少计算机所需的介质驱动程序。。。&quot;</code>，看下图<br><img src="/" class="lazyload" data-src="https://wxt.sinaimg.cn/mw690/0085UwQ9ly1gez0jaojbjj30g40lh75a.jpg"  alt="无驱动"></li><li>专业版系统可能会出现：点击关机后又重新启动的情况（这个莫得图 ~）</li></ol><h1 id="开装"><a href="#开装" class="headerlink" title="开装 ~"></a>开装 ~</h1><blockquote><p>如果你只是单纯的想重装系统建议使用微软官方的 u盘 制作工具，一键制作启动盘，并且他的镜像下载速度更快~</p></blockquote><h2 id="使用-Rufus-制作系统盘"><a href="#使用-Rufus-制作系统盘" class="headerlink" title="使用 Rufus 制作系统盘"></a>使用 <code>Rufus</code> 制作系统盘</h2><blockquote><p>软件地址不留了</p></blockquote><ol><li>下载正版的<code>Win10</code>镜像 <a href="https://msdn.itellyou.cn/" target="_blank" rel="noopener">MSDN 地址</a><br><img src="/" class="lazyload" data-src="https://wxt.sinaimg.cn/mw690/0085UwQ9ly1gez12saeekj314l0m4n4l.jpg"  alt="镜像"><blockquote><p>不建议去一些啥系统之家下载 Ghost 之内的镜像，或者使用排名名列前茅的 制作启动盘工具，安全问题另说，系统肯定不会是纯净的</p></blockquote></li><li>开始制作<blockquote><p>分区类型默认 <code>MBR</code>，如果你需要 <code>UEFI</code> 引导的话可更改，但磁盘格式得一致<br><img src="/" class="lazyload" data-src="https://wxt.sinaimg.cn/mw690/0085UwQ9ly1gez12mx0l4j30iw0i275r.jpg"  alt=""></p></blockquote></li><li>插入 U盘，开始引导<blockquote><p>一般主板都是 <code>F12</code>找到 U盘，回车进入即可</p></blockquote></li><li>图找不到了 ~，开始时一直点击下一步即可，如果遇到 <code>缺少计算机所需的介质驱动程序</code><br><img src="/" class="lazyload" data-src="https://wxt.sinaimg.cn/mw690/0085UwQ9ly1gez0jaojbjj30g40lh75a.jpg"  alt="无驱动"></li></ol><ul><li>返回到刚开始的步骤点击 <code>修复</code> =&gt; <code>疑难问答</code> =&gt; <code>命令提示符</code></li><li>打开 <code>命令提示符</code>之后记住需要插拔<code>U盘</code>，这一步必须有</li><li>输入 <code>setup.exe</code>, 回车</li></ul><ol start="5"><li>到这里应该可以进入选系统版本和系统盘的步骤，接着等待 Windows 安装即可</li><li>安装完成，如果顺利会直接进入系统，否则可能会出现 <code>Windows 安装程序无法将 Windows 配置为此计算机的硬件上运行</code><br><img src="/" class="lazyload" data-src="https://wxt.sinaimg.cn/mw690/0085UwQ9ly1gez0aa04wej30fa098mx9.jpg"  alt="重装错误"></li></ol><ul><li>两个方法，推荐方法2</li><li>方法1： 此时按住 <code>shift + F10</code>，命令行输入 <code>cd oobe</code> 回车，<code>msoobe.exe</code>，欧皇进系统，非酋会卡在 <code>海内存知己，天涯若比邻</code><br><img src="/" class="lazyload" data-src="https://wxt.sinaimg.cn/mw690/0085UwQ9ly1gez0cz83r3j30i30dhaan.jpg"  alt="海内存知己，天涯若比邻"></li><li>方法2：方法1卡在那就别等了，还是刚刚那个页面 <code>shift + F10</code><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1. 进入到 C 盘的根目录</span></span><br><span class="line">cd /</span><br><span class="line"><span class="meta">#</span><span class="bash"> 2. 打开注册表修改 HKLM/SYSTEM/setup 内的所有行的数值键为 0。（HKLM 为表名HKEY_LOCAL_MACHINE的缩写）</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 输入 regedit，tab，回车，打开注册表</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 3. 生成用户，按顺序输入，每行回车</span></span><br><span class="line">net user boringsoft /add</span><br><span class="line">net user boringsoft /active</span><br><span class="line">net localgroup administrators boringsoft /add</span><br><span class="line"><span class="meta">#</span><span class="bash"> 最后重启系统</span></span><br><span class="line">shutdown -r -t 0</span><br></pre></td></tr></table></figure></li></ul><h1 id="重装完成"><a href="#重装完成" class="headerlink" title="重装完成"></a>重装完成</h1><blockquote><p>如果有遇到点击关机后有回到用户登录页面的情况方法如下：</p></blockquote><ul><li>右键<code>电脑</code>，<code>属性</code>，<code>高级系统设置</code></li><li>点击 <code>启动和故障修复</code>，关闭 <code>自动重新启动</code>，<code>写入调试信息</code>选<code>无</code></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 系统重装 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>算法- js 二叉树，二叉查找树的基本实现及递归与循环的版本</title>
       <link href="/2020/05/20/ms-binaryTree/"/>
       <url>/2020/05/20/ms-binaryTree/</url>

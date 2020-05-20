@@ -1,0 +1,174 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>win10 重装系统，电脑出现：&quot;由于最近更改电脑硬件而无法正常启动&quot;，或重装卡在：&quot;海内存知己&quot;等问题解决方法 | kshao-blog</title><meta name="description" content="前言             本篇不仅可以学到如何重装系统，还能解决在重装中遇到的各种问题，绝了。（也是佩服我，重装一次改遇到的问题全有了）            罗列问题（按装系统顺序列出~） 开机出现 &quot;由于最近更改电脑硬件而无法正常启动&quot;，如下图 重装出现 &quot;Windows 安装程序无法将 Windows 配置为此计算机的硬件上运行&quot;，如下图 上一步中"><meta name="keywords" content="博客，技术分享，线报福利，免费，kshao，blog, 面试，kshao-博客，kshao-blog，教程，服务器，前端"><meta name="author" content="kshao"><meta name="copyright" content="kshao"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="https://wxt.sinaimg.cn/mw690/0085UwQ9ly1gdfjae3iyej303k03k742.jpg"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://www.google-analytics.com" crossorigin="crossorigin"/><link rel="dns-prefetch" href="https://www.google-analytics.com"/><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"/><link rel="dns-prefetch" href="https://fonts.googleapis.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="dns-prefetch" href="//busuanzi.ibruce.info"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="win10 重装系统，电脑出现：&quot;由于最近更改电脑硬件而无法正常启动&quot;，或重装卡在：&quot;海内存知己&quot;等问题解决方法"><meta name="twitter:description" content="前言             本篇不仅可以学到如何重装系统，还能解决在重装中遇到的各种问题，绝了。（也是佩服我，重装一次改遇到的问题全有了）            罗列问题（按装系统顺序列出~） 开机出现 &quot;由于最近更改电脑硬件而无法正常启动&quot;，如下图 重装出现 &quot;Windows 安装程序无法将 Windows 配置为此计算机的硬件上运行&quot;，如下图 上一步中"><meta name="twitter:image" content="http://02.imgmini.eastday.com/mobile/20170403/20170403_9c0995972051c15e3f5bc1008df97852.gif"><meta property="og:type" content="article"><meta property="og:title" content="win10 重装系统，电脑出现：&quot;由于最近更改电脑硬件而无法正常启动&quot;，或重装卡在：&quot;海内存知己&quot;等问题解决方法"><meta property="og:url" content="https://ksh7.com/2020/05/20/wl-system/"><meta property="og:site_name" content="kshao-blog"><meta property="og:description" content="前言             本篇不仅可以学到如何重装系统，还能解决在重装中遇到的各种问题，绝了。（也是佩服我，重装一次改遇到的问题全有了）            罗列问题（按装系统顺序列出~） 开机出现 &quot;由于最近更改电脑硬件而无法正常启动&quot;，如下图 重装出现 &quot;Windows 安装程序无法将 Windows 配置为此计算机的硬件上运行&quot;，如下图 上一步中"><meta property="og:image" content="http://02.imgmini.eastday.com/mobile/20170403/20170403_9c0995972051c15e3f5bc1008df97852.gif"><meta property="article:published_time" content="2020-05-20T08:17:16.000Z"><meta property="article:modified_time" content="2020-05-20T13:40:06.000Z"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>var autoChangeMode = '1'
+var t = Cookies.get("theme")
+if (autoChangeMode == '1'){
+  var isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+  var isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+  var isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined){
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport){
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour < 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+  }
+  } else if (t == 'light') activateLightMode()
+  else activateDarkMode()
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="canonical" href="https://ksh7.com/2020/05/20/wl-system/"><link rel="next" title="算法- js 二叉树，二叉查找树的基本实现及递归与循环的版本" href="https://ksh7.com/2020/05/20/ms-binaryTree/"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5/js/md5.min.js"></script><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-1054308309535708',
+  enable_page_level_ads: 'true'
+});</script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-160079259-2', 'auto');
+ga('send', 'pageview');
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://xxx/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: {"languages":{"author":"作者: kshao","link":"链接: ","source":"来源: kshao-blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  ClickShowText: undefined,
+  medium_zoom: true,
+  fancybox: false,
+  Snackbar: undefined,
+  baiduPush: true,
+  highlightCopy: true,
+  highlightLang: true,
+  highlightShrink: 'false',
+  isFontAwesomeV5: false,
+  isPhotoFigcaption: false
+  
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isSidebar: true  
+  }</script><noscript><style>
+#page-header {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-material-oceanic.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="https://t.cn/A6ZIn3XJ" onerror="onerror=null;src='https://wxt.sinaimg.cn/mw690/0085UwQ9ly1gdfjb1seq2g3074074jsv.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">55</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">19</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">23</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div></div></div></div><i class="fa fa-arrow-right on" id="toggle-sidebar" aria-hidden="true">     </i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#罗列问题（按装系统顺序列出-）"><span class="toc-number">2.</span> <span class="toc-text">罗列问题（按装系统顺序列出~）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#开装"><span class="toc-number">3.</span> <span class="toc-text">开装 ~</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用-Rufus-制作系统盘"><span class="toc-number">3.1.</span> <span class="toc-text">使用 Rufus 制作系统盘</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#重装完成"><span class="toc-number">4.</span> <span class="toc-text">重装完成</span></a></li></ol></div></div></div><div id="body-wrap"><div class="post-bg" id="nav" style="background-image: url(http://02.imgmini.eastday.com/mobile/20170403/20170403_9c0995972051c15e3f5bc1008df97852.gif)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">kshao-blog</a></span><span class="pull_right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fa fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="post-info"><div id="post-title"><div class="posttitle">win10 重装系统，电脑出现：&quot;由于最近更改电脑硬件而无法正常启动&quot;，或重装卡在：&quot;海内存知己&quot;等问题解决方法</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-05-20 16:17:16"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2020-05-20</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-05-20 21:40:06"><i class="fa fa-history" aria-hidden="true"></i> 更新于 2020-05-20</span></time><span class="post-meta__categories"><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E7%B3%BB%E7%BB%9F%E9%87%8D%E8%A3%85/">系统重装</a></span></div><div class="meta-secondline"> <span class="post-meta-wordcount"><i class="post-meta__icon fa fa-file-word-o" aria-hidden="true"></i><span>字数总计:</span><span class="word-count">780</span><span class="post-meta__separator">|</span><i class="post-meta__icon fa fa-clock-o" aria-hidden="true"></i><span>阅读时长: 2 分钟</span></span></div><div class="meta-thirdline"><span class="post-meta-pv-cv"><span class="post-meta__separator">|</span><i class="fa fa-eye post-meta__icon" aria-hidden="true"> </i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></div><main class="layout_post" id="content-inner"><article id="post"><div id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><div class="note info no-icon">
+            <p>本篇不仅可以学到如何重装系统，还能解决在重装中遇到的各种问题，绝了。（也是佩服我，重装一次改遇到的问题全有了）</p>
+          </div>
+<h1 id="罗列问题（按装系统顺序列出-）"><a href="#罗列问题（按装系统顺序列出-）" class="headerlink" title="罗列问题（按装系统顺序列出~）"></a>罗列问题（按装系统顺序列出~）</h1><ol>
+<li>开机出现 <code>&quot;由于最近更改电脑硬件而无法正常启动&quot;</code>，如下图<br><img src="/" class="lazyload" data-src="https://wxt.sinaimg.cn/mw690/0085UwQ9ly1geyzrxgcvlj30h80cxaas.jpg"  alt="由于最近更改电脑硬件而无法正常启动"></li>
+<li>重装出现 <code>&quot;Windows 安装程序无法将 Windows 配置为此计算机的硬件上运行&quot;</code>，如下图<br><img src="/" class="lazyload" data-src="https://wxt.sinaimg.cn/mw690/0085UwQ9ly1gez0aa04wej30fa098mx9.jpg"  alt="重装错误"></li>
+<li>上一步中使用 <code>msoobe.exe</code> 出现或卡在 <code>海内存知己，天涯若比邻</code>，如下图<br><img src="/" class="lazyload" data-src="https://wxt.sinaimg.cn/mw690/0085UwQ9ly1gez0cz83r3j30i30dhaan.jpg"  alt="海内存知己，天涯若比邻"></li>
+<li>U盘 重装系统 微软官方 <code>PE</code> 中出现 <code>&quot;缺少计算机所需的介质驱动程序。。。&quot;</code>，看下图<br><img src="/" class="lazyload" data-src="https://wxt.sinaimg.cn/mw690/0085UwQ9ly1gez0jaojbjj30g40lh75a.jpg"  alt="无驱动"></li>
+<li>专业版系统可能会出现：点击关机后又重新启动的情况（这个莫得图 ~）</li>
+</ol>
+<h1 id="开装"><a href="#开装" class="headerlink" title="开装 ~"></a>开装 ~</h1><blockquote>
+<p>如果你只是单纯的想重装系统建议使用微软官方的 u盘 制作工具，一键制作启动盘，并且他的镜像下载速度更快~</p>
+</blockquote>
+<h2 id="使用-Rufus-制作系统盘"><a href="#使用-Rufus-制作系统盘" class="headerlink" title="使用 Rufus 制作系统盘"></a>使用 <code>Rufus</code> 制作系统盘</h2><blockquote>
+<p>软件地址不留了</p>
+</blockquote>
+<ol>
+<li>下载正版的<code>Win10</code>镜像 <a href="https://msdn.itellyou.cn/" target="_blank" rel="noopener">MSDN 地址</a><br><img src="/" class="lazyload" data-src="https://wxt.sinaimg.cn/mw690/0085UwQ9ly1gez12saeekj314l0m4n4l.jpg"  alt="镜像"><blockquote>
+<p>不建议去一些啥系统之家下载 Ghost 之内的镜像，或者使用排名名列前茅的 制作启动盘工具，安全问题另说，系统肯定不会是纯净的</p>
+</blockquote>
+</li>
+<li>开始制作<blockquote>
+<p>分区类型默认 <code>MBR</code>，如果你需要 <code>UEFI</code> 引导的话可更改，但磁盘格式得一致<br><img src="/" class="lazyload" data-src="https://wxt.sinaimg.cn/mw690/0085UwQ9ly1gez12mx0l4j30iw0i275r.jpg"  alt=""></p>
+</blockquote>
+</li>
+<li>插入 U盘，开始引导<blockquote>
+<p>一般主板都是 <code>F12</code>找到 U盘，回车进入即可</p>
+</blockquote>
+</li>
+<li>图找不到了 ~，开始时一直点击下一步即可，如果遇到 <code>缺少计算机所需的介质驱动程序</code><br><img src="/" class="lazyload" data-src="https://wxt.sinaimg.cn/mw690/0085UwQ9ly1gez0jaojbjj30g40lh75a.jpg"  alt="无驱动"></li>
+</ol>
+<ul>
+<li>返回到刚开始的步骤点击 <code>修复</code> =&gt; <code>疑难问答</code> =&gt; <code>命令提示符</code></li>
+<li>打开 <code>命令提示符</code>之后记住需要插拔<code>U盘</code>，这一步必须有</li>
+<li>输入 <code>setup.exe</code>, 回车</li>
+</ul>
+<ol start="5">
+<li>到这里应该可以进入选系统版本和系统盘的步骤，接着等待 Windows 安装即可</li>
+<li>安装完成，如果顺利会直接进入系统，否则可能会出现 <code>Windows 安装程序无法将 Windows 配置为此计算机的硬件上运行</code><br><img src="/" class="lazyload" data-src="https://wxt.sinaimg.cn/mw690/0085UwQ9ly1gez0aa04wej30fa098mx9.jpg"  alt="重装错误"></li>
+</ol>
+<ul>
+<li>两个方法，推荐方法2</li>
+<li>方法1： 此时按住 <code>shift + F10</code>，命令行输入 <code>cd oobe</code> 回车，<code>msoobe.exe</code>，欧皇进系统，非酋会卡在 <code>海内存知己，天涯若比邻</code><br><img src="/" class="lazyload" data-src="https://wxt.sinaimg.cn/mw690/0085UwQ9ly1gez0cz83r3j30i30dhaan.jpg"  alt="海内存知己，天涯若比邻"></li>
+<li>方法2：方法1卡在那就别等了，还是刚刚那个页面 <code>shift + F10</code><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1. 进入到 C 盘的根目录</span></span><br><span class="line">cd /</span><br><span class="line"><span class="meta">#</span><span class="bash"> 2. 打开注册表修改 HKLM/SYSTEM/setup 内的所有行的数值键为 0。（HKLM 为表名HKEY_LOCAL_MACHINE的缩写）</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 输入 regedit，tab，回车，打开注册表</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 3. 生成用户，按顺序输入，每行回车</span></span><br><span class="line">net user boringsoft /add</span><br><span class="line">net user boringsoft /active</span><br><span class="line">net localgroup administrators boringsoft /add</span><br><span class="line"><span class="meta">#</span><span class="bash"> 最后重启系统</span></span><br><span class="line">shutdown -r -t 0</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h1 id="重装完成"><a href="#重装完成" class="headerlink" title="重装完成"></a>重装完成</h1><blockquote>
+<p>如果有遇到点击关机后有回到用户登录页面的情况方法如下：</p>
+</blockquote>
+<ul>
+<li>右键<code>电脑</code>，<code>属性</code>，<code>高级系统设置</code></li>
+<li>点击 <code>启动和故障修复</code>，关闭 <code>自动重新启动</code>，<code>写入调试信息</code>选<code>无</code></li>
+</ul>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">kshao</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://ksh7.com/2020/05/20/wl-system/">https://ksh7.com/2020/05/20/wl-system/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://ksh7.com" target="_blank">kshao-blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="http://02.imgmini.eastday.com/mobile/20170403/20170403_9c0995972051c15e3f5bc1008df97852.gif" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button button--primary button--animated"> <i class="fa fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="lazyload post-qr-code__img" src="https://wxt.sinaimg.cn/mw690/0085UwQ9ly1gdfjar7uyjj30dv0dw764.jpg" alt="微信"/><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="lazyload post-qr-code__img" src="https://wxt.sinaimg.cn/mw690/0085UwQ9ly1gdfjaw2xbnj30i80i6dhx.jpg" alt="支付寶"/><div class="post-qr-code__desc">支付寶</div></li></ul></div></a></div><nav class="pagination_post" id="pagination"><div class="next-post pull-full"><a href="/2020/05/20/ms-binaryTree/"><img class="next_cover lazyload" data-src="https://wxt.sinaimg.cn/mw690/0085UwQ9ly1geywlqijevj30ia0wimxj.jpg" onerror="onerror=null;src='https://wxt.sinaimg.cn/mw690/0085UwQ9ly1gdfjim7unjj30ic09u0sw.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">算法- js 二叉树，二叉查找树的基本实现及递归与循环的版本</div></div></a></div></nav><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> 评论</span></div><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
+  clientID: '5b9a0f9e62bd828c7f9b',
+  clientSecret: 'cad75293acd22660da3a8f9eb502e0cd17397ff8',
+  repo: 'Kshao123.github.io',
+  owner: 'Kshao123',
+  admin: ['Kshao123'],
+  id: md5(decodeURI(location.pathname)),
+  language: 'zh-CN',
+  perPage: 10,
+  distractionFreeMode: true,
+  pagerDirection: 'last',
+  createIssueManually: false,
+  updateCountCallback: commentCount
+})
+gitalk.render('gitalk-container')
+
+function commentCount(n){
+  try {
+    document.getElementsByClassName('gitalk-comment-count')[0].innerHTML= n
+  } catch (e) {
+    return false
+  }
+}</script></div></article></main><footer id="footer" style="background-image: url(http://02.imgmini.eastday.com/mobile/20170403/20170403_9c0995972051c15e3f5bc1008df97852.gif)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2020 By kshao</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div><div class="footer_custom_text"> <div>友情链接：<a href='/'></a></div> </div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">繁</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><a id="to_comment" href="#post-comment" title="直达评论"><i class="scroll_to_comment fa fa-comments">  </i></a><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><script src="https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js"></script><script>document.addEventListener('DOMContentLoaded', function() {
+      pangu.spacingElementById('content-inner')
+})</script><script src="/js/search/local-search.js"></script></body></html>

@@ -6,7 +6,7 @@
   <link href="/sitemap.xml" rel="self"/>
   
   <link href="https://ksh7.com/"/>
-  <updated>2020-05-20T07:53:09.000Z</updated>
+  <updated>2020-05-20T13:40:06.000Z</updated>
   <id>https://ksh7.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>win10 重装系统，电脑出现：&quot;由于最近更改电脑硬件而无法正常启动&quot;，或重装卡在：&quot;海内存知己&quot;等问题解决方法</title>
+    <link href="https://ksh7.com/2020/05/20/wl-system/"/>
+    <id>https://ksh7.com/2020/05/20/wl-system/</id>
+    <published>2020-05-20T08:17:16.000Z</published>
+    <updated>2020-05-20T13:40:06.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;div class=&quot;note info no-icon&quot;&gt;
+           
+        
+      
+    
+    </summary>
+    
+      <category term="系统重装" scheme="https://ksh7.com/categories/%E7%B3%BB%E7%BB%9F%E9%87%8D%E8%A3%85/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>算法- js 二叉树，二叉查找树的基本实现及递归与循环的版本</title>
@@ -527,33 +552,6 @@ body{margin:0;font:12px &quot;Microsoft
     
       <category term="serverless" scheme="https://ksh7.com/categories/serverless/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>js-bind 的多次绑定</title>
-    <link href="https://ksh7.com/2020/04/07/js-bind-tip/"/>
-    <id>https://ksh7.com/2020/04/07/js-bind-tip/</id>
-    <published>2020-04-07T12:19:54.000Z</published>
-    <updated>2020-04-07T12:30:12.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;最近遇到个多次&lt;code&gt;bind&lt;/code&gt;绑定的问题，看下面代码你预测下会输出什么&lt;/p&gt;
-&lt;figure
-        
-      
-    
-    </summary>
-    
-      <category term="JavaScript" scheme="https://ksh7.com/categories/JavaScript/"/>
-    
-    
-      <category term="bind" scheme="https://ksh7.com/tags/bind/"/>
     
   </entry>
   
