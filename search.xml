@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>微信小程序 - typeScript 的配置与热加载</title>
+      <link href="/2020/05/27/wx-typescript/"/>
+      <url>/2020/05/27/wx-typescript/</url>
+      
+        <content type="html"><![CDATA[<div class="note info no-icon">            <p>本篇可了解如何在小程序中使用和配置 <code>TypeScript</code>，并配置热重载</p>          </div><p><img src="/" class="lazyload" data-src="https://wxt.sinaimg.cn/mw690/0085UwQ9ly1gf7foehramj30m80dza9z.jpg"  alt="小程序"></p><h1 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h1><blockquote><p>建议由官方开发工具生成的目录结构。（注意时间和版本区别导致结构的异同） </p></blockquote><figure class="highlight diff"><table><tr><td class="code"><pre><span class="line"><span class="addition">+ ├── config // 这层文件夹需不需要随便你</span></span><br><span class="line"><span class="addition">+ │   │── index.js // 自动编译运行 js</span></span><br><span class="line">  ├── app.js // 全局 js</span><br><span class="line">  ├── miniprogram // 如果是官方工具生成项目，应该会有这个目录</span><br><span class="line">  │   │── app.ts</span><br><span class="line">  │   │── component</span><br><span class="line">  │   │ ....</span><br><span class="line">  └── ....</span><br></pre></td></tr></table></figure><ol><li>编辑 <code>/config/index.js</code><blockquote><p>没有依赖先安装依赖：npm child_process node-watch -S -D</p></blockquote></li></ol><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> exec = <span class="built_in">require</span>(<span class="string">'child_process'</span>).exec;</span><br><span class="line"><span class="keyword">const</span> watch = <span class="built_in">require</span>(<span class="string">'node-watch'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</span><br><span class="line"><span class="comment">// 路径，根据自己的情况更换</span></span><br><span class="line"><span class="keyword">const</span> basicPath = <span class="string">'./miniprogram/'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 监听文件</span></span><br><span class="line">watch([</span><br><span class="line">  <span class="comment">// 文件目录或文件的路径，路径不存在会报错哦，请根据实际情况添加</span></span><br><span class="line">  path.join(basicPath, <span class="string">'app.ts'</span>),</span><br><span class="line">  path.join(basicPath, <span class="string">'pages'</span>),</span><br><span class="line">  path.join(basicPath, <span class="string">'component'</span>),</span><br><span class="line">], &#123; <span class="attr">recursive</span>: <span class="literal">true</span> &#125;, <span class="function"><span class="keyword">function</span>(<span class="params">evt, name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (name.split(<span class="string">'.'</span>).pop() === <span class="string">'ts'</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'监听到TypeScript文件改动，重新编译中...'</span>);</span><br><span class="line">    exec(<span class="string">'npm run compile'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'TypeScript自动编译脚本已成功运行...'</span>);</span><br></pre></td></tr></table></figure><blockquote><p>TIPS： TS 文件的结构需要如下才能完成编译</p></blockquote><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">├── component</span><br><span class="line">&#x2F;&#x2F; js ts文件都需创建</span><br><span class="line">│   │── aaa.ts</span><br><span class="line">│   │── aaa.js</span><br><span class="line">│   │ ....</span><br><span class="line">└── ....</span><br></pre></td></tr></table></figure><ol start="2"><li>最后，在<code>package.json.script</code> 中添加脚本<blockquote><p><code>/package.json</code></p></blockquote></li></ol><figure class="highlight"><table><tr><td class="code"><pre><span class="line">  "scripts": &#123;</span><br><span class="line">    "compile": "./node_modules/typescript/bin/tsc",</span><br><span class="line">    "tsc": "node ./node_modules/typescript/lib/tsc.js",</span><br><span class="line">+   "dev": "node ./config/index.js"</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure><ol start="3"><li><code>npm run dev</code> 即可在修改后就能让开发工具热重载你的代码了</li></ol><p><img src="/" class="lazyload" data-src="https://wxt.sinaimg.cn/mw690/0085UwQ9ly1gf7fgzgoauj30sr0pqq6b.jpg"  alt=""></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 小程序 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>win10 重装系统，电脑出现：&quot;由于最近更改电脑硬件而无法正常启动&quot;，或重装卡在：&quot;海内存知己&quot;等问题解决方法</title>
       <link href="/2020/05/20/wl-system/"/>
       <url>/2020/05/20/wl-system/</url>

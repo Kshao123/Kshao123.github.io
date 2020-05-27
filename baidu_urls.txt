@@ -1,5 +1,5 @@
+https://ksh7.com/2020/05/27/wx-typescript/
 https://ksh7.com/2020/05/20/wl-system/
 https://ksh7.com/2020/05/20/ms-binaryTree/
 https://ksh7.com/2020/05/14/ms-xor/
 https://ksh7.com/2020/05/14/ms-twoSum/
-https://ksh7.com/2020/05/14/ms-binarySearch/
